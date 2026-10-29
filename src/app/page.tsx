@@ -3,6 +3,7 @@ import CTABanner from '../components/features/cta-banner';
 import Hero from '../components/features/hero';
 import IndustryGrid from '../components/features/industry-grid';
 import ServiceOverview from '../components/features/service-overview';
+import { industryClusters } from '../lib/navigation';
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -44,11 +45,11 @@ export default function HomePage() {
       />
       <IndustryGrid
         title="Industries we serve"
-        items={[
-          { title: 'Public Sector', href: '/industries/public-sector' },
-          { title: 'Financial Services', href: '/industries/financial-services' },
-          { title: 'Consumer & Retail', href: '/industries/consumer-retail' },
-        ]}
+        items={industryClusters.map((cluster) => ({
+          title: cluster.title,
+          description: cluster.description,
+          href: `/industries#${cluster.id}`,
+        }))}
       />
       <CTABanner
         title="Let's move your organization forward"
