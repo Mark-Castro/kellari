@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 
 type CardProps = {
+  className?: string;
   title: string;
   description?: string;
   actionLabel?: string;
@@ -9,6 +10,7 @@ type CardProps = {
 };
 
 export default function Card({
+  className,
   title,
   description,
   actionLabel,
@@ -16,7 +18,7 @@ export default function Card({
   children,
 }: CardProps) {
   return (
-    <article>
+    <article className={className}>
       <div>
         <h3>{title}</h3>
         {description ? <p>{description}</p> : null}

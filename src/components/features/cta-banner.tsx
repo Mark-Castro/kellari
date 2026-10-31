@@ -12,7 +12,7 @@ export default function CTABanner({
   buttonHref = '/contact',
 }: CTABannerProps) {
   return (
-    <section>
+    <section className="cta-banner">
       <div>
         <h2>{title}</h2>
         {description ? <p>{description}</p> : null}

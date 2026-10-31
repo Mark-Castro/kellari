@@ -21,8 +21,8 @@ export default function Hero({
   secondaryAction,
 }: HeroProps) {
   return (
-    <section>
-      {eyebrow ? <p>{eyebrow}</p> : null}
+    <section className="hero">
+      {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
       <h1>{title}</h1>
       {description ? <p>{description}</p> : null}
       <div>

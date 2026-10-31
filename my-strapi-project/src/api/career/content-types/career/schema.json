@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "careers",
+  "info": {
+    "singularName": "career",
+    "pluralName": "careers",
+    "displayName": "Careers / Openings",
+    "description": "Open roles and career opportunities at Kellari."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 160
+    },
+    "department": {
+      "type": "enumeration",
+      "enum": [
+        "Strategy",
+        "Financial & Tax",
+        "Sustainability",
+        "Marketing"
+      ],
+      "required": true
+    },
+    "location": {
+      "type": "string",
+      "required": true,
+      "maxLength": 160
+    },
+    "employmentType": {
+      "type": "enumeration",
+      "enum": [
+        "Full-time",
+        "Contractor"
+      ],
+      "required": true
+    },
+    "description": {
+      "type": "blocks",
+      "required": true
+    }
+  }
+}

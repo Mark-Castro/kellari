@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import CTABanner from '../../components/features/cta-banner';
 import Hero from '../../components/features/hero';
+import Reveal from '../../components/motion/reveal';
 import { industryClusters } from '../../lib/navigation';
 
 export const metadata: Metadata = {
@@ -16,31 +17,39 @@ export default function IndustriesPage() {
         description="We bring cross-sector experience and practical insight to the challenges organizations face across these connected sectors."
       />
       <div className="industry-clusters">
-        {industryClusters.map((cluster) => (
-          <section
+        {industryClusters.map((cluster, clusterIndex) => (
+          <Reveal
+            as="section"
             className="industry-cluster"
             id={cluster.id}
             key={cluster.id}
             aria-labelledby={`${cluster.id}-heading`}
+            staggerIndex={clusterIndex}
           >
-            <div className="industry-cluster-heading">
+            <Reveal
+              as="div"
+              className="industry-cluster-heading"
+              duration={0.48}
+            >
               <p className="eyebrow">Industry cluster</p>
               <h2 id={`${cluster.id}-heading`}>{cluster.title}</h2>
               <p>{cluster.description}</p>
-            </div>
+            </Reveal>
             <div className="industry-sector-grid">
-              {cluster.industries.map((industry) => (
-                <article
+              {cluster.industries.map((industry, index) => (
+                <Reveal
+                  as="article"
                   className="industry-sector-card"
                   id={industry.id}
                   key={industry.id}
+                  staggerIndex={index}
                 >
                   <h3>{industry.title}</h3>
                   <p>{industry.description}</p>
-                </article>
+                </Reveal>
               ))}
             </div>
-          </section>
+          </Reveal>
         ))}
       </div>
       <CTABanner title="Have a challenge in mind?" />

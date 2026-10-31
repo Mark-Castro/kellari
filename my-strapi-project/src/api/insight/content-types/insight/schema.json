@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "insights",
+  "info": {
+    "singularName": "insight",
+    "pluralName": "insights",
+    "displayName": "Insight",
+    "description": "Thought leadership and advisory insights for Kellari."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 160
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "coverImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "publishedDate": {
+      "type": "date",
+      "required": false
+    },
+    "authorName": {
+      "type": "string",
+      "required": false
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "Strategy",
+        "Financial & Tax",
+        "Sustainability",
+        "Marketing"
+      ],
+      "required": false
+    },
+    "content": {
+      "type": "blocks",
+      "required": true
+    },
+    "readingTime": {
+      "type": "integer",
+      "required": false,
+      "min": 1
+    }
+  }
+}

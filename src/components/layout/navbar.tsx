@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
+import { contactPhoneLink } from '../../lib/contact';
 import { industryClusters, serviceCategories } from '../../lib/navigation';
 
 type MenuName = 'services' | 'industries';
@@ -146,27 +147,61 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-          <Link className="header-cta" href="/contact">
-            Contact us
-          </Link>
+          <div className="header-actions">
+            {contactPhoneLink ? (
+              <a className="header-call-link" href={contactPhoneLink}>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M5 4h3l2 5-2 1.5a15 15 0 0 0 5.5 5.5L15 14l5 2v3c0 1.1-.9 2-2 2C9.7 21 3 14.3 3 6c0-1.1.9-2 2-2Z"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="1.7"
+                  />
+                </svg>
+                <span>Call</span>
+              </a>
+            ) : null}
+            <Link className="header-cta" href="/contact">
+              Contact us
+            </Link>
+          </div>
         </nav>
 
-        <button
-          ref={mobileToggleRef}
-          className="mobile-menu-toggle"
-          type="button"
-          aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
-          aria-expanded={mobileOpen}
-          aria-controls="mobile-navigation-dialog"
-          onClick={() => {
-            setActiveMenu(null);
-            setMobileOpen((open) => !open);
-          }}
-        >
-          <span aria-hidden="true" />
-          <span aria-hidden="true" />
-          <span aria-hidden="true" />
-        </button>
+        <div className="mobile-header-actions">
+          {contactPhoneLink ? (
+            <a className="header-call-link header-call-link--mobile" href={contactPhoneLink}>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M5 4h3l2 5-2 1.5a15 15 0 0 0 5.5 5.5L15 14l5 2v3c0 1.1-.9 2-2 2C9.7 21 3 14.3 3 6c0-1.1.9-2 2-2Z"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.7"
+                />
+              </svg>
+              <span className="visually-hidden">Call Kellari</span>
+            </a>
+          ) : null}
+          <button
+            ref={mobileToggleRef}
+            className="mobile-menu-toggle"
+            type="button"
+            aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-navigation-dialog"
+            onClick={() => {
+              setActiveMenu(null);
+              setMobileOpen((open) => !open);
+            }}
+          >
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+          </button>
+        </div>
       </div>
 
       {activeMenu && (
@@ -198,7 +233,7 @@ export default function Navbar() {
                       <p className="mega-menu-description">{category.title}</p>
                       <ul>
                         {category.services.map((service) => (
-                          <li key={service}>{service}</li>
+                          <li key={service.title}>{service.title}</li>
                         ))}
                       </ul>
                     </section>
