@@ -1,12 +1,11 @@
 import Link from 'next/link';
 import CookieSettingsTrigger from './cookie-settings-trigger';
+import NewsletterSignupForm from './newsletter-signup-form';
 import { contactPhone, contactPhoneLink } from '../../lib/contact';
 import { industryClusters, serviceCategories } from '../../lib/navigation';
 
 const headquartersAddress = process.env.NEXT_PUBLIC_HEADQUARTERS_ADDRESS?.trim();
 const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim();
-const mailchimpAction = process.env.NEXT_PUBLIC_MAILCHIMP_ACTION?.trim();
-
 const socialLinks = [
   {
     label: 'LinkedIn',
@@ -121,33 +120,7 @@ export default function Footer() {
         <section className="footer-engagement" aria-labelledby="footer-engagement-heading">
           <h2 id="footer-engagement-heading">Stay informed</h2>
           <p>Get Kellari insights and perspectives delivered to your inbox.</p>
-          {mailchimpAction ? (
-            <form
-              className="footer-newsletter"
-              action={mailchimpAction}
-              method="post"
-              target="_blank"
-            >
-              <label className="visually-hidden" htmlFor="footer-newsletter-email">
-                Email address
-              </label>
-              <input
-                id="footer-newsletter-email"
-                type="email"
-                name="EMAIL"
-                autoComplete="email"
-                placeholder="Your email address"
-                required
-              />
-              <button type="submit" name="subscribe" value="Subscribe">
-                Subscribe
-              </button>
-            </form>
-          ) : (
-            <p className="footer-newsletter-note">
-              Newsletter signup will be available once the Mailchimp form is configured.
-            </p>
-          )}
+          <NewsletterSignupForm />
           {configuredSocialLinks.length > 0 ? (
             <nav className="footer-social" aria-label="Kellari social media">
               {configuredSocialLinks.map((link) => (

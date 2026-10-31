@@ -742,10 +742,77 @@ main > section:not(.hero):not(.cta-banner) {
   outline-offset: 3px;
 }
 
+.footer-newsletter button:disabled,
+.footer-newsletter input:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.newsletter-consent {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+}
+
+.newsletter-consent input {
+  width: 1.1rem;
+  min-height: 1.1rem;
+  margin: 0.2rem 0 0;
+  accent-color: #74c8b3;
+}
+
+.newsletter-consent label {
+  color: #e0e9e5;
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.newsletter-consent a {
+  color: #a9e3d2;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.newsletter-consent a:hover {
+  color: #fff;
+}
+
 .footer-newsletter-note,
 .footer-social-note {
   color: #c4d2cc;
   font-size: 0.82rem;
+}
+
+.footer-newsletter-note {
+  margin: 0.65rem 0 0;
+  line-height: 1.55;
+}
+
+.footer-newsletter-note a {
+  color: #a9e3d2;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.footer-newsletter-note a:hover {
+  color: #fff;
+}
+
+.footer-newsletter-error {
+  margin: 0.65rem 0 0;
+  color: #ffe1a8;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.mailchimp-honeypot {
+  position: absolute;
+  left: -5000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 .footer-social {

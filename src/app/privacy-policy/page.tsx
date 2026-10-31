@@ -10,7 +10,13 @@ export default function PrivacyPolicyPage() {
     <main>
       <Hero eyebrow="Legal" title="Privacy Policy" />
       <section>
-        <p>Privacy policy content will be added here.</p>
+        <p>
+          If you choose to subscribe and agree to receive updates, your email
+          address is sent securely from our server to Mailchimp to manage your
+          subscription. Mailchimp will email you a confirmation link before
+          adding you to the newsletter. You can unsubscribe at any time using
+          the link in a newsletter email.
+        </p>
         <div id="cookies" className="cookie-preferences-info">
           <h2>Cookie preferences</h2>
           <p>
