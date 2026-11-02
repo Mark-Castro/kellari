@@ -26,9 +26,9 @@ export default async function HomePage() {
       <Hero
         eyebrow="Clarity for what comes next"
         title="Make your next move a meaningful one."
-        description="Kellari partners with organizations to navigate change, strengthen performance, and create lasting value."
+        description="Kelari partners with organizations to navigate change, strengthen performance, and create lasting value."
         primaryAction={{ label: 'Explore our services', href: '/services' }}
-        secondaryAction={{ label: 'Meet Kellari', href: '/about' }}
+        secondaryAction={{ label: 'Meet Kelari', href: '/about' }}
       />
       <ServiceOverview
         title="How we help"
