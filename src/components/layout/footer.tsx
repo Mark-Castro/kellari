@@ -34,9 +34,9 @@ export default function Footer() {
       <div className="footer-grid">
         <div className="footer-brand-column">
           <section className="footer-brand" aria-labelledby="footer-brand-heading">
-            <Link className="footer-brand-mark" href="/" aria-label="Kellari LLC home">
+            <Link className="footer-brand-mark" href="/" aria-label="Kelari LLC home">
               <span className="brand-mark" aria-hidden="true">K</span>
-              <span id="footer-brand-heading">Kellari LLC</span>
+              <span id="footer-brand-heading">Kelari LLC</span>
             </Link>
             <address className="footer-contact-list">
               {headquartersAddress ? (
@@ -55,19 +55,19 @@ export default function Footer() {
           <section className="footer-engagement" aria-labelledby="footer-engagement-heading">
             <div className="footer-engagement-copy">
               <h2 id="footer-engagement-heading">Stay informed</h2>
-              <p>Get Kellari insights and perspectives delivered to your inbox.</p>
+              <p>Get Kelari insights and perspectives delivered to your inbox.</p>
             </div>
             <div className="footer-engagement-signup">
               <NewsletterSignupForm />
               {configuredSocialLinks.length > 0 ? (
-                <nav className="footer-social" aria-label="Kellari social media">
+                <nav className="footer-social" aria-label="Kelari social media">
                   {configuredSocialLinks.map((link) => (
                     <a
                       key={link.label}
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label={`Kellari on ${link.label} (opens in a new tab)`}
+                      aria-label={`Kelari on ${link.label} (opens in a new tab)`}
                     >
                       <svg viewBox="0 0 24 24" aria-hidden="true">
                         <path fill="currentColor" d={link.path} />
@@ -119,7 +119,7 @@ export default function Footer() {
           <aside className="footer-disclaimer">
             <h3>Financial & Tax Advisory notice</h3>
             <p>
-              Kellari’s financial and tax content is for general informational
+              Kelari’s financial and tax content is for general informational
               purposes only and is not tax, legal, accounting, investment, or
               other professional advice. It does not consider your specific
               circumstances; consult a qualified professional before acting.
@@ -145,7 +145,7 @@ export default function Footer() {
 
       </div>
       <p className="footer-copyright">
-        © {new Date().getFullYear()} Kellari. All rights reserved.
+        © {new Date().getFullYear()} Kelari. All rights reserved.
       </p>
     </footer>
   );

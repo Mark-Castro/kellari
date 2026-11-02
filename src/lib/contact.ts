@@ -10,6 +10,6 @@ export const contactPhone = configuredContactPhone || undefined;
 export const contactPhoneLink = contactPhone ? `tel:${contactPhone}` : undefined;
 export const whatsappChatLink = contactPhone
   ? `https://wa.me/${contactPhone.slice(1)}?text=${encodeURIComponent(
-      'Hello Kellari, I would like to discuss your services.',
+      'Hello Kelari, I would like to discuss your services.',
     )}`
   : undefined;
