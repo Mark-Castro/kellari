@@ -1,11 +1,16 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { contactPhoneLink } from '../../lib/contact';
 import { industryClusters, serviceCategories } from '../../lib/navigation';
+import { THEME_STORAGE_KEY } from '../../lib/theme';
 
 type MenuName = 'services' | 'industries';
+type ThemeToggleProps = {
+  isDark: boolean;
+  onToggle: () => void;
+};
 
 const primaryLinks = [
   { label: 'Insights', href: '/insights' },
@@ -13,13 +18,50 @@ const primaryLinks = [
   { label: 'Careers', href: '/careers' },
 ];
 
+function ThemeToggle({ isDark, onToggle }: ThemeToggleProps) {
+  return (
+    <button
+      className="theme-toggle"
+      type="button"
+      role="switch"
+      aria-label="Dark mode"
+      aria-checked={isDark}
+      onClick={onToggle}
+    >
+      <span className="theme-toggle-label">Dark mode</span>
+      <span className="theme-toggle-label-compact" aria-hidden="true">
+        Dark
+      </span>
+      <span className="theme-toggle-track" aria-hidden="true" />
+    </button>
+  );
+}
+
 export default function Navbar() {
   const [activeMenu, setActiveMenu] = useState<MenuName | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
   const drawerRef = useRef<HTMLDivElement>(null);
   const mobileToggleRef = useRef<HTMLButtonElement>(null);
   const menuButtonRefs = useRef<Partial<Record<MenuName, HTMLButtonElement | null>>>({});
+
+  useLayoutEffect(() => {
+    const root = document.documentElement;
+    const colorScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function syncThemeWithSystem(event?: MediaQueryListEvent) {
+      if (root.dataset.theme) {
+        setIsDarkTheme(root.dataset.theme === 'dark');
+      } else {
+        setIsDarkTheme(event?.matches ?? colorScheme.matches);
+      }
+    }
+
+    syncThemeWithSystem();
+    colorScheme.addEventListener('change', syncThemeWithSystem);
+    return () => colorScheme.removeEventListener('change', syncThemeWithSystem);
+  }, []);
 
   useEffect(() => {
     if (!mobileOpen) return;
@@ -94,19 +136,32 @@ export default function Navbar() {
     setActiveMenu((current) => (current === menu ? null : menu));
   }
 
+  function toggleTheme() {
+    const nextTheme = isDarkTheme ? 'light' : 'dark';
+
+    try {
+      window.localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+    } catch (error) {
+      console.error('Unable to save the theme preference.', error);
+    }
+
+    document.documentElement.dataset.theme = nextTheme;
+    setIsDarkTheme(nextTheme === 'dark');
+  }
+
   return (
     <header className="site-header" ref={headerRef}>
       <div className="header-inner">
         <Link
           className="brand"
           href="/"
-          aria-label="Kellari home"
+          aria-label="Kellari LLC home"
           onClick={closeMobileNavigation}
         >
           <span className="brand-mark" aria-hidden="true">
             K
           </span>
-          <span>Kellari</span>
+          <span>Kellari LLC</span>
         </Link>
 
         <nav className="desktop-navigation" aria-label="Main navigation">
@@ -168,6 +223,8 @@ export default function Navbar() {
             </Link>
           </div>
         </nav>
+
+        <ThemeToggle isDark={isDarkTheme} onToggle={toggleTheme} />
 
         <div className="mobile-header-actions">
           {contactPhoneLink ? (

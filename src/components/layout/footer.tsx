@@ -32,29 +32,55 @@ export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="footer-grid">
-        <section className="footer-brand" aria-labelledby="footer-brand-heading">
-          <Link className="footer-brand-mark" href="/" aria-label="Kellari home">
-            <span className="brand-mark" aria-hidden="true">K</span>
-            <span id="footer-brand-heading">Kellari</span>
-          </Link>
-          <p>
-            We help organizations navigate change and make confident decisions.
-            Together, we turn complex challenges into meaningful progress.
-          </p>
-          <address className="footer-contact-list">
-            {headquartersAddress ? (
-              <span>{headquartersAddress}</span>
-            ) : null}
-            {contactEmail ? (
-              <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
-            ) : (
-              <Link href="/contact">Send us an inquiry</Link>
-            )}
-            {contactPhone && contactPhoneLink ? (
-              <a href={contactPhoneLink}>{contactPhone}</a>
-            ) : null}
-          </address>
-        </section>
+        <div className="footer-brand-column">
+          <section className="footer-brand" aria-labelledby="footer-brand-heading">
+            <Link className="footer-brand-mark" href="/" aria-label="Kellari LLC home">
+              <span className="brand-mark" aria-hidden="true">K</span>
+              <span id="footer-brand-heading">Kellari LLC</span>
+            </Link>
+            <address className="footer-contact-list">
+              {headquartersAddress ? (
+                <span>{headquartersAddress}</span>
+              ) : null}
+              {contactEmail ? (
+                <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
+              ) : (
+                <Link href="/contact">Send us an inquiry</Link>
+              )}
+              {contactPhone && contactPhoneLink ? (
+                <a href={contactPhoneLink}>{contactPhone}</a>
+              ) : null}
+            </address>
+          </section>
+          <section className="footer-engagement" aria-labelledby="footer-engagement-heading">
+            <div className="footer-engagement-copy">
+              <h2 id="footer-engagement-heading">Stay informed</h2>
+              <p>Get Kellari insights and perspectives delivered to your inbox.</p>
+            </div>
+            <div className="footer-engagement-signup">
+              <NewsletterSignupForm />
+              {configuredSocialLinks.length > 0 ? (
+                <nav className="footer-social" aria-label="Kellari social media">
+                  {configuredSocialLinks.map((link) => (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Kellari on ${link.label} (opens in a new tab)`}
+                    >
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill="currentColor" d={link.path} />
+                      </svg>
+                    </a>
+                  ))}
+                </nav>
+              ) : (
+                <p className="footer-social-note">Follow us on social media soon.</p>
+              )}
+            </div>
+          </section>
+        </div>
 
         <nav className="footer-navigation" aria-label="Footer navigation">
           <section aria-labelledby="footer-services-heading">
@@ -117,30 +143,6 @@ export default function Footer() {
           </ul>
         </section>
 
-        <section className="footer-engagement" aria-labelledby="footer-engagement-heading">
-          <h2 id="footer-engagement-heading">Stay informed</h2>
-          <p>Get Kellari insights and perspectives delivered to your inbox.</p>
-          <NewsletterSignupForm />
-          {configuredSocialLinks.length > 0 ? (
-            <nav className="footer-social" aria-label="Kellari social media">
-              {configuredSocialLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Kellari on ${link.label} (opens in a new tab)`}
-                >
-                  <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path fill="currentColor" d={link.path} />
-                  </svg>
-                </a>
-              ))}
-            </nav>
-          ) : (
-            <p className="footer-social-note">Follow us on social media soon.</p>
-          )}
-        </section>
       </div>
       <p className="footer-copyright">
         © {new Date().getFullYear()} Kellari. All rights reserved.
