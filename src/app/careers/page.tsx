@@ -115,7 +115,7 @@ export default async function CareersPage() {
   return (
     <main>
       <Hero
-        eyebrow="Careers at Kelari"
+        eyebrow="Careers at Kelari Group LLC"
         title="Bring your perspective. Build what matters."
         description="Join a thoughtful, collaborative team helping organizations navigate change and create lasting value."
         primaryAction={{ label: 'Explore opportunities', href: '#open-roles' }}
@@ -223,7 +223,7 @@ export default async function CareersPage() {
         )}
       </section>
       <CTABanner
-        title="Interested in working with Kelari?"
+        title="Interested in working with Kelari Group LLC?"
         description="Tell us how you would like to contribute."
         buttonLabel="Get in touch"
       />

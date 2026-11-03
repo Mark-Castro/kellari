@@ -52,7 +52,7 @@ export default function ContactForm() {
       setIndustryClusterId('');
       setIndustryId('');
       setSubmissionSucceeded(true);
-      setStatusMessage('Thank you. Your inquiry has been sent to the Kelari team.');
+      setStatusMessage('Thank you. Your inquiry has been sent to the Kelari Group LLC team.');
     } catch {
       setStatusMessage(
         'We could not connect to the form service. Please check your connection and try again.',
@@ -183,7 +183,7 @@ export default function ContactForm() {
         <input
           type="hidden"
           name="_subject"
-          value={`Kelari inquiry${serviceCategory ? `: ${serviceCategory.shortTitle}` : ''}`}
+          value={`Kelari Group LLC inquiry${serviceCategory ? `: ${serviceCategory.shortTitle}` : ''}`}
         />
         <input
           type="text"

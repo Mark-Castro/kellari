@@ -483,7 +483,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiCareerCareer extends Struct.CollectionTypeSchema {
   collectionName: 'careers';
   info: {
-    description: 'Open roles and career opportunities at Kellari.';
+    description: 'Open roles and career opportunities at Kelari Group LLC.';
     displayName: 'Careers / Openings';
     pluralName: 'careers';
     singularName: 'career';
@@ -528,7 +528,7 @@ export interface ApiCareerCareer extends Struct.CollectionTypeSchema {
 export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
   collectionName: 'insights';
   info: {
-    description: 'Thought leadership and advisory insights for Kellari.';
+    description: 'Thought leadership and advisory insights for Kelari Group LLC.';
     displayName: 'Insight';
     pluralName: 'insights';
     singularName: 'insight';

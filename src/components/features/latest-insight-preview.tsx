@@ -12,7 +12,7 @@ type LatestInsightPreviewProps = {
 export default function LatestInsightPreview({
   category = 'Insights',
   title = 'Fresh perspectives are on the way',
-  excerpt = 'Our latest articles and practical guides will appear here. Check back soon for ideas from the Kelari team.',
+  excerpt = 'Our latest articles and practical guides will appear here. Check back soon for ideas from the Kelari Group LLC team.',
   href = '/insights',
   publishedAt,
 }: LatestInsightPreviewProps) {
