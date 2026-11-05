@@ -155,13 +155,13 @@ export default function Navbar() {
         <Link
           className="brand"
           href="/"
-          aria-label="Kelari LLC home"
+          aria-label="Kelari Group LLC home"
           onClick={closeMobileNavigation}
         >
           <span className="brand-mark" aria-hidden="true">
             K
           </span>
-          <span>Kelari LLC</span>
+          <span>Kelari Group LLC</span>
         </Link>
 
         <nav className="desktop-navigation" aria-label="Main navigation">
@@ -239,7 +239,7 @@ export default function Navbar() {
                   strokeWidth="1.7"
                 />
               </svg>
-              <span className="visually-hidden">Call Kelari</span>
+              <span className="visually-hidden">Call Kelari Group LLC</span>
             </a>
           ) : null}
           <button
@@ -354,7 +354,7 @@ export default function Navbar() {
             aria-label="Site navigation"
           >
             <div className="mobile-navigation-heading">
-              <span>Explore Kelari</span>
+              <span>Explore Kelari Group LLC</span>
               <button
                 className="mobile-close-button"
                 type="button"

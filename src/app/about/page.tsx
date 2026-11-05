@@ -11,7 +11,7 @@ export default function AboutPage() {
   return (
     <main>
       <Hero
-        eyebrow="About Kelari"
+        eyebrow="About Kelari Group LLC"
         title="Progress starts with understanding."
         description="We bring thoughtful advice and practical partnership to the organizations shaping a better future."
         primaryAction={{ label: 'How we work', href: '#how-we-work' }}
@@ -24,7 +24,7 @@ export default function AboutPage() {
         </Reveal>
         <div className="about-story-copy">
           <p>
-            Kelari was created to help organizations make confident decisions
+            Kelari Group LLC was created to help organizations make confident decisions
             through change. We bring strategy, people, finance, sustainability,
             and communications into one connected conversation.
           </p>
