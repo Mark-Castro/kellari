@@ -1,0 +1,125 @@
+{
+  "kind": "collectionType",
+  "collectionName": "application_submissions",
+  "info": {
+    "singularName": "application-submission",
+    "pluralName": "application-submissions",
+    "displayName": "Application Submission",
+    "description": "Candidate applications and resumes submitted for career openings."
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "firstName": {
+      "type": "string",
+      "required": true,
+      "maxLength": 120
+    },
+    "lastName": {
+      "type": "string",
+      "required": true,
+      "maxLength": 120
+    },
+    "dateOfBirth": {
+      "type": "date",
+      "required": true
+    },
+    "nationality": {
+      "type": "string",
+      "required": true,
+      "maxLength": 120
+    },
+    "schoolAttended": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "courseOfStudy": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200
+    },
+    "lastCompany": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200
+    },
+    "yearsOfExperience": {
+      "type": "string",
+      "required": true,
+      "maxLength": 80
+    },
+    "lastPosition": {
+      "type": "string",
+      "required": true,
+      "maxLength": 160
+    },
+    "minimumRemuneration": {
+      "type": "string",
+      "required": true,
+      "maxLength": 120
+    },
+    "skills": {
+      "type": "json"
+    },
+    "certifications": {
+      "type": "json"
+    },
+    "fullName": {
+      "type": "string",
+      "required": false,
+      "maxLength": 160
+    },
+    "email": {
+      "type": "email",
+      "required": true,
+      "maxLength": 254
+    },
+    "phone": {
+      "type": "string",
+      "required": true,
+      "maxLength": 40
+    },
+    "applicantType": {
+      "type": "enumeration",
+      "enum": [
+        "Employee",
+        "Consultant",
+        "Intern"
+      ]
+    },
+    "targetDepartment": {
+      "type": "enumeration",
+      "enum": [
+        "Strategy",
+        "Financial & Tax",
+        "Sustainability",
+        "Marketing"
+      ]
+    },
+    "coverNote": {
+      "type": "text",
+      "required": true,
+      "maxLength": 5000
+    },
+    "privacyConsent": {
+      "type": "boolean",
+      "required": true
+    },
+    "resume": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "jobPosition": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::career.career",
+      "inversedBy": "applications",
+      "required": true
+    }
+  }
+}

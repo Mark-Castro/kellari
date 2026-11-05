@@ -1,0 +1,10 @@
+$kind: http-request
+name: ""
+url: http://localhost:1337/api/careers
+method: GET
+body:
+  type: json
+  content: "{\r\n    \r\n}"
+auth:
+  type: basic
+order: 1000

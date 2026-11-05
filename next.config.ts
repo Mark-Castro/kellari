@@ -7,17 +7,17 @@ const contentSecurityPolicy = [
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' blob: data: https:",
   "font-src 'self' data:",
-  `connect-src 'self' https:${isProduction ? '' : ' ws://localhost:* ws://127.0.0.1:*'}`,
+  `connect-src 'self' https:${isProduction ? '' : ' http://localhost:1337 http://127.0.0.1:1337 ws://localhost:* ws://127.0.0.1:*'}`,
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",
-  "frame-ancestors 'none'",
+  `frame-ancestors ${isProduction ? "'none'" : "'self' http://localhost:1337 http://127.0.0.1:1337"}`,
   ...(isProduction ? ['upgrade-insecure-requests'] : []),
 ].join('; ');
 
 const securityHeaders = [
   { key: 'Content-Security-Policy', value: contentSecurityPolicy },
-  { key: 'X-Frame-Options', value: 'DENY' },
+  ...(isProduction ? [{ key: 'X-Frame-Options', value: 'DENY' }] : []),
   { key: 'X-Content-Type-Options', value: 'nosniff' },
   { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
   {

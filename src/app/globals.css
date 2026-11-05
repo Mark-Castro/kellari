@@ -760,6 +760,361 @@ main > section:not(.hero):not(.cta-banner) {
   color: #c4d2cc;
 }
 
+.application-dialog {
+  position: fixed;
+  inset: 0;
+  width: min(54rem, calc(100vw - 2rem));
+  max-width: none;
+  max-height: min(92dvh, 58rem);
+  margin: auto;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  padding: 0;
+}
+
+.application-dialog::backdrop {
+  background: rgb(7 17 15 / 78%);
+  backdrop-filter: blur(3px);
+}
+
+.application-dialog-panel {
+  max-height: min(92dvh, 58rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border: 1px solid var(--border);
+  border-radius: 0.45rem;
+  background: var(--surface-raised);
+  box-shadow: 0 1.5rem 5rem rgb(0 0 0 / 30%);
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.application-dialog-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.application-dialog-header h2 {
+  margin: 0;
+  font-size: clamp(1.55rem, 4vw, 2.35rem);
+  line-height: 1.15;
+}
+
+.application-dialog-department {
+  margin: 0.55rem 0 0;
+  color: var(--ink-muted);
+}
+
+.application-dialog-close {
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.application-dialog-close:hover {
+  background: var(--brand-soft);
+}
+
+.application-dialog-close:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.application-progress {
+  display: grid;
+  gap: 0.8rem;
+  margin: 1.75rem 0;
+}
+
+.application-progress-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+.application-progress-track {
+  height: 0.5rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--border);
+}
+
+.application-progress-value {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--brand);
+  transition: width 240ms ease;
+}
+
+.application-step-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.application-step-list button {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.5rem;
+  border: 0;
+  background: transparent;
+  color: var(--ink-muted);
+  cursor: pointer;
+  font-size: 0.8rem;
+  text-align: left;
+  padding: 0.2rem;
+}
+
+.application-step-list button[aria-current='step'] {
+  color: var(--brand-strong);
+  font-weight: 700;
+}
+
+.application-step-list button:disabled {
+  cursor: default;
+}
+
+.application-step-list button > span:first-child {
+  display: grid;
+  width: 1.65rem;
+  height: 1.65rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  font-weight: 700;
+}
+
+.application-step-list button[aria-current='step'] > span:first-child {
+  border-color: var(--brand);
+  background: var(--brand);
+  color: var(--on-brand);
+}
+
+.application-form {
+  display: grid;
+  gap: 1.5rem;
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.application-step-fields {
+  min-width: 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.application-success {
+  display: grid;
+  gap: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 0.35rem;
+  background: var(--surface);
+  padding: clamp(1.25rem, 4vw, 2.25rem);
+}
+
+.application-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.application-field {
+  display: grid;
+  min-width: 0;
+  gap: 0.5rem;
+}
+
+.application-field--full {
+  grid-column: 1 / -1;
+}
+
+.application-field > label,
+.application-field-label {
+  font-weight: 650;
+}
+
+.application-field > label > span {
+  color: var(--ink-muted);
+  font-size: 0.85em;
+  font-weight: 400;
+}
+
+.application-form input:not([type='checkbox']),
+.application-form select,
+.application-form textarea {
+  width: 100%;
+  min-height: 2.9rem;
+  border: 1px solid var(--border);
+  border-radius: 0.25rem;
+  background: var(--surface-raised);
+  color: var(--ink);
+  padding: 0.65rem 0.75rem;
+}
+
+.application-form textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.application-form input[aria-invalid='true'] {
+  border-color: #b42318;
+}
+
+.application-file-picker {
+  display: grid;
+  min-height: 8rem;
+  align-content: center;
+  justify-items: center;
+  gap: 0.4rem;
+  border: 1px dashed var(--brand);
+  border-radius: 0.3rem;
+  background: var(--surface-raised);
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.application-file-picker.is-dragging {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.application-file-picker:focus-within {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.application-file-picker input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.application-file-picker > span:last-child,
+.application-file-status {
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+}
+
+.application-file-status {
+  min-height: 1.5em;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.application-consent {
+  display: grid;
+  grid-template-columns: 1.25rem minmax(0, 1fr);
+  align-items: start;
+  gap: 0.75rem;
+}
+
+.application-consent input {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin: 0.3rem 0 0;
+  accent-color: var(--brand);
+}
+
+.application-consent a {
+  color: var(--brand-strong);
+  font-weight: 650;
+}
+
+.application-submit {
+  justify-self: start;
+}
+
+.application-form-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.25rem;
+}
+
+.application-submit:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.application-form-error {
+  margin: 0;
+  border-left: 3px solid #b42318;
+  background: var(--surface-raised);
+  color: var(--ink);
+  padding: 0.75rem 1rem;
+}
+
+.application-success h2 {
+  margin: 0;
+}
+
+.application-success > p:not(.eyebrow) {
+  color: var(--ink-muted);
+}
+
+@media (max-width: 40rem) {
+  .application-dialog {
+    inset: 0;
+    width: 100%;
+    max-height: 100dvh;
+    margin: 0;
+  }
+
+  .application-dialog-panel {
+    min-height: 100dvh;
+    max-height: 100dvh;
+    border: 0;
+    border-radius: 0;
+    padding: 1rem;
+  }
+
+  .application-step-list button {
+    align-items: flex-start;
+  }
+
+  .application-step-list button > span:last-child {
+    max-width: 5.5rem;
+    line-height: 1.25;
+  }
+
+  .application-form-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .application-field--full {
+    grid-column: auto;
+  }
+}
+
 .footer-newsletter button {
   flex: 0 0 auto;
   min-height: 2.75rem;
@@ -1599,6 +1954,57 @@ main > section:not(.hero):not(.cta-banner) {
 
 .open-roles-panel .button {
   flex: 0 0 auto;
+}
+
+.career-role-link {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  color: var(--brand);
+  font-weight: 700;
+}
+
+.career-detail-content,
+.insight-article {
+  margin-inline: auto;
+  max-width: 56rem;
+  padding: 0 var(--page-gutter) var(--space-section);
+}
+
+.career-description > :first-child,
+.insight-article-content > :first-child {
+  margin-top: 0;
+}
+
+.career-description ul,
+.career-description ol {
+  padding-inline-start: 1.5rem;
+}
+
+.career-description li + li {
+  margin-top: 0.45rem;
+}
+
+.draft-preview-banner {
+  position: sticky;
+  z-index: 40;
+  top: 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem 0.5rem;
+  border-bottom: 1px solid #d6b958;
+  background: #fff3c4;
+  color: #332701;
+  padding: 0.75rem var(--page-gutter);
+  text-align: center;
+}
+
+.draft-preview-banner a {
+  color: #234f45;
+  font-weight: 750;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
 }
 
 .site-header {

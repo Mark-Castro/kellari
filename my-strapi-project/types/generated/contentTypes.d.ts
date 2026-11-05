@@ -480,6 +480,111 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiApplicationSubmissionApplicationSubmission
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'application_submissions';
+  info: {
+    description: 'Candidate applications and resumes submitted for career openings.';
+    displayName: 'Application Submission';
+    pluralName: 'application-submissions';
+    singularName: 'application-submission';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    applicantType: Schema.Attribute.Enumeration<
+      ['Employee', 'Consultant', 'Intern']
+    >;
+    certifications: Schema.Attribute.JSON;
+    courseOfStudy: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 200;
+      }>;
+    coverNote: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 5000;
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dateOfBirth: Schema.Attribute.Date & Schema.Attribute.Required;
+    email: Schema.Attribute.Email &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 254;
+      }>;
+    firstName: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 120;
+      }>;
+    fullName: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 160;
+      }>;
+    jobPosition: Schema.Attribute.Relation<'manyToOne', 'api::career.career'> &
+      Schema.Attribute.Required;
+    lastCompany: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 200;
+      }>;
+    lastName: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 120;
+      }>;
+    lastPosition: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 160;
+      }>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::application-submission.application-submission'
+    > &
+      Schema.Attribute.Private;
+    minimumRemuneration: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 120;
+      }>;
+    nationality: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 120;
+      }>;
+    phone: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 40;
+      }>;
+    privacyConsent: Schema.Attribute.Boolean & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    resume: Schema.Attribute.Media<'files'> & Schema.Attribute.Required;
+    schoolAttended: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 200;
+      }>;
+    skills: Schema.Attribute.JSON;
+    targetDepartment: Schema.Attribute.Enumeration<
+      ['Strategy', 'Financial & Tax', 'Sustainability', 'Marketing']
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    yearsOfExperience: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 80;
+      }>;
+  };
+}
+
 export interface ApiCareerCareer extends Struct.CollectionTypeSchema {
   collectionName: 'careers';
   info: {
@@ -492,6 +597,10 @@ export interface ApiCareerCareer extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    applications: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::application-submission.application-submission'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1126,6 +1235,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::application-submission.application-submission': ApiApplicationSubmissionApplicationSubmission;
       'api::career.career': ApiCareerCareer;
       'api::insight.insight': ApiInsightInsight;
       'api::review.review': ApiReviewReview;
