@@ -138,10 +138,20 @@ function normalizeInsight(
   return normalized;
 }
 
-async function fetchStrapi<T>(path: string): Promise<T> {
+async function fetchStrapi<T>(
+  path: string,
+  preview = false,
+): Promise<T> {
+  const token = process.env.STRAPI_API_TOKEN?.trim();
+  if (preview && !token) {
+    throw new Error(
+      'STRAPI_API_TOKEN is required to fetch draft Strapi content.',
+    );
+  }
+
   const response = await fetch(`${strapiBaseUrl}/api/${path}`, {
     headers: getStrapiHeaders(),
-    next: { revalidate: 60 },
+    ...(preview ? { cache: 'no-store' as const } : { next: { revalidate: 60 } }),
   });
 
   if (!response.ok) {
@@ -170,14 +180,17 @@ export async function getLatestInsights(limit = 6): Promise<StrapiInsight[]> {
 
 export async function getInsightBySlug(
   slug: string,
+  preview = false,
 ): Promise<StrapiInsight | null> {
   const params = new URLSearchParams({
     'filters[slug][$eq]': slug,
     'pagination[pageSize]': '1',
     'populate': 'coverImage',
   });
+  if (preview) params.set('status', 'draft');
   const data = await fetchStrapi<Array<StrapiInsight | StrapiV4Insight>>(
     `insights?${params.toString()}`,
+    preview,
   );
   const insight = data[0];
 
@@ -193,9 +206,29 @@ export async function getCareers(): Promise<StrapiCareer[]> {
     `careers?${params.toString()}`,
   );
 
-  return data.map((career) =>
-    'attributes' in career
-      ? { id: career.id, ...career.attributes }
-      : career,
+  return data.map(normalizeCareer);
+}
+
+function normalizeCareer(career: StrapiCareer | StrapiV4Career): StrapiCareer {
+  return 'attributes' in career
+    ? { id: career.id, ...career.attributes }
+    : career;
+}
+
+export async function getCareerByDocumentId(
+  documentId: string,
+  preview = false,
+): Promise<StrapiCareer | null> {
+  const params = new URLSearchParams({
+    'filters[documentId][$eq]': documentId,
+    'pagination[pageSize]': '1',
+  });
+  if (preview) params.set('status', 'draft');
+  const data = await fetchStrapi<Array<StrapiCareer | StrapiV4Career>>(
+    `careers?${params.toString()}`,
+    preview,
   );
+  const career = data[0];
+
+  return career ? normalizeCareer(career) : null;
 }

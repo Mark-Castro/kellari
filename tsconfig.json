@@ -38,6 +38,7 @@
     ".next-dev-3333/dev/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "my-strapi-project"
   ]
 }
