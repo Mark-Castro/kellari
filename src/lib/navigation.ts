@@ -3,38 +3,38 @@ export const serviceCategories = [
     title: 'Strategy, People & Digital Transformation',
     shortTitle: 'Strategy, People & Digital',
     description:
-      'Align strategy, organization, and technology to build resilient growth.',
+      'Define direction, strengthen your organization and harness data, AI and secure technology.',
     href: '/services/strategy-people-digital',
     services: [
       {
         title: 'Corporate & Business Strategy',
         description:
-          'Set direction and build growth plans for organizations navigating change.',
+          'Set clear direction and growth plans to navigate change with confidence.',
       },
       {
         title: 'SME & Growth Advisory',
         description:
-          'Practical guidance for smaller businesses building their next stage of growth.',
+          'Practical, growth-stage guidance to help smaller businesses scale sustainably.',
       },
       {
         title: 'People & Organization Consulting',
         description:
-          'Connect talent strategy, organization design, and workforce planning.',
+          'Talent strategy, organizational design, and workforce planning that align your people with your goals.',
       },
       {
         title: 'Digital & AI Transformation',
         description:
-          'Shape technology adoption and responsible AI integration around business goals.',
+          'Technology adoption strategy and responsible AI integration that improve how you operate.',
       },
       {
         title: 'Data Analytics & Business Intelligence',
         description:
-          'Turn organizational data into clearer insight for decisions and performance.',
+          'Turn your data into insight that supports faster, better-informed decisions.',
       },
       {
         title: 'Cybersecurity Advisory',
         description:
-          'Understand cyber risks and strengthen governance, readiness, and resilience.',
+          'Risk assessments and security strategy to protect your organization as it digitizes.',
       },
     ],
   },
@@ -42,28 +42,28 @@ export const serviceCategories = [
     title: 'Financial & Tax Advisory',
     shortTitle: 'Financial & Tax',
     description:
-      'Make informed financial decisions with connected tax, planning, and reporting support.',
+      'Manage compliance, plan with confidence and protect long-term value.',
     href: '/services/financial-tax',
     services: [
       {
         title: 'Tax Advisory & Compliance',
         description:
-          'Navigate tax planning and compliance obligations with informed support.',
+          'Stay compliant and plan efficiently as tax requirements change.',
       },
       {
         title: 'Asset & Wealth Management Advisory',
         description:
-          'Clarify asset and wealth management priorities with a considered advisory approach.',
+          'Guidance to grow, protect and manage assets over the long term.',
       },
       {
         title: 'Financial Planning & Risk Advisory',
         description:
-          'Assess financial priorities, planning needs, and key areas of risk.',
+          'Forecasting, budgeting and risk management for sound financial decisions.',
       },
       {
         title: 'Bookkeeping & Financial Reporting Support',
         description:
-          'Improve the consistency and clarity of routine bookkeeping and financial reporting.',
+          'Accurate records and timely reporting that keep your finances in order.',
       },
     ],
   },
@@ -71,18 +71,18 @@ export const serviceCategories = [
     title: 'Sustainability & Public Impact',
     shortTitle: 'Sustainability & Public Impact',
     description:
-      'Advance sustainable operations and public services with practical, measurable action.',
+      'Meet ESG expectations and modernize public service delivery.',
     href: '/services/sustainability-public-impact',
     services: [
       {
         title: 'Sustainability & ESG Consulting',
         description:
-          'Address climate risk, ESG reporting, and sustainable operating models.',
+          'Climate risk, ESG reporting, and sustainable operating models.',
       },
       {
         title: 'Public Sector & Government Advisory',
         description:
-          'Support service-delivery improvement and governance modernization.',
+          'Service delivery and governance modernization support.',
       },
     ],
   },
@@ -90,47 +90,70 @@ export const serviceCategories = [
     title: 'Creative, Marketing & Communications',
     shortTitle: 'Creative & Communications',
     description:
-      'Build clear brands and communications that connect your work with its audience.',
+      'Build a credible brand and engage the audiences that matter.',
     href: '/services/creative-marketing-communications',
     services: [
       {
         title: 'Graphic Design & Brand Identity',
         description:
-          'Create visual identities and design systems that express your organization clearly.',
+          'Distinctive visual identities and design that communicate who you are.',
       },
       {
         title: 'Website Development & UX/UI Design',
         description:
-          'Plan and build useful digital experiences, from user journeys to website delivery.',
+          'Websites that look professional, work seamlessly, and are easy to use.',
       },
       {
         title: 'Public Relations',
         description:
-          'Strengthen stakeholder relationships and communicate with clarity and care.',
+          'Strategic communications that build and protect your reputation.',
       },
       {
         title: 'Digital Marketing & Campaign Management',
         description:
-          'Plan and coordinate digital campaigns around audience and business objectives.',
+          'Targeted campaigns that reach the right audiences and deliver measurable results.',
       },
       {
         title: 'SEO Content Writing',
         description:
-          'Produce useful, search-aware content grounded in the needs of your audience.',
+          'Search-optimized content that improves visibility and engages readers.',
       },
       {
         title: 'Social Media & Digital Communication Consulting',
         description:
-          'Build a considered approach to social channels and ongoing digital communication.',
+          'Social and digital strategies that grow engagement and strengthen your brand.',
       },
       {
         title: 'Market Research & Consumer Insights',
         description:
-          'Understand customer needs, market context, and opportunities for growth.',
+          'Research that reveals what your customers need and how your market is moving.',
       },
     ],
   },
 ] as const;
+
+export function getServiceSlug(title: string) {
+  return title
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+export function getServiceHref(title: string) {
+  return `/services/${getServiceSlug(title)}`;
+}
+
+export function getServiceBySlug(slug: string) {
+  for (const category of serviceCategories) {
+    const service = category.services.find(
+      (item) => getServiceSlug(item.title) === slug,
+    );
+    if (service) return { category, service };
+  }
+
+  return undefined;
+}
 
 export const industryClusters = [
   {

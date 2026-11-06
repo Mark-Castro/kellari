@@ -1,12 +1,16 @@
 import SectionHeading from '../ui/section-heading';
 import Reveal from '../motion/reveal';
+import Link from 'next/link';
 
 type ServiceItem = {
   title: string;
   description?: string;
   href?: string;
   itemCount?: number;
-  serviceHighlights?: readonly string[];
+  serviceHighlights?: readonly {
+    title: string;
+    href: string;
+  }[];
 };
 
 type ServiceOverviewProps = {
@@ -33,13 +37,15 @@ export default function ServiceOverview({ title = 'Our Services', items }: Servi
             {item.description ? <p>{item.description}</p> : null}
             {item.itemCount !== undefined ? (
               <p className="service-count">
-                {item.itemCount} areas of expertise
+                {item.itemCount} services
               </p>
             ) : null}
             {item.serviceHighlights ? (
               <ul className="service-highlights">
                 {item.serviceHighlights.map((service) => (
-                  <li key={service}>{service}</li>
+                  <li key={service.title}>
+                    <Link href={service.href}>{service.title}</Link>
+                  </li>
                 ))}
               </ul>
             ) : null}

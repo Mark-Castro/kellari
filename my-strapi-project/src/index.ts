@@ -1,4 +1,12 @@
-// import type { Core } from '@strapi/strapi';
+import type { Core } from '@strapi/strapi';
+
+const publicActions = [
+  'api::career.career.find',
+  'api::career.career.findOne',
+  'api::insight.insight.find',
+  'api::insight.insight.findOne',
+  'api::application-submission.application-submission.create',
+];
 
 export default {
   /**
@@ -16,5 +24,30 @@ export default {
    * This gives you an opportunity to set up your data model,
    * run jobs, or perform some special logic.
    */
-  bootstrap(/* { strapi }: { strapi: Core.Strapi } */) {},
+  async bootstrap({ strapi }: { strapi: Core.Strapi }) {
+    const publicRole = await strapi.db
+      .query('plugin::users-permissions.role')
+      .findOne({ where: { type: 'public' }, populate: ['permissions'] });
+
+    if (!publicRole) {
+      throw new Error('Unable to grant public API access: Public role not found.');
+    }
+
+    const existingActions = new Set(
+      publicRole.permissions.map(
+        (permission: { action: string }) => permission.action,
+      ),
+    );
+    const missingActions = publicActions.filter(
+      (action) => !existingActions.has(action),
+    );
+
+    await Promise.all(
+      missingActions.map((action) =>
+        strapi.db
+          .query('plugin::users-permissions.permission')
+          .create({ data: { action, role: publicRole.id } }),
+      ),
+    );
+  },
 };
