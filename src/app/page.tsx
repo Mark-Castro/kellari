@@ -6,7 +6,7 @@ import LatestInsightPreview from '../components/features/latest-insight-preview'
 import ServiceOverview from '../components/features/service-overview';
 import Reveal from '../components/motion/reveal';
 import { serviceCategories } from '../lib/navigation';
-import { getLatestInsights } from '../lib/strapi';
+import { getLatestInsights, getStrapiMediaUrl } from '../lib/strapi';
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -56,6 +56,13 @@ export default async function HomePage() {
             excerpt={latestInsights.article.excerpt ?? undefined}
             href={`/insights/${latestInsights.article.slug}`}
             publishedAt={latestInsights.article.publishedAt ?? undefined}
+            coverImageUrl={
+              getStrapiMediaUrl(latestInsights.article.coverImage) ?? undefined
+            }
+            coverImageAlt={
+              latestInsights.article.coverImage?.alternativeText ??
+              latestInsights.article.title
+            }
           />
         ) : latestInsights.unavailable ? (
           <p role="status">

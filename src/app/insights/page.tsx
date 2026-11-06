@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Hero from '../../components/features/hero';
 import LatestInsightPreview from '../../components/features/latest-insight-preview';
-import { getLatestInsights } from '../../lib/strapi';
+import { getLatestInsights, getStrapiMediaUrl } from '../../lib/strapi';
 
 export const metadata: Metadata = {
   title: 'Insights',
@@ -38,6 +38,10 @@ export default async function InsightsPage() {
                 excerpt={insight.excerpt ?? undefined}
                 href={`/insights/${insight.slug}`}
                 publishedAt={insight.publishedAt ?? undefined}
+                coverImageUrl={getStrapiMediaUrl(insight.coverImage) ?? undefined}
+                coverImageAlt={
+                  insight.coverImage?.alternativeText ?? insight.title
+                }
               />
             ))}
           </div>

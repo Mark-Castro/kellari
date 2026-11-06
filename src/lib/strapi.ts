@@ -1,4 +1,4 @@
-type StrapiMedia = {
+export type StrapiMedia = {
   id?: number;
   url?: string;
   alternativeText?: string | null;
@@ -93,6 +93,27 @@ const strapiBaseUrl = (process.env.STRAPI_URL?.trim() || 'http://localhost:1337'
   /\/+$/,
   '',
 );
+
+const publicStrapiBaseUrl = (
+  process.env.NEXT_PUBLIC_STRAPI_API_URL?.trim() || strapiBaseUrl
+)
+  .replace(/\/api\/?$/, '')
+  .replace(/\/+$/, '');
+
+export function getStrapiMediaUrl(
+  media: StrapiMedia | null | undefined,
+): string | null {
+  const mediaPath =
+    media?.formats?.medium?.url ??
+    media?.formats?.small?.url ??
+    media?.url;
+  if (!mediaPath) return null;
+
+  if (/^https?:\/\//i.test(mediaPath)) return mediaPath;
+  if (!mediaPath.startsWith('/')) return null;
+
+  return `${publicStrapiBaseUrl}${mediaPath}`;
+}
 
 function getStrapiHeaders(): HeadersInit {
   const token = process.env.STRAPI_API_TOKEN?.trim();

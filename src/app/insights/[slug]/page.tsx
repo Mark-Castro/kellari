@@ -3,7 +3,7 @@ import { draftMode } from 'next/headers';
 import CTABanner from '../../../components/features/cta-banner';
 import Hero from '../../../components/features/hero';
 import PreviewBanner from '../../../components/layout/preview-banner';
-import { getInsightBySlug } from '../../../lib/strapi';
+import { getInsightBySlug, getStrapiMediaUrl } from '../../../lib/strapi';
 
 function getBlockText(value: unknown): string {
   if (Array.isArray(value)) return value.map(getBlockText).join('');
@@ -54,6 +54,15 @@ export default async function InsightDetailPage({ params }: PageProps) {
                 new Date(insight.publishedDate ?? insight.publishedAt ?? ''),
               )}
             </time>
+          ) : null}
+          {getStrapiMediaUrl(insight.coverImage) ? (
+            <figure className="insight-article-cover">
+              <img
+                src={getStrapiMediaUrl(insight.coverImage) ?? undefined}
+                alt={insight.coverImage?.alternativeText ?? insight.title}
+                decoding="async"
+              />
+            </figure>
           ) : null}
           {insight.content?.length ? (
             <div className="insight-article-content">

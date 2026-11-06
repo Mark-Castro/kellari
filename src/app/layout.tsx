@@ -4,7 +4,7 @@ import GoogleAnalytics from '../components/analytics/google-analytics';
 import CookieConsentBanner from '../components/layout/cookie-consent-banner';
 import Footer from '../components/layout/footer';
 import FloatingWhatsAppLink from '../components/layout/floating-whatsapp-link';
-import Navbar from '../components/layout/navbar';
+import Navbar from '../components/navigation/Navbar';
 import PageTransition from '../components/motion/page-transition';
 import { THEME_BOOTSTRAP_SCRIPT } from '../lib/theme';
 import './globals.css';

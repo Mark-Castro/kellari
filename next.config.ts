@@ -5,7 +5,7 @@ const contentSecurityPolicy = [
   "default-src 'self'",
   `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com${isProduction ? '' : " 'unsafe-eval'"}`,
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' blob: data: https:",
+  `img-src 'self' blob: data: https:${isProduction ? '' : ' http://localhost:1337 http://127.0.0.1:1337'}`,
   "font-src 'self' data:",
   `connect-src 'self' https:${isProduction ? '' : ' http://localhost:1337 http://127.0.0.1:1337 ws://localhost:* ws://127.0.0.1:*'}`,
   "object-src 'none'",

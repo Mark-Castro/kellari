@@ -7,6 +7,8 @@ type LatestInsightPreviewProps = {
   excerpt?: string;
   href?: string;
   publishedAt?: string;
+  coverImageUrl?: string;
+  coverImageAlt?: string;
 };
 
 export default function LatestInsightPreview({
@@ -15,11 +17,22 @@ export default function LatestInsightPreview({
   excerpt = 'Our latest articles and practical guides will appear here. Check back soon for ideas from the Kelari Group LLC team.',
   href = '/insights',
   publishedAt,
+  coverImageUrl,
+  coverImageAlt,
 }: LatestInsightPreviewProps) {
   return (
     <Reveal as="article" className="latest-insight-preview" interactive>
-      <div className="insight-preview-art" aria-hidden="true">
-        <span>K</span>
+      <div className="insight-preview-art">
+        {coverImageUrl ? (
+          <img
+            src={coverImageUrl}
+            alt={coverImageAlt || title}
+            loading="lazy"
+            decoding="async"
+          />
+        ) : (
+          <span aria-hidden="true">K</span>
+        )}
       </div>
       <div className="insight-preview-copy">
         <p className="eyebrow">{category}</p>

@@ -1,11 +1,8 @@
 import type { Metadata } from 'next';
 import CTABanner from '../../components/features/cta-banner';
 import Hero from '../../components/features/hero';
-import ApplicationModal from '../../components/careers/ApplicationModal';
-import CareerDescription from '../../components/careers/career-description';
-import {
-  getCareers,
-} from '../../lib/strapi';
+import JobList from '../../components/careers/JobList';
+import { getCareers } from '../../lib/strapi';
 
 export const metadata: Metadata = {
   title: 'Careers',
@@ -92,35 +89,7 @@ export default async function CareersPage() {
             later or contact us about joining the team.
           </p>
         ) : careersResult.careers.length > 0 ? (
-          <div className="open-roles-list">
-            {careersResult.careers.map((career) => (
-              <article
-                className="open-roles-panel"
-                key={career.documentId ?? career.id}
-              >
-                <div>
-                  <p className="eyebrow">
-                    {career.department} · {career.employmentType}
-                  </p>
-                  <h3>{career.title}</h3>
-                  <p>{career.location}</p>
-                  <CareerDescription career={career} />
-                  {career.documentId ? (
-                    <a className="career-role-link" href={`/careers/${career.documentId}`}>
-                      View role details
-                    </a>
-                  ) : null}
-                </div>
-                {career.documentId ? (
-                  <ApplicationModal
-                    jobPositionId={career.documentId}
-                    jobTitle={career.title}
-                    targetDepartment={career.department}
-                  />
-                ) : null}
-              </article>
-            ))}
-          </div>
+          <JobList careers={careersResult.careers} />
         ) : (
           <div className="open-roles-panel">
             <div>
