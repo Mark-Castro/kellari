@@ -246,11 +246,11 @@ main > section:not(.hero):not(.cta-banner) {
   white-space: nowrap;
 }
 
-.hero > .hero-breadcrumbs ol {
-  display: flex;
-  flex-direction: row;
+.hero .hero-breadcrumbs > ol {
+  display: flex !important;
+  flex-direction: row !important;
   align-items: center;
-  flex-wrap: nowrap;
+  flex-wrap: nowrap !important;
   column-gap: 0.55rem;
   row-gap: 0.35rem;
   margin: 0;
@@ -258,7 +258,7 @@ main > section:not(.hero):not(.cta-banner) {
   list-style: none;
 }
 
-.hero > .hero-breadcrumbs li {
+.hero .hero-breadcrumbs > ol > li {
   display: inline-flex;
   flex: 0 0 auto;
   align-items: center;
@@ -266,9 +266,9 @@ main > section:not(.hero):not(.cta-banner) {
   white-space: nowrap;
 }
 
-.hero > .hero-breadcrumbs li + li::before {
+.hero .hero-breadcrumbs > ol > li + li::before {
   color: var(--ink-muted);
-  content: '/';
+  content: '<';
 }
 
 .hero-breadcrumbs a {
