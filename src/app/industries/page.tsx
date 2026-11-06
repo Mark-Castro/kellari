@@ -11,9 +11,9 @@ import {
 import { industryClusters } from '../../lib/navigation';
 
 export const metadata: Metadata = {
-  title: 'Industries We Serve | Kelari Group',
+  title: 'Industries We Serve | KELARI GROUP LLC',
   description:
-    'Kelari Group supports financial services, healthcare, government, energy, real estate, consumer, technology and growth-stage businesses.',
+    'KELARI GROUP LLC supports financial services, healthcare, government, energy, real estate, consumer, technology and growth-stage businesses.',
 };
 
 export default function IndustriesPage() {

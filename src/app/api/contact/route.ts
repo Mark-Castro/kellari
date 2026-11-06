@@ -149,7 +149,7 @@ export async function POST(request: Request) {
         phone,
         service,
         message,
-        _subject: `Kelari Group LLC inquiry${service ? `: ${service}` : ''}`,
+        _subject: `KELARI GROUP LLC inquiry${service ? `: ${service}` : ''}`,
       }),
       cache: 'no-store',
       signal: AbortSignal.timeout(15_000),

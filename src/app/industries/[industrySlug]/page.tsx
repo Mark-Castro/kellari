@@ -119,7 +119,7 @@ export default async function IndustryDetailPage({ params }: PageProps) {
             id="industry-support-heading"
             className="mb-8 text-3xl font-semibold tracking-tight text-slate-950 dark:text-white"
           >
-            How Kelari Group helps
+            How KELARI GROUP LLC helps
           </h2>
         </Reveal>
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

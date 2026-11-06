@@ -62,7 +62,7 @@ export default function NewsletterSignupForm() {
       <form
         className="footer-newsletter"
         onSubmit={handleSubmit}
-        aria-label="Subscribe to Kelari Group LLC insights"
+        aria-label="Subscribe to KELARI GROUP LLC insights"
       >
         <label className="visually-hidden" htmlFor="footer-newsletter-email">
           Email address
@@ -87,7 +87,7 @@ export default function NewsletterSignupForm() {
             disabled={isSubmitting}
           />
           <label htmlFor="footer-newsletter-consent">
-            I agree to receive Kelari Group LLC email updates. I can unsubscribe at any
+            I agree to receive KELARI GROUP LLC email updates. I can unsubscribe at any
             time. See our{' '}
             <a href="/privacy-policy">Privacy Policy</a>.
           </label>
