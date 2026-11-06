@@ -67,7 +67,7 @@ export default function IndustrySpotlightCarousel() {
           <p className="spotlight-cluster">{industry.cluster}</p>
           <h3>{industry.title}</h3>
           <p>{industry.description}</p>
-          <Link href={`/industries#${industry.id}`}>
+          <Link href={`/industries/${industry.id}`}>
             Explore this sector <span aria-hidden="true">→</span>
           </Link>
         </div>

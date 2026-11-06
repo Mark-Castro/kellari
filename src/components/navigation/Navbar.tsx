@@ -125,47 +125,28 @@ function IndustriesMenu({ onNavigate }: { onNavigate: () => void }) {
           Explore all industries <span aria-hidden="true">→</span>
         </Link>
       </div>
-      <div className="industry-menu-content">
-        <div className="mega-menu-grid industries-menu-grid">
-          {industryClusters.map((cluster, index) => (
-            <section className="mega-menu-group" key={cluster.id}>
-              <span className="mega-menu-index" aria-hidden="true">
-                0{index + 1}
-              </span>
-              <Link
-                className="mega-menu-heading"
-                href={`/industries#${cluster.id}`}
-                onClick={onNavigate}
-              >
-                {cluster.title} <span aria-hidden="true">↗</span>
-              </Link>
-              <p className="mega-menu-description">{cluster.description}</p>
-              <ul>
-                {cluster.industries.map((industry) => (
-                  <li key={industry.id}>
-                    <Link
-                      href={`/industries#${industry.id}`}
-                      onClick={onNavigate}
-                    >
-                      {industry.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          ))}
-        </div>
-        <Link
-          className="industry-feature-card"
-          href="/insights"
-          onClick={onNavigate}
-        >
-          <span className="industry-feature-kicker">Featured thinking</span>
-          <strong>Ideas for a changing world.</strong>
-          <span className="industry-feature-link">
-            Read our latest insights <span aria-hidden="true">↗</span>
-          </span>
-        </Link>
+      <div className="mega-menu-grid industries-menu-grid">
+        {industryClusters.map((cluster, index) => (
+          <section className="mega-menu-group" key={cluster.id}>
+            <span className="mega-menu-index" aria-hidden="true">
+              0{index + 1}
+            </span>
+            <h3 className="mega-menu-heading">{cluster.title}</h3>
+            <p className="mega-menu-description">{cluster.description}</p>
+            <ul>
+              {cluster.industries.map((industry) => (
+                <li key={industry.id}>{industry.title}</li>
+              ))}
+            </ul>
+            <Link
+              className="mega-menu-card-link"
+              href={`/industries#${cluster.id}`}
+              onClick={onNavigate}
+            >
+              View industry area <span aria-hidden="true">↗</span>
+            </Link>
+          </section>
+        ))}
       </div>
     </div>
   );

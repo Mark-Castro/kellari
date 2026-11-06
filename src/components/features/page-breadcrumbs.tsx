@@ -7,6 +7,7 @@ import {
   industryClusters,
   serviceCategories,
 } from '../../lib/navigation';
+import { getIndustryContent } from '../../lib/industry-content';
 
 const routeLabels: Record<string, string> = {
   about: 'About',
@@ -54,7 +55,11 @@ function getSegmentLabel(segments: string[], index: number) {
   }
 
   if (segments[0] === 'industries' && index === 1) {
-    return getIndustryLabel(segment) ?? humanizeSegment(segment);
+    return (
+      getIndustryContent(segment)?.title ??
+      getIndustryLabel(segment) ??
+      humanizeSegment(segment)
+    );
   }
 
   return routeLabels[segment] ?? humanizeSegment(segment);
