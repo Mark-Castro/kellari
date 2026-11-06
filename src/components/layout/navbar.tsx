@@ -3,7 +3,11 @@
 import Link from 'next/link';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { contactPhoneLink } from '../../lib/contact';
-import { industryClusters, serviceCategories } from '../../lib/navigation';
+import {
+  getServiceHref,
+  industryClusters,
+  serviceCategories,
+} from '../../lib/navigation';
 import { THEME_STORAGE_KEY } from '../../lib/theme';
 
 type MenuName = 'services' | 'industries';
@@ -285,12 +289,18 @@ export default function Navbar() {
                         href={category.href}
                         onClick={() => setActiveMenu(null)}
                       >
-                        {category.shortTitle}
+                        {category.title}
                       </Link>
-                      <p className="mega-menu-description">{category.title}</p>
                       <ul>
                         {category.services.map((service) => (
-                          <li key={service.title}>{service.title}</li>
+                          <li key={service.title}>
+                            <Link
+                              href={getServiceHref(service.title)}
+                              onClick={() => setActiveMenu(null)}
+                            >
+                              {service.title}
+                            </Link>
+                          </li>
                         ))}
                       </ul>
                     </section>

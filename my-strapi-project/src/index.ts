@@ -1,10 +1,11 @@
 import type { Core } from '@strapi/strapi';
 
-const publicReadActions = [
+const publicActions = [
   'api::career.career.find',
   'api::career.career.findOne',
   'api::insight.insight.find',
   'api::insight.insight.findOne',
+  'api::application-submission.application-submission.create',
 ];
 
 export default {
@@ -29,7 +30,7 @@ export default {
       .findOne({ where: { type: 'public' }, populate: ['permissions'] });
 
     if (!publicRole) {
-      throw new Error('Unable to grant public content access: Public role not found.');
+      throw new Error('Unable to grant public API access: Public role not found.');
     }
 
     const existingActions = new Set(
@@ -37,7 +38,7 @@ export default {
         (permission: { action: string }) => permission.action,
       ),
     );
-    const missingActions = publicReadActions.filter(
+    const missingActions = publicActions.filter(
       (action) => !existingActions.has(action),
     );
 

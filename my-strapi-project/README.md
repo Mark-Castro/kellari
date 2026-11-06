@@ -14,10 +14,9 @@ frontend's `.env.local` (normally `http://localhost:1337`). For private access,
 create a **Read-only** API token in Strapi and set it as `STRAPI_API_TOKEN` in
 that same file. Never expose it with a `NEXT_PUBLIC_` prefix.
 
-To let the public website read published entries without a token, open
-**Settings → Users & Permissions Plugin → Roles → Public**, enable only the
-`find` and `findOne` permissions for the content types the website needs, and
-save. Verify `http://localhost:1337/api/insights` and
+On startup, the Strapi bootstrap grants the Public role only the `find` and
+`findOne` permissions for Insights and Careers. Verify
+`http://localhost:1337/api/insights` and
 `http://localhost:1337/api/careers` return JSON. The frontend refreshes cached
 Insights data once per minute.
 
@@ -67,9 +66,10 @@ Local test procedure:
 
 The public careers page opens a three-step modal for each opening. The direct
 route `/careers/<documentId>/apply` opens the same modal. The form submits one
-`multipart/form-data` request to `/api/application-submissions`, with
-candidate fields in the `data` part and the resume in `files.resume`. The
-submission links to its job using Strapi v5's relation `connect` format.
+`multipart/form-data` request to the Next.js `/api/application-submissions`
+route, which forwards it server-to-server to Strapi. Candidate fields are in
+the `data` part and the resume in `files.resume`. The submission links to its
+job using Strapi v5's relation `connect` format.
 
 The `Application Submission` content type stores first and last name, email,
 phone, date of birth, nationality, optional school, course of study, recent
@@ -80,14 +80,13 @@ application modal validates each step and submits the details and resume in
 one multipart request. Resumes are limited to PDF, DOC, or DOCX files up to
 10 MB by the form, Strapi body parser, and an API policy.
 
-In the Strapi admin, open **Settings → Users & Permissions Plugin → Roles →
-Public** and grant only **create** on **Application Submission**. Do not grant
-`find`, `findOne`, or `findMany` to the Public role because submissions contain
-personal information. Set `CORS_ORIGINS` in the backend `.env` to the exact
-frontend origin(s), comma-separated. The local defaults permit ports 3000 and
-3333 on both `localhost` and `127.0.0.1`. Set
-`NEXT_PUBLIC_STRAPI_API_URL` in the frontend `.env.local` to the Strapi base
-URL. No Strapi API token is exposed to the browser.
+On startup, the Strapi bootstrap grants the Public role only **create** on
+**Application Submission**. Do not grant `find`, `findOne`, or `findMany` to
+the Public role because submissions contain personal information. Set
+`STRAPI_URL` in the frontend server's `.env.local` to the Strapi base URL.
+The local default is `http://localhost:1337`. Since submissions are forwarded
+server-to-server, Strapi CORS does not need to allow the browser's origin and
+no Strapi API token is exposed to the browser.
 
 Run Strapi with Node.js 22.19.0 or newer; `.nvmrc` pins 22.19.0 for local
 development. After the server is ready, create an administrator and manage

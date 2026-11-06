@@ -264,27 +264,6 @@ export default function ApplicationModal({
       return;
     }
 
-    const apiUrl = process.env.NEXT_PUBLIC_STRAPI_API_URL?.trim();
-    if (!apiUrl) {
-      console.error('NEXT_PUBLIC_STRAPI_API_URL is not configured.');
-      setErrorMessage('Applications are temporarily unavailable.');
-      return;
-    }
-
-    let endpoint: URL;
-    try {
-      endpoint = new URL(
-        `${apiUrl.replace(/\/+$/, '')}/api/application-submissions`,
-      );
-      if (endpoint.protocol !== 'https:' && endpoint.protocol !== 'http:') {
-        throw new Error('Strapi API URL must use HTTP or HTTPS.');
-      }
-    } catch (error) {
-      console.error('Invalid Strapi API URL:', error);
-      setErrorMessage('Applications are temporarily unavailable.');
-      return;
-    }
-
     const formData = new FormData();
     formData.append(
       'data',
@@ -314,7 +293,7 @@ export default function ApplicationModal({
 
     setIsSubmitting(true);
     try {
-      const response = await fetch(endpoint, {
+      const response = await fetch('/api/application-submissions', {
         method: 'POST',
         body: formData,
       });
