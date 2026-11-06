@@ -268,7 +268,7 @@ main > section:not(.hero):not(.cta-banner) {
 
 .hero .hero-breadcrumbs > ol > li + li::before {
   color: var(--ink-muted);
-  content: '/';
+  content: '<';
 }
 
 .hero-breadcrumbs a {
