@@ -1,6 +1,6 @@
 # 🚀 Getting started with Strapi
 
-## Kelari Group LLC content APIs
+## KELARI GROUP LLC content APIs
 
 This Strapi project provides the `Insight` collection type at `/api/insights`
 and the `Career / Opening` collection type at `/api/careers`. Insights have a

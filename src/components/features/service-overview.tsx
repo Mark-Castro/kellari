@@ -15,14 +15,19 @@ type ServiceItem = {
 
 type ServiceOverviewProps = {
   title?: string;
+  description?: string;
   items: ServiceItem[];
 };
 
-export default function ServiceOverview({ title = 'Our Services', items }: ServiceOverviewProps) {
+export default function ServiceOverview({
+  title = 'Our Services',
+  description,
+  items,
+}: ServiceOverviewProps) {
   return (
     <section className="service-overview">
       <Reveal duration={0.48}>
-        <SectionHeading title={title} />
+        <SectionHeading title={title} description={description} />
       </Reveal>
       <div>
         {items.map((item, index) => (
