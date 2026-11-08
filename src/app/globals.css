@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
 @theme inline {
   --color-brand: var(--brand);
   --color-brand-strong: var(--brand-strong);
@@ -36,7 +38,7 @@
   z-index: -1;
   inset: 0;
   border-radius: inherit;
-  box-shadow: 0 0.75rem 1.75rem rgb(15 35 31 / 12%);
+  box-shadow: 0 0.75rem 1.75rem rgb(17 32 28 / 12%);
   content: '';
   opacity: 0;
   pointer-events: none;
@@ -59,11 +61,13 @@
 
 :root {
   color-scheme: light;
-  --brand: #176b5b;
-  --brand-strong: #105447;
+  --brand: #74c8b3;
+  --brand-strong: #11201c;
+  --brand-hover: #9cdecd;
+  --brand-surface: #11201c;
   --brand-soft: #e7f2ef;
   --accent: #b4772f;
-  --on-brand: #ffffff;
+  --on-brand: #11201c;
   --ink: #1b2c2a;
   --ink-muted: #586966;
   --surface: #f3f6f3;
@@ -83,11 +87,13 @@
 
 :root[data-theme='light'] {
   color-scheme: light;
-  --brand: #176b5b;
-  --brand-strong: #105447;
+  --brand: #74c8b3;
+  --brand-strong: #11201c;
+  --brand-hover: #9cdecd;
+  --brand-surface: #11201c;
   --brand-soft: #e7f2ef;
   --accent: #b4772f;
-  --on-brand: #ffffff;
+  --on-brand: #11201c;
   --ink: #1b2c2a;
   --ink-muted: #586966;
   --surface: #f3f6f3;
@@ -99,6 +105,8 @@
   color-scheme: dark;
   --brand: #74c8b3;
   --brand-strong: #9cdecd;
+  --brand-hover: #9cdecd;
+  --brand-surface: #11201c;
   --brand-soft: #203b35;
   --accent: #e1b977;
   --on-brand: #11201c;
@@ -114,6 +122,8 @@
     color-scheme: dark;
     --brand: #74c8b3;
     --brand-strong: #9cdecd;
+    --brand-hover: #9cdecd;
+    --brand-surface: #11201c;
     --brand-soft: #203b35;
     --accent: #e1b977;
     --on-brand: #11201c;
@@ -182,7 +192,7 @@ h1,
 h2,
 h3,
 h4 {
-  color: var(--ink);
+  color: var(--brand-strong);
   font-family: var(--font-heading);
   line-height: 1.15;
   text-wrap: balance;
@@ -309,7 +319,7 @@ main > section:not(.hero):not(.cta-banner) {
 
 .eyebrow {
   margin: 0 0 0.75rem;
-  color: var(--brand);
+  color: var(--brand-strong);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -339,8 +349,8 @@ main > section:not(.hero):not(.cta-banner) {
 .header-cta:hover,
 .mobile-navigation-cta:hover,
 .cta-banner > a:hover {
-  border-color: var(--brand-strong);
-  background: var(--brand-strong);
+  border-color: var(--brand-hover);
+  background: var(--brand-hover);
   color: var(--on-brand);
   transform: scale(1.02);
 }
@@ -363,7 +373,7 @@ main > section:not(.hero):not(.cta-banner) {
 .button--ghost {
   border-color: transparent;
   background: transparent;
-  color: var(--brand);
+  color: var(--brand-strong);
 }
 
 .floating-whatsapp-link {
@@ -377,9 +387,9 @@ main > section:not(.hero):not(.cta-banner) {
   place-items: center;
   border: 2px solid #fff;
   border-radius: 50%;
-  background: #128c4a;
-  box-shadow: 0 0.3rem 1rem rgb(15 35 31 / 24%);
-  color: #fff;
+  background: var(--brand);
+  box-shadow: 0 0.3rem 1rem rgb(17 32 28 / 24%);
+  color: var(--on-brand);
   transition: transform 140ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
@@ -453,7 +463,7 @@ main > section:not(.hero):not(.cta-banner) {
 
 .service-overview article .service-count {
   margin: 0.3rem 0 0;
-  color: var(--brand);
+  color: var(--brand-strong);
   font-size: 0.85rem;
   font-weight: 700;
 }
@@ -480,7 +490,7 @@ main > section:not(.hero):not(.cta-banner) {
 
 .service-highlights a:hover,
 .service-highlights a:focus-visible {
-  color: var(--brand);
+  color: var(--brand-strong);
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
@@ -498,7 +508,7 @@ main > section:not(.hero):not(.cta-banner) {
   min-height: 2.75rem;
   align-items: center;
   margin-top: auto;
-  color: var(--brand);
+  color: var(--brand-strong);
   font-weight: 700;
 }
 
@@ -595,7 +605,7 @@ main > section:not(.hero):not(.cta-banner) {
   min-height: 2.75rem;
   align-items: center;
   margin-top: 0.75rem;
-  color: var(--brand);
+  color: var(--brand-strong);
   font-weight: 700;
   text-decoration: none;
 }
@@ -704,7 +714,7 @@ main > section:not(.hero):not(.cta-banner) {
   margin-top: clamp(2rem, 5vw, 4rem);
   background:
     radial-gradient(ellipse at 95% 0%, rgb(225 185 119 / 14%), transparent 35%),
-    var(--brand-strong);
+    var(--brand-surface);
   color: #fff;
   padding: clamp(2.5rem, 6vw, 5rem) max(var(--page-gutter), calc((100vw - var(--content-width)) / 2));
 }
@@ -730,7 +740,7 @@ main > section:not(.hero):not(.cta-banner) {
 .site-footer {
   background:
     radial-gradient(ellipse at 12% 0%, rgb(116 200 179 / 8%), transparent 28rem),
-    #13231f;
+    #11201c;
   color: #eaf1ee;
   padding: clamp(3rem, 6vw, 5rem) var(--page-gutter) 1.5rem;
 }
@@ -1330,7 +1340,7 @@ main > section:not(.hero):not(.cta-banner) {
 }
 
 .newsletter-consent a {
-  color: #a9e3d2;
+  color: #9cdecd;
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
@@ -1351,7 +1361,7 @@ main > section:not(.hero):not(.cta-banner) {
 }
 
 .footer-newsletter-note a {
-  color: #a9e3d2;
+  color: #9cdecd;
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
@@ -1482,7 +1492,7 @@ main > section:not(.hero):not(.cta-banner) {
   margin-inline: auto;
   border: 1px solid rgb(255 255 255 / 18%);
   border-radius: 0.5rem;
-  background: #13231f;
+  background: #11201c;
   box-shadow: 0 1rem 3rem rgb(0 0 0 / 32%);
   padding: clamp(1.25rem, 3vw, 1.75rem);
   color: #f5f8f6;
@@ -1506,7 +1516,7 @@ main > section:not(.hero):not(.cta-banner) {
 }
 
 .cookie-consent-copy a {
-  color: #a9e3d2;
+  color: #9cdecd;
   font-weight: 700;
   text-underline-offset: 0.2em;
 }
@@ -1529,9 +1539,9 @@ main > section:not(.hero):not(.cta-banner) {
 
 .cookie-consent-actions button {
   min-height: 2.9rem;
-  border: 1px solid #a9e3d2;
+  border: 1px solid #9cdecd;
   border-radius: 0.3rem;
-  background: #a9e3d2;
+  background: #9cdecd;
   padding: 0.65rem 0.8rem;
   color: #10211c;
   font: inherit;
@@ -1543,7 +1553,7 @@ main > section:not(.hero):not(.cta-banner) {
 
 .cookie-consent-actions button:hover {
   transform: translateY(-1px);
-  background: #c1ecdf;
+  background: #9cdecd;
 }
 
 .contact-form {
@@ -1625,7 +1635,9 @@ main > section:not(.hero):not(.cta-banner) {
 }
 
 .contact-form button:hover {
-  background: var(--brand-strong);
+  border-color: var(--brand-hover);
+  background: var(--brand-hover);
+  color: var(--on-brand);
   transform: scale(1.02);
 }
 
@@ -1682,9 +1694,38 @@ main > section:not(.hero):not(.cta-banner) {
   font-size: 1.15rem;
 }
 
+.industry-sector-card h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.industry-sector-card h3 a:hover,
+.industry-sector-card h3 a:focus-visible {
+  color: var(--brand-strong);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
 .industry-sector-card p {
-  margin-bottom: 0;
+  margin: 0.75rem 0 0;
   color: var(--ink-muted);
+}
+
+.industry-sector-link {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.75rem;
+  color: var(--brand-strong);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.industry-sector-link:hover,
+.industry-sector-link:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
 
 .industry-spotlight,
@@ -1731,7 +1772,7 @@ main > section:not(.hero):not(.cta-banner) {
   border: 1px solid var(--border);
   border-radius: 50%;
   background: var(--surface-raised);
-  color: var(--brand);
+  color: var(--brand-strong);
   cursor: pointer;
   font-size: 1.25rem;
   transition: transform 140ms cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -1758,7 +1799,7 @@ main > section:not(.hero):not(.cta-banner) {
   border-radius: 0.4rem;
   background:
     radial-gradient(ellipse at 12% 100%, rgb(183 119 47 / 14%), transparent 36%),
-    var(--brand-strong);
+    var(--brand-surface);
   color: #fff;
   padding: clamp(1.75rem, 5vw, 4rem);
 }
@@ -1825,7 +1866,7 @@ main > section:not(.hero):not(.cta-banner) {
 }
 
 .text-link {
-  color: var(--brand);
+  color: var(--brand-strong);
   font-weight: 700;
   text-decoration: none;
 }
@@ -1892,7 +1933,7 @@ main > section:not(.hero):not(.cta-banner) {
   min-height: 2.75rem;
   align-items: center;
   gap: 0.5rem;
-  color: var(--brand);
+  color: var(--brand-strong);
   font-weight: 700;
   text-decoration: none;
 }
@@ -2002,7 +2043,7 @@ main > section:not(.hero):not(.cta-banner) {
   background:
     radial-gradient(circle at 70% 25%, rgb(225 185 119 / 45%), transparent 25%),
     linear-gradient(140deg, var(--brand-soft), color-mix(in srgb, var(--brand) 24%, var(--surface)));
-  color: var(--brand);
+  color: var(--brand-strong);
   font-size: 4rem;
   font-weight: 700;
 }
@@ -2096,7 +2137,7 @@ main > section:not(.hero):not(.cta-banner) {
   min-height: 2.75rem;
   align-items: center;
   gap: 0.5rem;
-  color: var(--brand);
+  color: var(--brand-strong);
   font-weight: 700;
 }
 
@@ -2172,13 +2213,13 @@ main > section:not(.hero):not(.cta-banner) {
 }
 
 .job-filter-pill:hover {
-  border-color: rgb(6 95 70 / 25%);
-  color: #064e3b;
+  border-color: #74c8b3;
+  color: #11201c;
 }
 
 .job-filter-pill[aria-pressed='true'] {
-  background: #065f46;
-  color: #ffffff;
+  background: #74c8b3;
+  color: #11201c;
 }
 
 .job-employment-filter {
@@ -2223,7 +2264,7 @@ main > section:not(.hero):not(.cta-banner) {
 
 .job-card:hover {
   transform: translateY(-1px);
-  border-color: rgb(4 120 87 / 45%);
+  border-color: #74c8b3;
   box-shadow: 0 0.75rem 2rem rgb(15 23 42 / 7%);
 }
 
@@ -2261,9 +2302,9 @@ main > section:not(.hero):not(.cta-banner) {
 }
 
 .job-card-department {
-  border-color: #a7f3d0;
-  background: #ecfdf5;
-  color: #065f46;
+  border-color: #74c8b3;
+  background: #e7f2ef;
+  color: #11201c;
 }
 
 .job-card-title {
@@ -2287,7 +2328,7 @@ main > section:not(.hero):not(.cta-banner) {
   width: 1.1rem;
   height: 1.1rem;
   flex: 0 0 auto;
-  color: #047857;
+  color: #11201c;
 }
 
 .job-card-actions {
@@ -2305,7 +2346,7 @@ main > section:not(.hero):not(.cta-banner) {
   border: 1px solid #dbe5e1;
   border-radius: 999px;
   background: #ffffff;
-  color: #065f46;
+  color: #11201c;
   cursor: pointer;
   font: inherit;
   font-size: 0.88rem;
@@ -2318,8 +2359,8 @@ main > section:not(.hero):not(.cta-banner) {
 }
 
 .job-card-details-toggle:hover {
-  border-color: #047857;
-  background: #ecfdf5;
+  border-color: #74c8b3;
+  background: #e7f2ef;
 }
 
 .job-card-details-toggle > span {
@@ -2355,14 +2396,14 @@ main > section:not(.hero):not(.cta-banner) {
   align-items: center;
   gap: 0.4rem;
   margin-top: 0.6rem;
-  color: #065f46;
+  color: #11201c;
   font-size: 0.88rem;
   font-weight: 700;
   text-decoration: none;
 }
 
 .job-card-full-description:hover {
-  color: #064e3b;
+  color: #11201c;
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
@@ -2385,13 +2426,13 @@ main > section:not(.hero):not(.cta-banner) {
 }
 
 :root[data-theme='dark'] .job-filter-pill:hover {
-  border-color: rgb(163 230 53 / 35%);
-  color: #d9f99d;
+  border-color: #74c8b3;
+  color: #74c8b3;
 }
 
 :root[data-theme='dark'] .job-filter-pill[aria-pressed='true'] {
-  background: #a3e635;
-  color: #09090b;
+  background: #74c8b3;
+  color: #11201c;
 }
 
 :root[data-theme='dark'] .job-employment-filter {
@@ -2411,7 +2452,7 @@ main > section:not(.hero):not(.cta-banner) {
 }
 
 :root[data-theme='dark'] .job-card:hover {
-  border-color: rgb(163 230 53 / 50%);
+  border-color: #74c8b3;
   box-shadow: 0 0.75rem 2rem rgb(0 0 0 / 24%);
 }
 
@@ -2422,9 +2463,9 @@ main > section:not(.hero):not(.cta-banner) {
 }
 
 :root[data-theme='dark'] .job-card-department {
-  border-color: rgb(163 230 53 / 35%);
-  background: rgb(163 230 53 / 10%);
-  color: #d9f99d;
+  border-color: rgb(116 200 179 / 50%);
+  background: rgb(116 200 179 / 12%);
+  color: #74c8b3;
 }
 
 :root[data-theme='dark'] .job-card-location {
@@ -2433,17 +2474,17 @@ main > section:not(.hero):not(.cta-banner) {
 
 :root[data-theme='dark'] .job-card-location svg,
 :root[data-theme='dark'] .job-card-full-description {
-  color: #a3e635;
+  color: #74c8b3;
 }
 
 :root[data-theme='dark'] .job-card-details-toggle {
   border-color: #3f3f46;
   background: #18181b;
-  color: #d9f99d;
+  color: #74c8b3;
 }
 
 :root[data-theme='dark'] .job-card-details-toggle:hover {
-  border-color: #a3e635;
+  border-color: #74c8b3;
   background: #27272a;
 }
 
@@ -2461,7 +2502,7 @@ main > section:not(.hero):not(.cta-banner) {
 }
 
 :root[data-theme='dark'] .job-card-full-description:hover {
-  color: #ecfccb;
+  color: #9cdecd;
 }
 
 :root[data-theme='dark'] .job-filter-empty {
@@ -2472,7 +2513,7 @@ main > section:not(.hero):not(.cta-banner) {
   display: inline-flex;
   min-height: 2.75rem;
   align-items: center;
-  color: var(--brand);
+  color: var(--brand-strong);
   font-weight: 700;
 }
 
@@ -2542,24 +2583,25 @@ main > section:not(.hero):not(.cta-banner) {
   --nav-text: #1e293b;
   --nav-muted: #475569;
   --nav-inactive: #475569;
-  --nav-inactive-hover: #064e3b;
+  --nav-inactive-hover: #11201c;
   --nav-chevron: #94a3b8;
-  --nav-accent: #065f46;
-  --nav-active-text: #ffffff;
-  --nav-cta-bg: #065f46;
-  --nav-cta-hover: #064e3b;
-  --nav-cta-text: #ffffff;
+  --nav-accent: #74c8b3;
+  --nav-accent-text: #11201c;
+  --nav-active-text: #11201c;
+  --nav-cta-bg: #74c8b3;
+  --nav-cta-hover: #9cdecd;
+  --nav-cta-text: #11201c;
   --nav-menu-bg: #ffffff;
   --nav-menu-card: #f8fafc;
-  --nav-menu-card-hover: #ecfdf5;
+  --nav-menu-card-hover: #e7f2ef;
   --nav-menu-card-border: #e2e8f0;
-  --nav-menu-hover: #064e3b;
-  --nav-menu-item-hover: #ecfdf5;
+  --nav-menu-hover: #11201c;
+  --nav-menu-item-hover: #e7f2ef;
   --nav-overlay: rgb(15 23 42 / 38%);
   --nav-menu-feature-bg:
-    radial-gradient(ellipse at 90% 10%, rgb(6 95 70 / 10%), transparent 50%),
-    linear-gradient(145deg, #f8fafc, #ecfdf5 72%);
-  --nav-menu-feature-border: #a7f3d0;
+    radial-gradient(ellipse at 90% 10%, rgb(116 200 179 / 14%), transparent 50%),
+    linear-gradient(145deg, #f8fafc, #e7f2ef 72%);
+  --nav-menu-feature-border: #74c8b3;
   --nav-menu-feature-text: #1e293b;
   --nav-menu-shadow: 0 1.5rem 3.5rem rgb(15 23 42 / 16%);
   --nav-menu-inset: inset 0 1px rgb(255 255 255 / 55%);
@@ -2590,25 +2632,36 @@ main > section:not(.hero):not(.cta-banner) {
   --nav-inactive: #d4d4d8;
   --nav-inactive-hover: #ffffff;
   --nav-chevron: #a1a1aa;
-  --nav-accent: #a3e635;
-  --nav-active-text: #000000;
-  --nav-cta-bg: #27272a;
-  --nav-cta-hover: #3f3f46;
-  --nav-cta-text: #ffffff;
+  --nav-accent: #74c8b3;
+  --nav-accent-text: #74c8b3;
+  --nav-active-text: #11201c;
+  --nav-cta-bg: #74c8b3;
+  --nav-cta-hover: #9cdecd;
+  --nav-cta-text: #11201c;
   --nav-menu-bg: #09090b;
   --nav-menu-card: #151518;
-  --nav-menu-card-hover: #181a16;
+  --nav-menu-card-hover: #1b302b;
   --nav-menu-card-border: rgb(255 255 255 / 8%);
   --nav-menu-hover: #ffffff;
   --nav-menu-item-hover: #27272a;
   --nav-overlay: rgb(0 0 0 / 55%);
   --nav-menu-feature-bg:
-    radial-gradient(ellipse at 90% 10%, rgb(163 230 53 / 14%), transparent 50%),
-    linear-gradient(145deg, #1a2016, #111311 72%);
-  --nav-menu-feature-border: rgb(163 230 53 / 28%);
+    radial-gradient(ellipse at 90% 10%, rgb(116 200 179 / 14%), transparent 50%),
+    linear-gradient(145deg, #1b302b, #111311 72%);
+  --nav-menu-feature-border: rgb(116 200 179 / 35%);
   --nav-menu-feature-text: #fafafa;
   --nav-menu-shadow: 0 1.5rem 3.5rem rgb(0 0 0 / 42%);
   --nav-menu-inset: inset 0 1px rgb(255 255 255 / 3%);
+}
+
+.site-header[data-theme='dark'] .brand-mark {
+  background: #74c8b3;
+  color: #11201c;
+}
+
+.site-header[data-theme='dark'] {
+  --theme-toggle-active: #74c8b3;
+  --theme-toggle-thumb: #11201c;
 }
 
 .header-inner {
@@ -2675,7 +2728,7 @@ main > section:not(.hero):not(.cta-banner) {
   font-size: 0.9rem;
   font-weight: 750;
   padding: 0.65rem 1.15rem;
-  box-shadow: 0 1px 2px rgb(6 95 70 / 12%);
+  box-shadow: 0 1px 2px rgb(17 32 28 / 12%);
   text-decoration: none;
   transition:
     transform 160ms ease,
@@ -2735,13 +2788,13 @@ main > section:not(.hero):not(.cta-banner) {
   width: 0.85rem;
   height: 0.85rem;
   border-radius: 50%;
-  background: var(--nav-menu-bg);
+  background: var(--theme-toggle-thumb, var(--nav-menu-bg));
   content: '';
   transition: transform 160ms ease;
 }
 
 .theme-toggle[aria-checked='true'] .theme-toggle-track {
-  background: var(--nav-accent);
+  background: var(--theme-toggle-active, var(--nav-accent));
 }
 
 .theme-toggle[aria-checked='true'] .theme-toggle-track::after {
@@ -2766,7 +2819,7 @@ main > section:not(.hero):not(.cta-banner) {
 }
 
 .header-call-link:hover {
-  color: var(--nav-accent);
+  color: var(--nav-accent-text);
   transform: scale(1.02);
 }
 
@@ -2949,7 +3002,7 @@ main > section:not(.hero):not(.cta-banner) {
 }
 
 .mega-menu-intro > a {
-  color: var(--nav-accent);
+  color: var(--nav-accent-text);
   font-weight: 700;
   text-decoration: none;
 }
@@ -2995,7 +3048,7 @@ main > section:not(.hero):not(.cta-banner) {
 .mega-menu-index {
   display: inline-block;
   margin-bottom: 0.8rem;
-  color: var(--nav-accent);
+  color: var(--nav-accent-text);
   font-size: 0.72rem;
   font-weight: 750;
   letter-spacing: 0.12em;
@@ -3049,55 +3102,10 @@ main > section:not(.hero):not(.cta-banner) {
   align-items: end;
   gap: 0.45rem;
   margin-top: 1rem;
-  color: var(--nav-accent);
+  color: var(--nav-accent-text);
   font-size: 0.82rem;
   font-weight: 700;
   text-decoration: none;
-}
-
-.industry-menu-content {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(12rem, 0.46fr);
-  gap: 0.8rem;
-}
-
-.industry-feature-card {
-  display: flex;
-  min-height: 100%;
-  flex-direction: column;
-  justify-content: end;
-  gap: 0.8rem;
-  border: 1px solid var(--nav-menu-feature-border);
-  border-radius: 1rem;
-  background: var(--nav-menu-feature-bg);
-  padding: 1.4rem;
-  color: var(--nav-menu-feature-text);
-  text-decoration: none;
-}
-
-.industry-feature-kicker {
-  color: var(--nav-accent);
-  font-size: 0.73rem;
-  font-weight: 750;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.industry-feature-card strong {
-  max-width: 12ch;
-  font-size: clamp(1.35rem, 1.7vw, 1.8rem);
-  letter-spacing: -0.035em;
-  line-height: 1.12;
-}
-
-.industry-feature-link {
-  color: var(--nav-muted);
-  font-size: 0.82rem;
-  font-weight: 650;
-}
-
-.industry-feature-card:hover .industry-feature-link {
-  color: var(--nav-accent);
 }
 
 .mobile-navigation-backdrop,
@@ -3277,7 +3285,7 @@ main > section:not(.hero):not(.cta-banner) {
 
   .mobile-submenu a:hover,
   .mobile-navigation-link:hover {
-    color: var(--nav-accent);
+    color: var(--nav-accent-text);
   }
 
   .mobile-submenu a:hover {
@@ -3340,7 +3348,7 @@ main > section:not(.hero):not(.cta-banner) {
 
   .theme-toggle::before {
     content: '◐';
-    color: var(--nav-accent);
+    color: var(--nav-accent-text);
     font-size: 1.1rem;
   }
 
@@ -3555,13 +3563,13 @@ main > section:not(.hero):not(.cta-banner) {
   }
 
   :root:not([data-theme='light']) .job-filter-pill:hover {
-    border-color: rgb(163 230 53 / 35%);
-    color: #d9f99d;
+      border-color: #74c8b3;
+      color: #74c8b3;
   }
 
   :root:not([data-theme='light']) .job-filter-pill[aria-pressed='true'] {
-    background: #a3e635;
-    color: #09090b;
+      background: #74c8b3;
+      color: #11201c;
   }
 
   :root:not([data-theme='light']) .job-employment-filter {
@@ -3581,7 +3589,7 @@ main > section:not(.hero):not(.cta-banner) {
   }
 
   :root:not([data-theme='light']) .job-card:hover {
-    border-color: rgb(163 230 53 / 50%);
+    border-color: #74c8b3;
     box-shadow: 0 0.75rem 2rem rgb(0 0 0 / 24%);
   }
 
@@ -3592,9 +3600,9 @@ main > section:not(.hero):not(.cta-banner) {
   }
 
   :root:not([data-theme='light']) .job-card-department {
-    border-color: rgb(163 230 53 / 35%);
-    background: rgb(163 230 53 / 10%);
-    color: #d9f99d;
+    border-color: rgb(116 200 179 / 50%);
+    background: rgb(116 200 179 / 12%);
+    color: #74c8b3;
   }
 
   :root:not([data-theme='light']) .job-card-location {
@@ -3603,17 +3611,17 @@ main > section:not(.hero):not(.cta-banner) {
 
   :root:not([data-theme='light']) .job-card-location svg,
   :root:not([data-theme='light']) .job-card-full-description {
-    color: #a3e635;
+    color: #74c8b3;
   }
 
   :root:not([data-theme='light']) .job-card-details-toggle {
     border-color: #3f3f46;
     background: #18181b;
-    color: #d9f99d;
+    color: #74c8b3;
   }
 
   :root:not([data-theme='light']) .job-card-details-toggle:hover {
-    border-color: #a3e635;
+    border-color: #74c8b3;
     background: #27272a;
   }
 
@@ -3631,7 +3639,7 @@ main > section:not(.hero):not(.cta-banner) {
   }
 
   :root:not([data-theme='light']) .job-card-full-description:hover {
-    color: #ecfccb;
+    color: #9cdecd;
   }
 
   :root:not([data-theme='light']) .job-filter-empty {

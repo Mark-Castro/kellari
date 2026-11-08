@@ -79,7 +79,9 @@ export default function NewsletterSignupForm() {
           tabIndex={-1}
           autoComplete="off"
         />
-        <label htmlFor="footer-newsletter-email-check">Leave this field empty</label>
+        <label htmlFor="footer-newsletter-email-check">
+          Leave this field empty
+        </label>
         <input
           id="footer-newsletter-email-check"
           type="email"

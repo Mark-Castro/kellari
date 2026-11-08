@@ -159,85 +159,100 @@ export const industryClusters = [
   {
     id: 'financial-systems',
     title: 'Financial Systems',
-    description: 'Organizations shaping and supporting financial services.',
+    description:
+      'Supporting financial institutions as regulation, technology and client expectations reshape the sector.',
     industries: [
       {
         id: 'financial-services',
         title: 'Financial Services',
-        description: 'Financial institutions and the systems that support them.',
+        description:
+          'Strategy, risk, compliance, digital and communications advisory for financial institutions.',
       },
     ],
   },
   {
     id: 'health-public-social-impact',
     title: 'Health, Public & Social Impact',
-    description: 'Services that support healthier, stronger communities.',
+    description:
+      'Helping organizations that deliver essential services to communities operate effectively and sustainably.',
     industries: [
       {
         id: 'healthcare-life-sciences',
         title: 'Healthcare & Life Sciences',
-        description: 'Healthcare providers, life sciences, and related organizations.',
+        description:
+          'Strategy, operations, digital, financial and communications support for healthcare and life-sciences organizations.',
       },
       {
         id: 'public-sector-government',
         title: 'Public Sector & Government',
-        description: 'Government bodies and public service organizations.',
+        description:
+          'Governance, service-delivery, digital and communications advisory for public institutions.',
       },
       {
         id: 'education-social-support',
         title: 'Education & Social Support',
-        description: 'Education providers and organizations delivering social support.',
+        description:
+          'Strategy, operations, funding-readiness and communications support for education and social-impact organizations.',
       },
     ],
   },
   {
     id: 'infrastructure-resources',
     title: 'Infrastructure & Resources',
-    description: 'The assets, networks, and resources communities rely on.',
+    description:
+      'Advising the organizations that build, power and move economies on long-term investment, resilience and sustainability.',
     industries: [
       {
         id: 'energy-utilities-natural-resources',
         title: 'Energy, Utilities & Natural Resources',
-        description: 'Organizations providing essential energy, utilities, and resources.',
+        description:
+          'Strategy, financial, ESG and stakeholder-communications advisory for energy, utilities and natural-resource organizations.',
       },
       {
         id: 'real-estate-infrastructure',
         title: 'Real Estate & Infrastructure',
-        description: 'Organizations developing and managing places and infrastructure.',
+        description:
+          'Investment, financial, sustainability and marketing advisory for real-estate and infrastructure organizations.',
       },
       {
         id: 'transportation-logistics-travel-hospitality',
         title: 'Transportation, Logistics, Travel & Hospitality',
-        description: 'Organizations moving people and goods and welcoming travelers.',
+        description:
+          'Strategy, digital, financial and marketing advisory for organizations that move people and goods and welcome guests.',
       },
     ],
   },
   {
     id: 'consumer-technology',
     title: 'Consumer & Technology',
-    description: 'Businesses serving consumers and connecting a digital world.',
+    description:
+      'Guiding consumer and technology businesses through fast-moving markets where customer attention is hard won.',
     industries: [
       {
         id: 'consumer-retail-personal-consumer-goods',
         title: 'Consumer, Retail & Personal/Consumer Goods',
-        description: 'Consumer-facing brands, retailers, and product businesses.',
+        description:
+          'Market insight, brand, digital and financial advisory for retailers and consumer-goods companies.',
       },
       {
         id: 'technology-media-telecommunications',
         title: 'Technology, Media & Telecommunications',
-        description: 'Organizations building technology and delivering media and connectivity.',
+        description:
+          'Growth, digital, security, financial and communications advisory for technology, media and telecoms companies.',
       },
     ],
   },
   {
     id: 'growth-stage-professional',
     title: 'Growth-Stage & Professional',
-    description: 'Ambitious smaller businesses and professional organizations.',
+    description:
+      'Equipping growing businesses and professional firms with the structure, finance and visibility to scale.',
     industries: [
       {
         id: 'smes-startups-professional-services',
         title: 'SMEs, Startups & Professional Services',
-        description: 'Growing businesses, startups, and professional service firms.',
+        description:
+          'End-to-end support for growing businesses and professional firms, from strategy and finance to branding and marketing.',
       },
     ],
   },

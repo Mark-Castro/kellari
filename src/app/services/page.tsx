@@ -32,7 +32,7 @@ export default function ServicesPage() {
           credibility.
         </p>
         <p>
-          Kelari Group brings these disciplines together. Our specialists work
+          KELARI GROUP LLC brings these disciplines together. Our specialists work
           across practice areas so you receive joined-up advice and a single
           point of accountability.
         </p>
@@ -92,7 +92,7 @@ export default function ServicesPage() {
           Many clients engage more than one practice area. For example, a
           growing business may combine SME & Growth Advisory with Bookkeeping &
           Financial Reporting Support and Digital Marketing, all coordinated by
-          one Kelari Group lead.
+          one KELARI GROUP LLC lead.
         </p>
       </section>
       <CTABanner
