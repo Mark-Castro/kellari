@@ -6,6 +6,7 @@ import Footer from '../components/layout/footer';
 import FloatingWhatsAppLink from '../components/layout/floating-whatsapp-link';
 import Navbar from '../components/navigation/Navbar';
 import PageTransition from '../components/motion/page-transition';
+import SmoothScrollProvider from '../components/providers/SmoothScrollProvider';
 import { THEME_BOOTSTRAP_SCRIPT } from '../lib/theme';
 import './globals.css';
 
@@ -25,12 +26,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
       </head>
       <body>
-        <Navbar />
-        <PageTransition>{children}</PageTransition>
-        <Footer />
-        <FloatingWhatsAppLink />
-        <CookieConsentBanner />
-        <GoogleAnalytics />
+        <SmoothScrollProvider>
+          <Navbar />
+          <PageTransition>{children}</PageTransition>
+          <Footer />
+          <FloatingWhatsAppLink />
+          <CookieConsentBanner />
+          <GoogleAnalytics />
+        </SmoothScrollProvider>
       </body>
     </html>
   );

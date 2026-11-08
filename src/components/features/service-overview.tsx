@@ -1,5 +1,5 @@
 import SectionHeading from '../ui/section-heading';
-import Reveal from '../motion/reveal';
+import Reveal, { type RevealVariant } from '../motion/reveal';
 import Link from 'next/link';
 
 type ServiceItem = {
@@ -17,16 +17,18 @@ type ServiceOverviewProps = {
   title?: string;
   description?: string;
   items: ServiceItem[];
+  revealVariant?: RevealVariant;
 };
 
 export default function ServiceOverview({
   title = 'Our Services',
   description,
   items,
+  revealVariant,
 }: ServiceOverviewProps) {
   return (
     <section className="service-overview">
-      <Reveal duration={0.48}>
+      <Reveal duration={0.48} variant={revealVariant}>
         <SectionHeading title={title} description={description} />
       </Reveal>
       <div>
@@ -37,6 +39,7 @@ export default function ServiceOverview({
             interactive
             key={item.title}
             staggerIndex={index}
+            variant={revealVariant}
           >
             <h3>{item.title}</h3>
             {item.description ? <p>{item.description}</p> : null}

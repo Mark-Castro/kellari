@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "lenis/dist/lenis.css";
 
 @custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
 
@@ -140,7 +141,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
   scroll-padding-top: 6rem;
 }
 
@@ -212,7 +212,7 @@ p {
   max-width: 72ch;
 }
 
-main > section:not(.hero):not(.cta-banner) {
+main > section:not(.hero):not(.cta-banner):not(.home-motion-section):not(.industries-motion-section) {
   margin-inline: auto;
   max-width: var(--content-width);
   padding: clamp(2.5rem, 5vw, 4.5rem) var(--page-gutter);
