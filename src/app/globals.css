@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "lenis/dist/lenis.css";
 
 @custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
 
@@ -140,7 +141,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
   scroll-padding-top: 6rem;
 }
 
@@ -212,7 +212,7 @@ p {
   max-width: 72ch;
 }
 
-main > section:not(.hero):not(.cta-banner) {
+main > section:not(.hero):not(.cta-banner):not(.home-motion-section):not(.industries-motion-section) {
   margin-inline: auto;
   max-width: var(--content-width);
   padding: clamp(2.5rem, 5vw, 4.5rem) var(--page-gutter);
@@ -882,6 +882,26 @@ main > section:not(.hero):not(.cta-banner) {
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 0.75rem 0.65rem;
   margin: 0;
+}
+
+.footer-newsletter-signup {
+  display: grid;
+  justify-items: start;
+  gap: 0.85rem;
+}
+
+.footer-newsletter-signup .footer-newsletter-note {
+  margin: 0;
+}
+
+.footer-newsletter-submit {
+  gap: 0.45rem;
+  border-radius: 0.2rem;
+}
+
+.footer-newsletter-submit:focus-visible {
+  outline: 3px solid #e1b977;
+  outline-offset: 3px;
 }
 
 .footer-newsletter input {

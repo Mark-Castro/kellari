@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import CTABanner from '../../components/features/cta-banner';
-import Hero from '../../components/features/hero';
-import ServiceOverview from '../../components/features/service-overview';
+import PracticeAreasGrid from '../../components/services/PracticeAreasGrid';
+import ProcessSection from '../../components/services/ProcessSection';
+import ServicesHero from '../../components/services/ServicesHero';
 import {
   getServiceHref,
   serviceCategories,
@@ -14,16 +15,7 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <main>
-      <Hero
-        breadcrumbs={[
-          { label: 'Home', href: '/' },
-          { label: 'Services' },
-        ]}
-        eyebrow="Services"
-        title="Services built around your priorities"
-        description="Nineteen specialist services across four practice areas, delivered independently or as one coordinated engagement."
-        primaryAction={{ label: 'Speak with an advisor', href: '/contact' }}
-      />
+      <ServicesHero />
       <section className="service-page-overview" aria-label="Introduction">
         <p>
           The challenges organizations face rarely sit in one discipline. A
@@ -37,52 +29,18 @@ export default function ServicesPage() {
           point of accountability.
         </p>
       </section>
-      <ServiceOverview
-        title="Practice areas"
-        items={serviceCategories.map((category) => ({
+      <PracticeAreasGrid
+        areas={serviceCategories.map((category) => ({
           title: category.shortTitle,
           description: category.description,
           href: category.href,
-          itemCount: category.services.length,
-          serviceHighlights: category.services.map((service) => ({
+          services: category.services.map((service) => ({
             title: service.title,
             href: getServiceHref(service.title),
           })),
         }))}
       />
-      <section className="services-approach">
-        <div>
-          <p className="eyebrow">How we work</p>
-          <h2>A clear, collaborative approach</h2>
-        </div>
-        <ol className="services-steps">
-          <li>
-            <h3>Understand</h3>
-            <p>We start with your objectives, context, and constraints.</p>
-          </li>
-          <li>
-            <h3>Assess</h3>
-            <p>
-              We analyze where you are today and identify the opportunities and
-              risks.
-            </p>
-          </li>
-          <li>
-            <h3>Recommend</h3>
-            <p>
-              We set out clear, practical options, with the reasoning behind
-              each.
-            </p>
-          </li>
-          <li>
-            <h3>Deliver</h3>
-            <p>
-              We support implementation and measure results against agreed
-              goals.
-            </p>
-          </li>
-        </ol>
-      </section>
+      <ProcessSection />
       <section className="services-approach services-integrated">
         <div>
           <p className="eyebrow">Integrated solutions</p>
