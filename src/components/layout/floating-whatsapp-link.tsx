@@ -9,7 +9,7 @@ export default function FloatingWhatsAppLink() {
       href={whatsappChatLink}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Chat with KELARI GROUP LLC on WhatsApp (opens in a new tab)"
+      aria-label="Chat with Kelari Group on WhatsApp (opens in a new tab)"
     >
       <svg viewBox="0 0 32 32" aria-hidden="true">
         <path

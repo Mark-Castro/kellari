@@ -64,7 +64,7 @@ export default function NewsletterSignupForm() {
     <form
       className="footer-newsletter"
       onSubmit={handleSubmit}
-      aria-label="Subscribe to Kelari Group LLC insights"
+      aria-label="Subscribe to Kelari Group insights"
     >
       <label className="visually-hidden" htmlFor="footer-newsletter-email">
         Email address
@@ -108,7 +108,7 @@ export default function NewsletterSignupForm() {
         </p>
       ) : (
         <p className="footer-newsletter-note">
-          By subscribing, you agree to receive Kelari Group LLC email updates.
+          By subscribing, you agree to receive Kelari Group email updates.
           Mailchimp will send a confirmation email. You can unsubscribe at any
           time. See our <a href="/privacy-policy">Privacy Policy</a>.
         </p>

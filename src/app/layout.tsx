@@ -12,7 +12,7 @@ import { THEME_BOOTSTRAP_SCRIPT } from '../lib/theme';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'KELARI GROUP LLC',
+  title: 'Kelari Group',
   description: 'Corporate website scaffold',
 };
 

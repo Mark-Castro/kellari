@@ -11,7 +11,7 @@ import { getLatestInsights, getStrapiMediaUrl } from '../lib/strapi';
 export const metadata: Metadata = {
   title: 'Kelari Group | Strategy, Financial & Advisory Services',
   description:
-    'KELARI GROUP LLC is an advisory firm delivering integrated strategy, financial, sustainability and communications expertise to help organizations grow.',
+    'Kelari Group is an advisory firm delivering integrated strategy, financial, sustainability and communications expertise to help organizations grow.',
 };
 
 const differencePillars = [

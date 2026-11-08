@@ -104,7 +104,7 @@ export default function Hero() {
             variants={revealVariants}
             className="mt-6 max-w-2xl text-base leading-7 text-slate-600 dark:text-zinc-300 sm:text-lg sm:leading-8"
           >
-            KELARI GROUP LLC helps organizations navigate complexity, unlock
+            Kelari Group helps organizations navigate complexity, unlock
             growth and build lasting value across strategy, finance,
             sustainability and communications.
           </motion.p>

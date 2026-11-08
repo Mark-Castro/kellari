@@ -39,7 +39,7 @@ export default function ContactPage() {
         <aside className="h-fit rounded-2xl border border-slate-200 bg-white p-6 text-slate-900 shadow-xl shadow-slate-950/10 dark:border-zinc-800 dark:bg-zinc-900 dark:text-white sm:p-8 lg:mt-2">
           <div className="mb-8">
             <p className="mb-2 text-sm font-semibold uppercase tracking-[0.16em] text-black dark:text-[#74c8b3]">
-              KELARI GROUP LLC
+              Kelari Group
             </p>
             <h2 className="text-2xl font-semibold tracking-tight !text-black dark:!text-[#74c8b3]">
               Direct access to our team
