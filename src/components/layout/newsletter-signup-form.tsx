@@ -1,119 +1,110 @@
-'use client';
-
-import { useState, type FormEvent } from 'react';
-
-type NewsletterResponse = {
-  message?: unknown;
-  error?: unknown;
+type MailchimpFormConfig = {
+  action: string;
+  audienceId: string;
+  userId: string;
 };
 
-export default function NewsletterSignupForm() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [message, setMessage] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
+function getMailchimpFormConfig(): MailchimpFormConfig | null {
+  const configuredUrl = process.env.NEXT_PUBLIC_MAILCHIMP_SIGNUP_FORM_URL?.trim();
+  if (!configuredUrl) return null;
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setIsSubmitting(true);
-    setMessage(null);
-    setError(null);
-
-    const form = event.currentTarget;
-    const formData = new FormData(form);
-    try {
-      const response = await fetch('/api/newsletter', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: formData.get('email'),
-          consent: formData.get('newsletter-consent') === 'on',
-          website: formData.get('website'),
-        }),
-      });
-      const result = (await response.json()) as NewsletterResponse;
-
-      if (!response.ok) {
-        setError(
-          typeof result.error === 'string'
-            ? result.error
-            : 'We could not process your signup. Please try again.',
-        );
-        return;
-      }
-
-      setMessage(
-        typeof result.message === 'string'
-          ? result.message
-          : 'Please check your email to confirm your subscription.',
-      );
-      form.reset();
-    } catch (requestError) {
-      console.error('Unable to submit newsletter signup:', requestError);
-      setError(
-        'We could not connect to the newsletter service. Please try again later.',
-      );
-    } finally {
-      setIsSubmitting(false);
+  try {
+    const url = new URL(configuredUrl);
+    if (
+      url.protocol !== 'https:' ||
+      !/^[a-z0-9-]+\.list-manage\.com$/i.test(url.hostname)
+    ) {
+      return null;
     }
+
+    const userId = url.searchParams.get('u');
+    const audienceId = url.searchParams.get('id');
+    if (
+      !userId ||
+      !audienceId ||
+      !/^[a-z0-9]+$/i.test(userId) ||
+      !/^[a-z0-9]+$/i.test(audienceId)
+    ) {
+      return null;
+    }
+
+    const action = new URL('/subscribe/post', `https://gmail.${url.hostname}`);
+    action.searchParams.set('u', userId);
+    action.searchParams.set('id', audienceId);
+
+    return { action: action.toString(), audienceId, userId };
+  } catch {
+    return null;
+  }
+}
+
+export default function NewsletterSignupForm() {
+  const formConfig = getMailchimpFormConfig();
+
+  if (!formConfig) {
+    return (
+      <p className="footer-newsletter-error" role="status">
+        Newsletter signup is temporarily unavailable. Please try again later.
+      </p>
+    );
   }
 
   return (
-    <>
-      <form
-        className="footer-newsletter"
-        onSubmit={handleSubmit}
-        aria-label="Subscribe to Kelari Group LLC insights"
-      >
-        <label className="visually-hidden" htmlFor="footer-newsletter-email">
-          Email address
-        </label>
+    <form
+      className="footer-newsletter"
+      action={formConfig.action}
+      method="post"
+      target="_blank"
+      rel="noopener"
+      aria-label="Subscribe to Kelari Group LLC insights"
+    >
+      <label className="visually-hidden" htmlFor="footer-newsletter-email">
+        Email address
+      </label>
+      <input
+        id="footer-newsletter-email"
+        type="email"
+        name="MERGE0"
+        autoComplete="email"
+        placeholder="Your email address"
+        maxLength={254}
+        required
+      />
+      <div className="mailchimp-honeypot" aria-hidden="true">
+        <label htmlFor="footer-newsletter-name">Leave this field empty</label>
         <input
-          id="footer-newsletter-email"
-          type="email"
-          name="email"
-          autoComplete="email"
-          placeholder="Your email address"
-          maxLength={254}
-          required
-          disabled={isSubmitting}
-          aria-describedby="footer-newsletter-consent"
+          id="footer-newsletter-name"
+          type="text"
+          name="b_name"
+          tabIndex={-1}
+          autoComplete="off"
         />
-        <div className="newsletter-consent">
-          <input
-            id="footer-newsletter-consent"
-            type="checkbox"
-            name="newsletter-consent"
-            required
-            disabled={isSubmitting}
-          />
-          <label htmlFor="footer-newsletter-consent">
-            I agree to receive Kelari Group LLC email updates. I can unsubscribe at any
-            time. See our{' '}
-            <a href="/privacy-policy">Privacy Policy</a>.
-          </label>
-        </div>
-        <div className="mailchimp-honeypot" aria-hidden="true">
-          <label htmlFor="footer-newsletter-website">Leave this field empty</label>
-          <input
-            id="footer-newsletter-website"
-            type="text"
-            name="website"
-            tabIndex={-1}
-            autoComplete="off"
-          />
-        </div>
-        <button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? 'Submitting…' : 'Subscribe'}
-        </button>
-      </form>
-      <p className="footer-newsletter-note" role="status" aria-live="polite">
-        {message}
+        <label htmlFor="footer-newsletter-email-check">Leave this field empty</label>
+        <input
+          id="footer-newsletter-email-check"
+          type="email"
+          name="b_email"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+      <input type="hidden" name="u" value={formConfig.userId} />
+      <input type="hidden" name="id" value={formConfig.audienceId} />
+      <input type="hidden" name="mc_signupsource" value="hosted" />
+      <button
+        className="footer-newsletter-submit"
+        type="submit"
+        name="submit"
+        value="Subscribe"
+      >
+        Subscribe
+      </button>
+      <p className="footer-newsletter-note">
+        By subscribing, you agree to receive Kelari Group LLC email updates.
+        Mailchimp will open in a new tab and send a confirmation email. You can
+        unsubscribe at any time. See our{' '}
+        <a href="/privacy-policy">Privacy Policy</a>.
       </p>
-      {error ? (
-        <p className="footer-newsletter-error" role="alert">
-          {error}
-        </p>
-      ) : null}
-    </>
+    </form>
   );
 }
