@@ -9,9 +9,9 @@ import ServiceDetailGrid from '../../../components/features/service-detail-grid'
 import { serviceCategories } from '../../../lib/navigation';
 
 export const metadata: Metadata = {
-  title: 'Creative Marketing & Communications',
+  title: 'Marketing & Communications | Kelari Group',
   description:
-    'Design, digital and communications expertise to strengthen your reputation and reach the audiences that matter.',
+    'Brand, web, PR, digital marketing and research services to strengthen your reputation and reach your audience.',
 };
 
 const category = serviceCategories[3];

@@ -9,7 +9,9 @@ import {
 } from '../../lib/navigation';
 
 export const metadata: Metadata = {
-  title: 'Services',
+  title: 'Services | Kelari Group',
+  description:
+    'Explore Kelari Group’s 19 advisory services across strategy, finance and tax, sustainability, and marketing and communications.',
 };
 
 export default function ServicesPage() {
@@ -24,14 +26,14 @@ export default function ServicesPage() {
           credibility.
         </p>
         <p>
-          KELARI GROUP LLC brings these disciplines together. Our specialists work
+          Kelari Group brings these disciplines together. Our specialists work
           across practice areas so you receive joined-up advice and a single
           point of accountability.
         </p>
       </section>
       <PracticeAreasGrid
         areas={serviceCategories.map((category) => ({
-          title: category.shortTitle,
+          title: category.title,
           description: category.description,
           href: category.href,
           services: category.services.map((service) => ({
@@ -50,7 +52,7 @@ export default function ServicesPage() {
           Many clients engage more than one practice area. For example, a
           growing business may combine SME & Growth Advisory with Bookkeeping &
           Financial Reporting Support and Digital Marketing, all coordinated by
-          one KELARI GROUP LLC lead.
+          one Kelari Group lead.
         </p>
       </section>
       <CTABanner

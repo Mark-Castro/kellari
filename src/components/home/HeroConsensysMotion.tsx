@@ -160,9 +160,9 @@ export default function HeroConsensysMotion() {
                 Insight that moves you forward.
               </h1>
               <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600 dark:text-zinc-300 sm:mt-5 sm:text-lg sm:leading-8">
-                KELARI GROUP LLC helps organizations navigate complexity,
-                unlock growth and build lasting value across strategy, finance,
-                sustainability and communications.
+                Kelari Group is an advisory firm helping organizations
+                navigate complexity, unlock growth and build lasting value
+                across strategy, finance, sustainability and communications.
               </p>
               <div className="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row sm:flex-wrap">
                 <Link

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
+import 'lenis/dist/lenis.css';
 import GoogleAnalytics from '../components/analytics/google-analytics';
 import CookieConsentBanner from '../components/layout/cookie-consent-banner';
 import Footer from '../components/layout/footer';

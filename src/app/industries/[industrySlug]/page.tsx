@@ -119,7 +119,7 @@ export default async function IndustryDetailPage({ params }: PageProps) {
             id="industry-support-heading"
             className="mb-8 text-3xl font-semibold tracking-tight text-slate-950 dark:text-white"
           >
-            How KELARI GROUP LLC helps
+            How Kelari Group helps
           </h2>
         </Reveal>
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -163,17 +163,16 @@ export default async function IndustryDetailPage({ params }: PageProps) {
               staggerIndex={index}
             >
               <h3 className="text-lg font-semibold text-slate-950 dark:text-white">
-                {expertise.title}
+                <Link
+                  className="rounded-sm underline-offset-4 hover:text-emerald-900 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800 dark:hover:text-[#74c8b3] dark:focus-visible:outline-lime-300"
+                  href={getServiceHref(expertise.title)}
+                >
+                  {expertise.title}
+                </Link>
               </h3>
               <p className="mt-2 leading-6 text-slate-600 dark:text-zinc-400">
                 {expertise.description}
               </p>
-              <Link
-                className="mt-4 inline-flex min-h-10 items-center font-semibold text-emerald-900 underline-offset-4 hover:underline dark:text-[#74c8b3]"
-                href={getServiceHref(expertise.title)}
-              >
-                Explore this service <span className="ml-1" aria-hidden="true">→</span>
-              </Link>
             </Reveal>
           ))}
         </div>
