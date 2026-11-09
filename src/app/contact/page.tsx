@@ -36,15 +36,15 @@ export default function ContactPage() {
           <ContactForm />
         </div>
 
-        <aside className="h-fit rounded-2xl border border-slate-200 bg-slate-950 p-6 text-white shadow-xl shadow-slate-950/10 dark:border-zinc-800 dark:bg-zinc-900 sm:p-8 lg:mt-2">
+        <aside className="h-fit rounded-2xl border border-slate-200 bg-white p-6 text-slate-900 shadow-xl shadow-slate-950/10 dark:border-zinc-800 dark:bg-zinc-900 dark:text-white sm:p-8 lg:mt-2">
           <div className="mb-8">
-            <p className="mb-2 text-sm font-semibold uppercase tracking-[0.16em] text-[#74c8b3]">
-              KELARI GROUP LLC
+            <p className="mb-2 text-sm font-semibold uppercase tracking-[0.16em] text-black dark:text-[#74c8b3]">
+              Kelari Group
             </p>
-            <h2 className="text-2xl font-semibold tracking-tight text-[#74c8b3] dark:text-[#74c8b3]">
+            <h2 className="text-2xl font-semibold tracking-tight !text-black dark:!text-[#74c8b3]">
               Direct access to our team
             </h2>
-            <p className="mt-3 leading-6 text-slate-300 dark:text-zinc-400">
+            <p className="mt-3 leading-6 text-slate-600 dark:text-zinc-400">
               Connect with us directly or arrange a conversation through the
               inquiry form.
             </p>
@@ -52,14 +52,14 @@ export default function ContactPage() {
 
           <dl className="grid gap-6">
             <div className="flex gap-4">
-              <span className="mt-0.5 grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/10 text-[#74c8b3]">
+              <span className="mt-0.5 grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-emerald-50 text-emerald-800 dark:bg-white/10 dark:text-[#74c8b3]">
                 <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
                   <path d="M12 21s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12Z" stroke="currentColor" strokeWidth="1.7" />
                   <circle cx="12" cy="9" r="2.3" stroke="currentColor" strokeWidth="1.7" />
                 </svg>
               </span>
               <div>
-                <dt className="text-sm font-medium text-slate-300 dark:text-zinc-400">
+                <dt className="text-sm font-medium text-slate-600 dark:text-zinc-400">
                   Headquarters
                 </dt>
                 <dd className="mt-1 leading-6">
@@ -69,13 +69,13 @@ export default function ContactPage() {
             </div>
 
             <div className="flex gap-4">
-              <span className="mt-0.5 grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/10 text-[#74c8b3]">
+              <span className="mt-0.5 grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-emerald-50 text-emerald-800 dark:bg-white/10 dark:text-[#74c8b3]">
                 <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
                   <path d="M7.2 3.8 10 7.5 8.3 9.2c1.2 2.4 3.1 4.3 5.5 5.5l1.7-1.7 3.7 2.8-.8 3.3c-.2.7-.8 1.1-1.5 1.1C9.8 19.7 4.3 14.2 3.8 7.1c0-.7.4-1.3 1.1-1.5l2.3-.8Z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
                 </svg>
               </span>
               <div>
-                <dt className="text-sm font-medium text-slate-300 dark:text-zinc-400">
+                <dt className="text-sm font-medium text-slate-600 dark:text-zinc-400">
                   Direct phone
                 </dt>
                 <dd className="mt-1">
@@ -91,14 +91,14 @@ export default function ContactPage() {
             </div>
 
             <div className="flex gap-4">
-              <span className="mt-0.5 grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/10 text-[#74c8b3]">
+              <span className="mt-0.5 grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-emerald-50 text-emerald-800 dark:bg-white/10 dark:text-[#74c8b3]">
                 <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
                   <rect x="3.5" y="5" width="17" height="14" rx="2" stroke="currentColor" strokeWidth="1.7" />
                   <path d="m4.5 7 7.5 5.5L19.5 7" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </span>
               <div>
-                <dt className="text-sm font-medium text-slate-300 dark:text-zinc-400">
+                <dt className="text-sm font-medium text-slate-600 dark:text-zinc-400">
                   Advisory email
                 </dt>
                 <dd className="mt-1 break-all">
@@ -116,7 +116,7 @@ export default function ContactPage() {
             </div>
 
             <div className="flex gap-4">
-              <span className="mt-0.5 grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/10 text-[#74c8b3]">
+              <span className="mt-0.5 grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-emerald-50 text-emerald-800 dark:bg-white/10 dark:text-[#74c8b3]">
                 <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
                   <circle cx="12" cy="12" r="8.5" stroke="currentColor" strokeWidth="1.7" />
                   <path d="M12 7v5l3.2 2" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
@@ -131,16 +131,16 @@ export default function ContactPage() {
             </div>
           </dl>
 
-          <div className="mt-8 flex gap-3 rounded-xl border border-[#74c8b3]/20 bg-[#74c8b3]/10 p-4">
+          <div className="mt-8 flex gap-3 rounded-xl border border-emerald-800/15 bg-emerald-50 p-4 dark:border-[#74c8b3]/20 dark:bg-[#74c8b3]/10">
             <svg viewBox="0 0 24 24" className="mt-0.5 h-5 w-5 shrink-0 text-[#74c8b3]" fill="none" aria-hidden="true">
               <path d="M12 3 19 6v5c0 4.5-2.9 8.2-7 10-4.1-1.8-7-5.5-7-10V6l7-3Z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
               <path d="m9 12 2 2 4-4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
             <div>
               <p className="font-semibold">Your privacy matters</p>
-              <p className="mt-1 text-sm leading-5 text-slate-300 dark:text-zinc-400">
+              <p className="mt-1 text-sm leading-5 text-slate-600 dark:text-zinc-400">
                 We use your details only to respond to your inquiry. Read our{' '}
-                <a className="underline underline-offset-2 hover:text-white" href="/privacy-policy">
+                <a className="underline underline-offset-2 hover:text-emerald-900 dark:hover:text-white" href="/privacy-policy">
                   Privacy Policy
                 </a>
                 .

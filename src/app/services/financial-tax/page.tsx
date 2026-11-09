@@ -10,9 +10,9 @@ import {
 import { serviceCategories } from '../../../lib/navigation';
 
 export const metadata: Metadata = {
-  title: 'Financial & Tax Advisory',
+  title: 'Financial & Tax Advisory | Kelari Group',
   description:
-    'Tax, financial planning and reporting expertise to keep you compliant, informed and positioned for long-term growth.',
+    'Tax, financial planning, risk and reporting expertise to keep your organization compliant and positioned for growth.',
 };
 
 const category = serviceCategories[1];

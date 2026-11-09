@@ -509,7 +509,7 @@ export default function Navbar() {
                   }
                 >
                     <div className="mobile-navigation-heading">
-                      <span>Explore KELARI GROUP LLC</span>
+                      <span>Explore Kelari Group</span>
                       <button
                         className="mobile-close-button"
                         type="button"

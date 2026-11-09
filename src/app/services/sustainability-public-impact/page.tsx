@@ -9,9 +9,9 @@ import ServiceDetailGrid from '../../../components/features/service-detail-grid'
 import { serviceCategories } from '../../../lib/navigation';
 
 export const metadata: Metadata = {
-  title: 'Sustainability & Public Impact',
+  title: 'Sustainability & Public Impact | Kelari Group',
   description:
-    'ESG and public-sector expertise to help organisations operate responsibly and institutions serve people more effectively.',
+    'ESG consulting and public-sector advisory to help organizations operate responsibly and serve people effectively.',
 };
 
 const category = serviceCategories[2];

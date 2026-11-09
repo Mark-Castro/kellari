@@ -10,6 +10,20 @@ import {
 import { useRef } from 'react';
 import { serviceCategories } from '../../lib/navigation';
 
+const homeServiceDescriptions: Record<
+  (typeof serviceCategories)[number]['href'],
+  string
+> = {
+  '/services/strategy-people-digital':
+    'Define direction, strengthen your organization and harness data, AI and secure technology to compete.',
+  '/services/financial-tax':
+    'Manage compliance, plan with confidence and protect long-term value with rigorous financial guidance.',
+  '/services/sustainability-public-impact':
+    'Meet evolving ESG expectations and help public institutions modernize how they govern and deliver.',
+  '/services/creative-marketing-communications':
+    'Build a credible brand and engage the audiences that matter through design, digital and PR.',
+};
+
 export default function ServicesSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
@@ -87,7 +101,7 @@ export default function ServicesSection() {
                 {category.title}
               </h3>
               <p className="mt-3 flex-1 leading-7 text-slate-600 dark:text-zinc-300">
-                {category.description}
+                {homeServiceDescriptions[category.href]}
               </p>
               <Link
                 href={category.href}

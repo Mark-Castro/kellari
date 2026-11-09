@@ -9,9 +9,9 @@ import ServiceDetailGrid from '../../../components/features/service-detail-grid'
 import { serviceCategories } from '../../../lib/navigation';
 
 export const metadata: Metadata = {
-  title: 'Strategy, People & Digital Transformation',
+  title: 'Strategy & Digital Transformation | Kelari Group',
   description:
-    'Strategy, organizational and digital expertise to help you set direction, build capability and compete in a technology-driven market.',
+    'Strategy, organizational and digital advisory, including AI, data analytics and cybersecurity, to help you lead change.',
 };
 
 const category = serviceCategories[0];

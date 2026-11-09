@@ -5,6 +5,13 @@ import { sendContactConfirmation } from '../../../lib/emailService';
 
 export const runtime = 'nodejs';
 
+const servicePillars = new Set([
+  'Strategy, People & Digital',
+  'Financial & Tax Advisory',
+  'Sustainability & ESG',
+  'Creative & Communications',
+]);
+
 const contactSchema = z
   .object({
     name: z.string().trim().max(150).optional(),
@@ -13,7 +20,15 @@ const contactSchema = z
     message: z.string().trim().min(1).max(10_000),
     company: z.string().trim().max(200).optional(),
     phone: z.string().trim().max(40).optional(),
-    service: z.string().trim().max(120).optional(),
+    service: z
+      .string()
+      .trim()
+      .max(120)
+      .optional()
+      .refine(
+        (service) => !service || servicePillars.has(service),
+        'Select a valid service pillar.',
+      ),
     website: z.string().max(500).optional(),
   })
   .strict();

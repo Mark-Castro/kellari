@@ -9,9 +9,9 @@ import Reveal from '../components/motion/reveal';
 import { getLatestInsights, getStrapiMediaUrl } from '../lib/strapi';
 
 export const metadata: Metadata = {
-  title: 'KELARI GROUP LLC | Strategy, Financial & Advisory Services',
+  title: 'Kelari Group | Strategy, Financial & Advisory Services',
   description:
-    'KELARI GROUP LLC is an advisory firm delivering integrated strategy, financial, sustainability and communications expertise to help organizations grow.',
+    'Kelari Group is an advisory firm delivering integrated strategy, financial, sustainability and communications expertise to help organizations grow.',
 };
 
 const differencePillars = [
@@ -49,6 +49,37 @@ export default async function HomePage() {
   return (
     <main>
       <HeroConsensysMotion />
+      <section
+        className="mx-auto max-w-7xl px-5 py-12 md:px-8 lg:px-12 lg:py-16"
+        aria-labelledby="home-introduction-heading"
+      >
+        <Reveal duration={0.48}>
+          <p className="eyebrow">Kelari Group</p>
+          <h2
+            id="home-introduction-heading"
+            className="text-3xl font-semibold tracking-tight text-slate-950 dark:text-white sm:text-4xl"
+          >
+            Integrated advisory for a changing world
+          </h2>
+          <p className="mt-4 max-w-3xl leading-7 text-slate-600 dark:text-zinc-400">
+            Organizations today face constant change: new technology, shifting
+            regulation, rising expectations around sustainability, and growing
+            pressure to perform. Kelari Group brings together the expertise to
+            meet these challenges in one coordinated team.
+          </p>
+          <p className="mt-4 max-w-3xl leading-7 text-slate-600 dark:text-zinc-400">
+            From high-growth startups to established enterprises and public
+            institutions, we partner with leaders to make informed decisions
+            and turn strategy into measurable results.
+          </p>
+          <Link
+            className="mt-5 inline-flex min-h-11 items-center gap-2 font-semibold text-emerald-900 hover:underline dark:text-[#74c8b3]"
+            href="/about"
+          >
+            About Kelari Group <span aria-hidden="true">→</span>
+          </Link>
+        </Reveal>
+      </section>
       <ServicesSection />
       <IndustriesSection />
       <section
@@ -56,12 +87,12 @@ export default async function HomePage() {
         aria-labelledby="home-difference-heading"
       >
         <Reveal duration={0.48}>
-          <p className="eyebrow">The KELARI GROUP LLC difference</p>
+          <p className="eyebrow">The Kelari Group difference</p>
           <h2
             id="home-difference-heading"
             className="mb-8 text-3xl font-semibold tracking-tight text-slate-950 dark:text-white sm:text-4xl"
           >
-            Why KELARI GROUP LLC
+            Why Kelari Group
           </h2>
         </Reveal>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -170,17 +201,16 @@ export default async function HomePage() {
         aria-labelledby="home-careers-heading"
       >
         <div>
-          <p className="eyebrow">Careers at KELARI GROUP LLC</p>
+          <p className="eyebrow">Careers</p>
           <h2
             id="home-careers-heading"
             className="text-3xl font-semibold tracking-tight text-slate-950 dark:text-white"
           >
-            Do work that moves organizations forward.
+            Careers at Kelari Group
           </h2>
           <p className="mt-3 leading-7 text-slate-600 dark:text-zinc-400">
-            Join a team where your expertise shapes meaningful outcomes for
-            clients. We welcome both permanent professionals and independent
-            consultants.
+            Join a team where your expertise shapes meaningful outcomes for clients.
+            We welcome both permanent professionals and independent consultants.
           </p>
         </div>
         <Link className="button" href="/careers">

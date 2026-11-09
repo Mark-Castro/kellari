@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
+import 'lenis/dist/lenis.css';
 import GoogleAnalytics from '../components/analytics/google-analytics';
 import CookieConsentBanner from '../components/layout/cookie-consent-banner';
 import Footer from '../components/layout/footer';
@@ -11,7 +12,7 @@ import { THEME_BOOTSTRAP_SCRIPT } from '../lib/theme';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'KELARI GROUP LLC',
+  title: 'Kelari Group',
   description: 'Corporate website scaffold',
 };
 

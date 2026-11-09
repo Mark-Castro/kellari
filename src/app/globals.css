@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "lenis/dist/lenis.css";
 
 @custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
 
@@ -7,6 +6,10 @@
   --color-brand: var(--brand);
   --color-brand-strong: var(--brand-strong);
   --color-brand-soft: var(--brand-soft);
+  --color-lime-200: #9cdecd;
+  --color-lime-300: #74c8b3;
+  --color-lime-400: #74c8b3;
+  --color-lime-500: #74c8b3;
   --color-accent: var(--accent);
   --color-on-brand: var(--on-brand);
   --color-ink: var(--ink);
@@ -67,7 +70,7 @@
   --brand-hover: #9cdecd;
   --brand-surface: #11201c;
   --brand-soft: #e7f2ef;
-  --accent: #b4772f;
+  --accent: #74c8b3;
   --on-brand: #11201c;
   --ink: #1b2c2a;
   --ink-muted: #586966;
@@ -93,7 +96,7 @@
   --brand-hover: #9cdecd;
   --brand-surface: #11201c;
   --brand-soft: #e7f2ef;
-  --accent: #b4772f;
+  --accent: #74c8b3;
   --on-brand: #11201c;
   --ink: #1b2c2a;
   --ink-muted: #586966;
@@ -109,7 +112,7 @@
   --brand-hover: #9cdecd;
   --brand-surface: #11201c;
   --brand-soft: #203b35;
-  --accent: #e1b977;
+  --accent: #74c8b3;
   --on-brand: #11201c;
   --ink: #edf3f0;
   --ink-muted: #b8c5c0;
@@ -126,7 +129,7 @@
     --brand-hover: #9cdecd;
     --brand-surface: #11201c;
     --brand-soft: #203b35;
-    --accent: #e1b977;
+    --accent: #74c8b3;
     --on-brand: #11201c;
     --ink: #edf3f0;
     --ink-muted: #b8c5c0;
@@ -223,7 +226,7 @@ main > section:not(.hero):not(.cta-banner):not(.home-motion-section):not(.indust
   isolation: isolate;
   overflow: hidden;
   background:
-    radial-gradient(ellipse at 82% 18%, rgb(183 119 47 / 17%), transparent 30%),
+    radial-gradient(ellipse at 82% 18%, rgb(116 200 179 / 17%), transparent 30%),
     linear-gradient(120deg, var(--brand-soft), var(--surface-raised) 72%);
   padding: clamp(4rem, 8vw, 7rem) var(--page-gutter);
 }
@@ -713,7 +716,7 @@ main > section:not(.hero):not(.cta-banner):not(.home-motion-section):not(.indust
   gap: 2rem;
   margin-top: clamp(2rem, 5vw, 4rem);
   background:
-    radial-gradient(ellipse at 95% 0%, rgb(225 185 119 / 14%), transparent 35%),
+    radial-gradient(ellipse at 95% 0%, rgb(116 200 179 / 14%), transparent 35%),
     var(--brand-surface);
   color: #fff;
   padding: clamp(2.5rem, 6vw, 5rem) max(var(--page-gutter), calc((100vw - var(--content-width)) / 2));
@@ -859,7 +862,7 @@ main > section:not(.hero):not(.cta-banner):not(.home-motion-section):not(.indust
 
 .footer-disclaimer {
   margin-bottom: 1.25rem;
-  border-left: 3px solid #e1b977;
+  border-left: 3px solid #74c8b3;
   background: rgb(255 255 255 / 6%);
   padding: 1rem;
 }
@@ -879,6 +882,7 @@ main > section:not(.hero):not(.cta-banner):not(.home-motion-section):not(.indust
 
 .footer-newsletter {
   display: grid;
+  width: 100%;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 0.75rem 0.65rem;
   margin: 0;
@@ -900,7 +904,7 @@ main > section:not(.hero):not(.cta-banner):not(.home-motion-section):not(.indust
 }
 
 .footer-newsletter-submit:focus-visible {
-  outline: 3px solid #e1b977;
+  outline: 3px solid #74c8b3;
   outline-offset: 3px;
 }
 
@@ -928,6 +932,11 @@ main > section:not(.hero):not(.cta-banner):not(.home-motion-section):not(.indust
 .footer-newsletter > button {
   grid-column: 2;
   grid-row: 1;
+}
+
+.footer-newsletter > .footer-newsletter-note,
+.footer-newsletter > .footer-newsletter-error {
+  grid-column: 1 / -1;
 }
 
 .footer-newsletter input::placeholder {
@@ -1308,7 +1317,7 @@ main > section:not(.hero):not(.cta-banner):not(.home-motion-section):not(.indust
 .footer-newsletter button:focus-visible,
 .footer-newsletter input:focus-visible,
 .footer-social a:focus-visible {
-  outline: 3px solid #e1b977;
+  outline: 3px solid #74c8b3;
   outline-offset: 3px;
 }
 
@@ -1353,11 +1362,11 @@ main > section:not(.hero):not(.cta-banner):not(.home-motion-section):not(.indust
 .footer-social-note {
   color: #c4d2cc;
   font-size: 0.82rem;
+  line-height: 1.55;
 }
 
 .footer-newsletter-note {
   margin: 0.65rem 0 0;
-  line-height: 1.55;
 }
 
 .footer-newsletter-note a {
@@ -1371,10 +1380,16 @@ main > section:not(.hero):not(.cta-banner):not(.home-motion-section):not(.indust
 }
 
 .footer-newsletter-error {
+  margin: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.footer-newsletter-error {
+  grid-column: 1 / -1;
   margin: 0.65rem 0 0;
-  color: #ffe1a8;
+  color: #9cdecd;
   font-size: 0.85rem;
-  line-height: 1.5;
 }
 
 .mailchimp-honeypot {
@@ -1467,14 +1482,14 @@ main > section:not(.hero):not(.cta-banner):not(.home-motion-section):not(.indust
 
 .footer-cookie-settings:focus-visible,
 .cookie-consent-banner button:focus-visible {
-  outline: 3px solid #e1b977;
+  outline: 3px solid #74c8b3;
   outline-offset: 3px;
 }
 
 .footer-cookie-settings-error {
   display: block;
   margin-top: 0.5rem;
-  color: #ffe1a8;
+  color: #9cdecd;
   font-size: 0.8rem;
 }
 
@@ -1527,7 +1542,7 @@ main > section:not(.hero):not(.cta-banner):not(.home-motion-section):not(.indust
 
 .cookie-consent-copy .cookie-consent-error {
   margin-top: 0.5rem;
-  color: #ffe1a8;
+  color: #9cdecd;
 }
 
 .cookie-consent-actions {
@@ -1798,7 +1813,7 @@ main > section:not(.hero):not(.cta-banner):not(.home-motion-section):not(.indust
   overflow: hidden;
   border-radius: 0.4rem;
   background:
-    radial-gradient(ellipse at 12% 100%, rgb(183 119 47 / 14%), transparent 36%),
+    radial-gradient(ellipse at 12% 100%, rgb(116 200 179 / 14%), transparent 36%),
     var(--brand-surface);
   color: #fff;
   padding: clamp(1.75rem, 5vw, 4rem);
@@ -1832,7 +1847,7 @@ main > section:not(.hero):not(.cta-banner):not(.home-motion-section):not(.indust
 
 .spotlight-cluster {
   margin: 0 0 0.6rem;
-  color: #e6c691;
+  color: #9cdecd;
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -1846,7 +1861,7 @@ main > section:not(.hero):not(.cta-banner):not(.home-motion-section):not(.indust
   gap: 0.5rem;
   color: #fff;
   font-weight: 700;
-  text-decoration-color: #e6c691;
+  text-decoration-color: #9cdecd;
 }
 
 .carousel-position {
@@ -1890,7 +1905,7 @@ main > section:not(.hero):not(.cta-banner):not(.home-motion-section):not(.indust
   place-items: center;
   overflow: hidden;
   background:
-    radial-gradient(circle at 70% 25%, rgb(225 185 119 / 50%), transparent 25%),
+    radial-gradient(circle at 70% 25%, rgb(116 200 179 / 50%), transparent 25%),
     linear-gradient(140deg, var(--brand), var(--brand-strong));
   color: rgb(255 255 255 / 82%);
 }
@@ -2041,7 +2056,7 @@ main > section:not(.hero):not(.cta-banner):not(.home-motion-section):not(.indust
   place-items: center;
   margin-bottom: 1.25rem;
   background:
-    radial-gradient(circle at 70% 25%, rgb(225 185 119 / 45%), transparent 25%),
+    radial-gradient(circle at 70% 25%, rgb(116 200 179 / 45%), transparent 25%),
     linear-gradient(140deg, var(--brand-soft), color-mix(in srgb, var(--brand) 24%, var(--surface)));
   color: var(--brand-strong);
   font-size: 4rem;
@@ -2561,15 +2576,15 @@ main > section:not(.hero):not(.cta-banner):not(.home-motion-section):not(.indust
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.25rem 0.5rem;
-  border-bottom: 1px solid #d6b958;
-  background: #fff3c4;
-  color: #332701;
+  border-bottom: 1px solid #74c8b3;
+  background: #e7f2ef;
+  color: #11201c;
   padding: 0.75rem var(--page-gutter);
   text-align: center;
 }
 
 .draft-preview-banner a {
-  color: #234f45;
+  color: #11201c;
   font-weight: 750;
   text-decoration: underline;
   text-underline-offset: 0.15em;
@@ -3024,7 +3039,7 @@ main > section:not(.hero):not(.cta-banner):not(.home-motion-section):not(.indust
 }
 
 .industries-menu-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 .mega-menu-group {
@@ -3510,6 +3525,11 @@ main > section:not(.hero):not(.cta-banner):not(.home-motion-section):not(.indust
   .footer-newsletter > button {
     grid-row: 3;
     width: 100%;
+  }
+
+  .footer-newsletter > .footer-newsletter-note,
+  .footer-newsletter > .footer-newsletter-error {
+    grid-row: 4;
   }
 }
 
