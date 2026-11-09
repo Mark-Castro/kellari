@@ -328,8 +328,22 @@ export default function Navbar() {
         <Link
           className="brand"
           href="/"
+          prefetch={true}
           aria-label="KELARI GROUP LLC home"
-          onClick={closeNavigation}
+          onClick={(event) => {
+            closeNavigation();
+            if (
+              pathname === '/' &&
+              event.button === 0 &&
+              !event.metaKey &&
+              !event.ctrlKey &&
+              !event.shiftKey &&
+              !event.altKey
+            ) {
+              event.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'instant' });
+            }
+          }}
         >
           <span className="brand-mark" aria-hidden="true">
             K

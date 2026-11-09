@@ -36,17 +36,18 @@ function TransitionContent({ children }: PageTransitionProps) {
   const pathname = usePathname();
   const reduceMotion = useReducedMotion();
   const previousPathname = useRef(pathname);
+  const isHomePage = pathname === '/';
 
   return (
-    <AnimatePresence mode="wait" initial={false}>
+    <AnimatePresence initial={false}>
       <motion.div
         key={pathname}
-        initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+        initial={reduceMotion || isHomePage ? false : { opacity: 0, y: 8 }}
         animate={{
           opacity: 1,
           y: 0,
           transition: {
-            duration: reduceMotion ? 0.1 : 0.24,
+            duration: reduceMotion || isHomePage ? 0 : 0.24,
             ease: [0.22, 1, 0.36, 1],
           },
         }}
