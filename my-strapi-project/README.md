@@ -88,6 +88,23 @@ The local default is `http://localhost:1337`. Since submissions are forwarded
 server-to-server, Strapi CORS does not need to allow the browser's origin and
 no Strapi API token is exposed to the browser.
 
+## Contact inquiries
+
+The Next.js `POST /api/contact` route validates website contact requests,
+persists them to the Strapi `Contact Inquiry` collection at
+`/api/user-queries`, and only then sends a confirmation email through Resend.
+Configure `CMS_API_URL`, `CMS_API_TOKEN`, `RESEND_API_KEY`, and
+`RESEND_FROM_EMAIL` in the frontend `.env.local`. Create a restricted Strapi
+Content API token with **create-only** permission for Contact Inquiry; do not
+grant public read permissions.
+
+When testing with Resend's `onboarding@resend.dev` sender, the recipient must
+be the email address verified for the Resend account. Configure a verified
+sender domain before sending confirmations to arbitrary website visitors. If
+CMS persistence fails, no email is sent. If email delivery fails after the
+inquiry is persisted, the endpoint responds with `207` and the saved CMS entry
+ID so the user submission is not lost.
+
 Run Strapi with Node.js 22.19.0 or newer; `.nvmrc` pins 22.19.0 for local
 development. After the server is ready, create an administrator and manage
 Insights and Careers entries in the Content Manager. Publish entries to make

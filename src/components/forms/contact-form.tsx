@@ -29,6 +29,7 @@ function getErrorMessage(body: unknown) {
 export default function ContactForm() {
   const [submitting, setSubmitting] = useState(false);
   const [submissionSucceeded, setSubmissionSucceeded] = useState(false);
+  const [emailConfirmationFailed, setEmailConfirmationFailed] = useState(false);
   const [statusMessage, setStatusMessage] = useState('');
   const shouldReduceMotion = useReducedMotion();
 
@@ -64,6 +65,7 @@ export default function ContactForm() {
         return;
       }
 
+      setEmailConfirmationFailed(response.status === 207);
       setSubmissionSucceeded(true);
     } catch {
       setStatusMessage(
@@ -101,8 +103,9 @@ export default function ContactForm() {
           Inquiry received
         </h2>
         <p className="mt-3 max-w-xl leading-7 text-slate-600 dark:text-zinc-400">
-          Thank you for reaching out. A Kelari partner will respond within 24
-          hours.
+          {emailConfirmationFailed
+            ? 'Your inquiry was saved, but we could not send the confirmation email. A Kelari partner will respond within 24 hours.'
+            : 'Thank you for reaching out. A Kelari partner will respond within 24 hours.'}
         </p>
       </section>
     );
