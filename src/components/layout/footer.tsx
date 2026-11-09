@@ -128,8 +128,8 @@ export default function Footer() {
             </p>
           </aside>
           <ul className="footer-legal-links">
-            <li><Link href="/privacy-policy">Privacy policy</Link></li>
-            <li><Link href="/terms-of-service">Terms of service</Link></li>
+            <li><Link href="/privacy">Privacy policy</Link></li>
+            <li><Link href="/terms">Terms and conditions</Link></li>
             <li><CookieSettingsTrigger /></li>
             <li>
               <a
