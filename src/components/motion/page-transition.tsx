@@ -1,6 +1,6 @@
 'use client';
 
-import { AnimatePresence, MotionConfig, motion, useReducedMotion } from 'framer-motion';
+import { MotionConfig, motion, useReducedMotion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import type { MutableRefObject, ReactNode } from 'react';
 import { useEffect, useRef } from 'react';
@@ -39,28 +39,21 @@ function TransitionContent({ children }: PageTransitionProps) {
   const isHomePage = pathname === '/';
 
   return (
-    <AnimatePresence initial={false}>
-      <motion.div
-        key={pathname}
-        initial={reduceMotion || isHomePage ? false : { opacity: 0, y: 8 }}
-        animate={{
-          opacity: 1,
-          y: 0,
-          transition: {
-            duration: reduceMotion || isHomePage ? 0 : 0.24,
-            ease: [0.22, 1, 0.36, 1],
-          },
-        }}
-        exit={
-          reduceMotion
-            ? undefined
-            : { opacity: 0, transition: { duration: 0.16, ease: [0.22, 1, 0.36, 1] } }
-        }
-      >
-        <RouteFocus pathname={pathname} previousPathname={previousPathname} />
-        {children}
-      </motion.div>
-    </AnimatePresence>
+    <motion.div
+      key={pathname}
+      initial={reduceMotion || isHomePage ? false : { opacity: 0, y: 8 }}
+      animate={{
+        opacity: 1,
+        y: 0,
+        transition: {
+          duration: reduceMotion || isHomePage ? 0 : 0.24,
+          ease: [0.22, 1, 0.36, 1],
+        },
+      }}
+    >
+      <RouteFocus pathname={pathname} previousPathname={previousPathname} />
+      {children}
+    </motion.div>
   );
 }
 

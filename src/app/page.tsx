@@ -45,7 +45,7 @@ export default function HomePage() {
         className="mx-auto max-w-7xl px-5 py-12 md:px-8 lg:px-12 lg:py-16"
         aria-labelledby="home-introduction-heading"
       >
-        <Reveal duration={0.48}>
+        <Reveal duration={0.48} variant="homepage">
           <p className="eyebrow">Kelari Group</p>
           <h2
             id="home-introduction-heading"
@@ -78,7 +78,7 @@ export default function HomePage() {
         className="mx-auto max-w-7xl px-5 py-12 md:px-8 lg:px-12 lg:py-16"
         aria-labelledby="home-difference-heading"
       >
-        <Reveal duration={0.48}>
+        <Reveal duration={0.48} variant="homepage">
           <p className="eyebrow">The Kelari Group difference</p>
           <h2
             id="home-difference-heading"
@@ -95,6 +95,7 @@ export default function HomePage() {
               className="rounded-xl border border-slate-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900"
               duration={0.48}
               staggerIndex={index}
+              variant="homepage"
             >
               <span className="grid h-10 w-10 place-items-center rounded-full bg-emerald-100 font-semibold text-emerald-900 dark:bg-[#74c8b3]/15 dark:text-[#74c8b3]">
                 {String(index + 1).padStart(2, '0')}
@@ -110,7 +111,12 @@ export default function HomePage() {
         </div>
       </section>
       <section className="latest-insights" aria-labelledby="latest-insights-heading">
-        <Reveal as="div" className="latest-insights-header" duration={0.48}>
+        <Reveal
+          as="div"
+          className="latest-insights-header"
+          duration={0.48}
+          variant="homepage"
+        >
           <div>
             <p className="eyebrow">Ideas and perspectives</p>
             <h2 id="latest-insights-heading">Insights</h2>

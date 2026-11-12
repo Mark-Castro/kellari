@@ -28,6 +28,7 @@ export default async function HomeLatestInsights() {
             latestInsights.articles[0].coverImage?.alternativeText ??
             latestInsights.articles[0].title
           }
+          variant="homepage"
         />
       ) : latestInsights.unavailable ? (
         <p role="status">
@@ -45,6 +46,7 @@ export default async function HomeLatestInsights() {
               className="rounded-xl border border-slate-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900"
               duration={0.48}
               staggerIndex={index}
+              variant="homepage"
             >
               <p className="eyebrow">{article.category ?? 'Insights'}</p>
               {article.publishedAt ? (
