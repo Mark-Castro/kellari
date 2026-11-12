@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import Link from 'next/link';
 import CTABanner from '../components/features/cta-banner';
 import HeroConsensysMotion from '../components/home/HeroConsensysMotion';
+import HomeLatestInsights from '../components/home/HomeLatestInsights';
 import ServicesSection from '../components/home/ServicesSection';
 import IndustriesSection from '../components/home/IndustriesSection';
-import LatestInsightPreview from '../components/features/latest-insight-preview';
 import Reveal from '../components/motion/reveal';
-import { getLatestInsights, getStrapiMediaUrl } from '../lib/strapi';
 
 export const metadata: Metadata = {
   title: 'Kelari Group | Strategy, Financial & Advisory Services',
@@ -37,15 +37,7 @@ const differencePillars = [
   },
 ];
 
-export default async function HomePage() {
-  const latestInsights = await getLatestInsights(4).then(
-    (insights) => ({ articles: insights, unavailable: false }),
-    (error: unknown) => {
-      console.error('Unable to load the latest Insight from Strapi:', error);
-      return { articles: [], unavailable: true };
-    },
-  );
-
+export default function HomePage() {
   return (
     <main>
       <HeroConsensysMotion />
@@ -53,7 +45,7 @@ export default async function HomePage() {
         className="mx-auto max-w-7xl px-5 py-12 md:px-8 lg:px-12 lg:py-16"
         aria-labelledby="home-introduction-heading"
       >
-        <Reveal duration={0.48}>
+        <Reveal duration={0.48} variant="homepage">
           <p className="eyebrow">Kelari Group</p>
           <h2
             id="home-introduction-heading"
@@ -86,7 +78,7 @@ export default async function HomePage() {
         className="mx-auto max-w-7xl px-5 py-12 md:px-8 lg:px-12 lg:py-16"
         aria-labelledby="home-difference-heading"
       >
-        <Reveal duration={0.48}>
+        <Reveal duration={0.48} variant="homepage">
           <p className="eyebrow">The Kelari Group difference</p>
           <h2
             id="home-difference-heading"
@@ -103,6 +95,7 @@ export default async function HomePage() {
               className="rounded-xl border border-slate-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900"
               duration={0.48}
               staggerIndex={index}
+              variant="homepage"
             >
               <span className="grid h-10 w-10 place-items-center rounded-full bg-emerald-100 font-semibold text-emerald-900 dark:bg-[#74c8b3]/15 dark:text-[#74c8b3]">
                 {String(index + 1).padStart(2, '0')}
@@ -118,7 +111,12 @@ export default async function HomePage() {
         </div>
       </section>
       <section className="latest-insights" aria-labelledby="latest-insights-heading">
-        <Reveal as="div" className="latest-insights-header" duration={0.48}>
+        <Reveal
+          as="div"
+          className="latest-insights-header"
+          duration={0.48}
+          variant="homepage"
+        >
           <div>
             <p className="eyebrow">Ideas and perspectives</p>
             <h2 id="latest-insights-heading">Insights</h2>
@@ -131,70 +129,9 @@ export default async function HomePage() {
             View all insights <span aria-hidden="true">→</span>
           </a>
         </Reveal>
-        {latestInsights.articles[0] ? (
-          <LatestInsightPreview
-            category={latestInsights.articles[0].category ?? 'Insights'}
-            title={latestInsights.articles[0].title}
-            excerpt={latestInsights.articles[0].excerpt ?? undefined}
-            href={`/insights/${latestInsights.articles[0].slug}`}
-            publishedAt={latestInsights.articles[0].publishedAt ?? undefined}
-            coverImageUrl={
-              getStrapiMediaUrl(latestInsights.articles[0].coverImage) ?? undefined
-            }
-            coverImageAlt={
-              latestInsights.articles[0].coverImage?.alternativeText ??
-              latestInsights.articles[0].title
-            }
-          />
-        ) : latestInsights.unavailable ? (
-          <p role="status">
-            Insights are temporarily unavailable. Please try again later.
-          </p>
-        ) : (
-          <p>
-            No published insights are available right now. Please check back soon.
-          </p>
-        )}
-        {latestInsights.articles.length > 1 ? (
-          <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {latestInsights.articles.slice(1, 4).map((article, index) => (
-              <Reveal
-                as="article"
-                key={article.id}
-                className="rounded-xl border border-slate-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900"
-                duration={0.48}
-                staggerIndex={index}
-              >
-                <p className="eyebrow">{article.category ?? 'Insights'}</p>
-                {article.publishedAt ? (
-                  <time
-                    className="text-sm text-slate-500 dark:text-zinc-400"
-                    dateTime={article.publishedAt}
-                  >
-                    {new Intl.DateTimeFormat('en', {
-                      dateStyle: 'medium',
-                      timeZone: 'UTC',
-                    }).format(new Date(article.publishedAt))}
-                  </time>
-                ) : null}
-                <h3 className="mt-3 text-lg font-semibold text-slate-950 dark:text-white">
-                  {article.title}
-                </h3>
-                {article.excerpt ? (
-                  <p className="mt-2 leading-6 text-slate-600 dark:text-zinc-400">
-                    {article.excerpt}
-                  </p>
-                ) : null}
-                <Link
-                  className="mt-3 inline-flex min-h-10 items-center font-semibold text-emerald-900 underline-offset-4 hover:underline dark:text-[#74c8b3]"
-                  href={`/insights/${article.slug}`}
-                >
-                  Explore insights <span className="ml-2" aria-hidden="true">→</span>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
-        ) : null}
+        <Suspense fallback={<p role="status">Loading latest insights…</p>}>
+          <HomeLatestInsights />
+        </Suspense>
       </section>
       <section
         className="mx-auto grid max-w-7xl gap-6 px-5 py-12 md:px-8 lg:grid-cols-[1fr_auto] lg:items-center lg:px-12 lg:py-16"

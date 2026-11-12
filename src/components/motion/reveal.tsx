@@ -62,7 +62,11 @@ export default function Reveal({
       data-motion-reveal
       id={id}
       aria-labelledby={labelledBy}
-      initial={reduceMotion ? false : { opacity: 0, y: isHomepage ? 40 : 18 }}
+      initial={
+        reduceMotion || isHomepage
+          ? false
+          : { opacity: 0, y: 18 }
+      }
       whileInView={{ opacity: 1, y: 0 }}
       whileHover={
         interactive && !reduceMotion

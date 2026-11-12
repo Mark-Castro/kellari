@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Reveal from '../motion/reveal';
+import Reveal, { type RevealVariant } from '../motion/reveal';
 
 type LatestInsightPreviewProps = {
   category?: string;
@@ -9,6 +9,7 @@ type LatestInsightPreviewProps = {
   publishedAt?: string;
   coverImageUrl?: string;
   coverImageAlt?: string;
+  variant?: RevealVariant;
 };
 
 export default function LatestInsightPreview({
@@ -19,9 +20,15 @@ export default function LatestInsightPreview({
   publishedAt,
   coverImageUrl,
   coverImageAlt,
+  variant,
 }: LatestInsightPreviewProps) {
   return (
-    <Reveal as="article" className="latest-insight-preview" interactive>
+    <Reveal
+      as="article"
+      className="latest-insight-preview"
+      interactive
+      variant={variant}
+    >
       <div className="insight-preview-art">
         {coverImageUrl ? (
           <img

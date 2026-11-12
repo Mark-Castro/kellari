@@ -76,7 +76,7 @@ export default function ServicesSection() {
           {serviceCategories.map((category, index) => (
             <motion.div
               key={category.href}
-              initial={reduceMotion ? false : { opacity: 0, y: 40, scale: 0.95 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: false, amount: 0.2, margin: '-50px' }}
               whileHover={
