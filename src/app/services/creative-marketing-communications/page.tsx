@@ -1,12 +1,5 @@
 import type { Metadata } from 'next';
-import CTABanner from '../../../components/features/cta-banner';
-import Hero from '../../../components/features/hero';
-import {
-  ServiceCapabilityList,
-  ServiceOverviewCopy,
-} from '../../../components/features/service-page-sections';
-import ServiceDetailGrid from '../../../components/features/service-detail-grid';
-import { PracticeAreaCopySections } from '../../../components/services/ServiceCopySections';
+import PracticeAreaExperience from '../../../components/services/PracticeAreaExperience';
 import servicePageCopy from '../../../lib/service-page-copy.json';
 import { serviceCategories } from '../../../lib/navigation';
 
@@ -16,46 +9,46 @@ export const metadata: Metadata = {
     'Brand, web, PR, digital marketing and research services to strengthen your reputation and reach your audience.',
 };
 
-const category = serviceCategories[3];
-const overview = [
-  'In a crowded market, how you present yourself matters as much as what you offer. A strong brand, a clear message, and a consistent digital presence build trust, attract customers, and drive growth.',
-  'The way people discover and choose organizations has changed. Customers, partners, and job seekers search online, compare options on social media, and read reviews before they ever make contact. Your website, content, and online reputation are often your first and most lasting impression.',
-  'Attention is harder to win than ever. Audiences see thousands of messages every day, and only those that are relevant, well-designed, and well-timed stand out. Effective marketing now depends on understanding your audience, choosing the right channels, and measuring what works.',
-  'Reputation also needs protecting. A single poorly handled issue can spread quickly online, making strategic communications and public relations an essential part of running any organization.',
-  'Our creative and communications team brings design, digital marketing, public relations, and market research together under one roof. We help you define your brand, tell your story clearly, and reach the audiences that matter, with campaigns and content built on insight and measured by results.',
-];
-const capabilities = [
-  'Brand strategy and visual identity',
-  'Website design, development and user experience',
-  'Media relations and reputation management',
-  'Campaign planning, execution and reporting',
-  'Market and consumer research',
-];
+const category = servicePageCopy.categories[3];
 
 export default function CreativeMarketingCommunicationsPage() {
   return (
-    <main>
-      <Hero
-        breadcrumbs={[
-          { label: 'Home', href: '/' },
-          { label: 'Services', href: '/services' },
-          { label: 'Creative, Marketing & Communications' },
-        ]}
-        eyebrow="Services"
-        title="Build a brand people trust"
-        description="Design, digital and communications expertise to strengthen your reputation and reach the audiences that matter."
-        primaryAction={{ label: 'Speak with an advisor', href: '/contact' }}
-        secondaryAction={{ label: 'View all services', href: '/services' }}
-      />
-      <ServiceOverviewCopy paragraphs={overview} />
-      <ServiceDetailGrid items={category.services} />
-      <ServiceCapabilityList items={capabilities} />
-      <PracticeAreaCopySections content={servicePageCopy.categories[3]} />
-      <CTABanner
-        title="Ready to elevate your brand?"
-        description="Speak with our creative and communications team."
-        buttonLabel="Request a consultation"
-      />
-    </main>
+    <PracticeAreaExperience
+      practiceTitle={serviceCategories[3].shortTitle}
+      heroTitle="Build a brand people trust."
+      heroDescription="Design, digital and communications expertise to strengthen your reputation and reach the audiences that matter."
+      thesis="A clear brand, useful digital experiences and consistent communication turn attention into trust. Connect your story to the people you need to reach."
+      pillars={[
+        {
+          title: 'Distinctive Brand',
+          description:
+            'Build a credible identity and clear positioning that help your organization stand apart.',
+        },
+        {
+          title: 'Useful Digital Experiences',
+          description:
+            'Make it easier for customers and partners to discover, understand and engage with your offer.',
+        },
+        {
+          title: 'Measurable Communication',
+          description:
+            'Reach the right audiences with focused campaigns, relevant content and insight-led decisions.',
+        },
+      ]}
+      services={category.servicesInDetail}
+      fit={category.fit}
+      capabilities={[
+        'Brand strategy and visual identity',
+        'Website design, development and user experience',
+        'Media relations and reputation management',
+        'Campaign planning, execution and reporting',
+        'Market and consumer research',
+      ]}
+      whyItMatters={category.whyItMatters}
+      waysToWork={category.waysToWork}
+      faqs={category.faqs}
+      ctaHeading={category.ctaHeading}
+      ctaText={category.ctaText}
+    />
   );
 }
