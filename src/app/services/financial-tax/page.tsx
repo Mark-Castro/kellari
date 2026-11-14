@@ -3,6 +3,8 @@ import CTABanner from '../../../components/features/cta-banner';
 import Hero from '../../../components/features/hero';
 import LegalDisclaimerBlock from '../../../components/features/legal-disclaimer-block';
 import ServiceDetailGrid from '../../../components/features/service-detail-grid';
+import { PracticeAreaCopySections } from '../../../components/services/ServiceCopySections';
+import servicePageCopy from '../../../lib/service-page-copy.json';
 import {
   ServiceCapabilityList,
   ServiceOverviewCopy,
@@ -49,6 +51,7 @@ export default function FinancialTaxPage() {
       <ServiceOverviewCopy paragraphs={overview} />
       <ServiceDetailGrid items={category.services} />
       <ServiceCapabilityList items={capabilities} />
+      <PracticeAreaCopySections content={servicePageCopy.categories[1]} />
       <LegalDisclaimerBlock />
       <CTABanner
         title="Put your finances on a stronger footing"

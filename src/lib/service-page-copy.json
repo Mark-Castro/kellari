@@ -1,0 +1,1699 @@
+{
+  "categories": [
+    {
+      "title": "Strategy, People & Digital Transformation",
+      "whyItMatters": [
+        "Faster markets. Competitors, technologies, and customer expectations are changing faster than annual planning cycles. Organizations need strategies they can test and adjust, not fixed plans that go out of date.",
+        "The AI turning point. Artificial intelligence is moving from experiment to everyday tool. Organizations that adopt it thoughtfully gain speed and insight; those that wait risk falling behind, while those that rush can create new risks.",
+        "The talent challenge. Skilled people are harder to find and keep. Clear structures, career paths, and workforce planning are now a competitive advantage.",
+        "Rising cyber risk. Every new digital tool adds exposure. Security now has to be built into transformation from the start."
+      ],
+      "fit": [
+        "Growth has stalled or become unpredictable",
+        "Leadership is not aligned on priorities",
+        "Your organization has outgrown its structure",
+        "You want to use AI and data but do not know where to start",
+        "You are unsure how exposed you are to cyber threats"
+      ],
+      "servicesInDetail": [
+        {
+          "title": "Corporate & Business Strategy",
+          "overview": [
+            "Every organization needs a clear answer to three questions: where are we going, how will we win, and what must we do to get there. Without that clarity, teams pull in different directions and resources are spread too thin."
+          ],
+          "offerings": [
+            {
+              "title": "Strategic reviews",
+              "description": "An objective assessment of your market position, performance, and capabilities."
+            },
+            {
+              "title": "Market and competitor analysis",
+              "description": "Evidence on where demand is growing and how competitors are positioned."
+            },
+            {
+              "title": "Growth and expansion planning",
+              "description": "Options for new products, markets, partnerships, or acquisitions, with the risks and returns of each."
+            },
+            {
+              "title": "Business and operating model design",
+              "description": "How you create, deliver, and capture value, and the structure needed to support it."
+            },
+            {
+              "title": "Strategy execution and tracking",
+              "description": "Clear goals, owners, and measures so progress is visible and plans stay on course."
+            }
+          ],
+          "audience": "Boards, CEOs, and leadership teams of established companies, growing businesses, and public or non-profit organizations."
+        },
+        {
+          "title": "SME & Growth Advisory",
+          "overview": [
+            "Growing businesses face challenges that large organizations rarely do: small teams, limited budgets, and owners who carry many responsibilities at once. Decisions are made quickly, and mistakes can be costly."
+          ],
+          "offerings": [
+            {
+              "title": "Business plans and growth roadmaps",
+              "description": "Clear, realistic plans with targets, timelines, and financial projections."
+            },
+            {
+              "title": "Investor and funding readiness",
+              "description": "Preparing the documents, numbers, and story that lenders and investors expect."
+            },
+            {
+              "title": "Systems and process design",
+              "description": "Simple, scalable ways of working that free the owner from day-to-day firefighting."
+            },
+            {
+              "title": "Governance for growing businesses",
+              "description": "Advisory boards, decision rights, and reporting that build credibility."
+            },
+            {
+              "title": "Ongoing advisory support",
+              "description": "Regular sessions with an experienced advisor as your business grows."
+            }
+          ],
+          "audience": "Startups, SMEs, family-owned businesses, and founder-led companies."
+        },
+        {
+          "title": "People & Organization Consulting",
+          "overview": [
+            "A strategy only succeeds if the organization behind it can deliver. Unclear roles, skills gaps, and outdated structures are among the most common reasons good plans fail."
+          ],
+          "offerings": [
+            {
+              "title": "Organizational design",
+              "description": "Structures, reporting lines, and roles that match your strategy."
+            },
+            {
+              "title": "Workforce planning",
+              "description": "Forecasting the skills and headcount you will need, and how to get there."
+            },
+            {
+              "title": "Talent and succession strategy",
+              "description": "Attracting, developing, and retaining the people who matter most."
+            },
+            {
+              "title": "Change management",
+              "description": "Planning and communicating change so staff understand and support it."
+            },
+            {
+              "title": "Employee engagement",
+              "description": "Assessing and improving how motivated and committed your people are."
+            }
+          ],
+          "audience": "Growing businesses, organizations undergoing restructuring, and public and non-profit institutions."
+        },
+        {
+          "title": "Digital & AI Transformation",
+          "overview": [
+            "Digital tools and artificial intelligence are changing how organizations operate, compete, and serve their customers. Tasks that once took days can now take minutes, and customers expect fast, digital-first service."
+          ],
+          "offerings": [
+            {
+              "title": "Digital maturity assessments",
+              "description": "A clear view of where you are today and where technology can help most."
+            },
+            {
+              "title": "AI readiness and use-case identification",
+              "description": "Practical opportunities for AI, ranked by value and risk."
+            },
+            {
+              "title": "Technology adoption roadmaps",
+              "description": "A phased plan for selecting, introducing, and scaling digital tools."
+            },
+            {
+              "title": "Process automation",
+              "description": "Redesigning and automating repetitive tasks to save time and reduce errors."
+            },
+            {
+              "title": "Responsible AI guidance",
+              "description": "Policies on data use, accuracy, and oversight so AI is used safely."
+            }
+          ],
+          "audience": "Organizations of every size looking to modernize operations or explore AI."
+        },
+        {
+          "title": "Data Analytics & Business Intelligence",
+          "overview": [
+            "Most organizations collect more data than they use. Sales records, customer information, operational figures, and financial results often sit in separate systems and spreadsheets, giving leaders an incomplete picture."
+          ],
+          "offerings": [
+            {
+              "title": "Data strategy and governance",
+              "description": "Deciding what data you need, who owns it, and how it is kept accurate."
+            },
+            {
+              "title": "Dashboards and management reporting",
+              "description": "Clear, regular reports that show what matters at a glance."
+            },
+            {
+              "title": "Performance and customer analytics",
+              "description": "Insight into what drives sales, costs, and customer behavior."
+            },
+            {
+              "title": "Business intelligence tools",
+              "description": "Selecting and setting up the right reporting tools for your needs."
+            },
+            {
+              "title": "Data skills training",
+              "description": "Helping your teams read, question, and act on data."
+            }
+          ],
+          "audience": "Leadership teams, finance and operations functions, and organizations with growing volumes of data."
+        },
+        {
+          "title": "Cybersecurity Advisory",
+          "overview": [
+            "As more work moves online, cyber risk has become a business risk. Phishing, ransomware, fraud, and data breaches can disrupt operations, cause financial loss, and damage hard-won trust."
+          ],
+          "offerings": [
+            {
+              "title": "Cyber risk assessments",
+              "description": "A clear picture of your threats, vulnerabilities, and priorities."
+            },
+            {
+              "title": "Security strategy and policies",
+              "description": "Practical policies on passwords, access, devices, and data."
+            },
+            {
+              "title": "Data-protection compliance",
+              "description": "Guidance on meeting data-protection requirements."
+            },
+            {
+              "title": "Incident response planning",
+              "description": "A clear plan for what to do if something goes wrong."
+            },
+            {
+              "title": "Staff awareness training",
+              "description": "Helping employees spot and avoid common threats."
+            }
+          ],
+          "audience": "Organizations handling sensitive data, including financial, healthcare, professional services, and growing digital businesses."
+        }
+      ],
+      "waysToWork": [
+        {
+          "title": "Focused project",
+          "description": "A defined piece of work with a clear scope, timeline, and deliverables."
+        },
+        {
+          "title": "Ongoing advisory",
+          "description": "Regular support on a monthly or quarterly basis as your needs evolve."
+        },
+        {
+          "title": "Integrated program",
+          "description": "A coordinated engagement that combines services from more than one practice area, led by one Kelari contact."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Do we need to engage all six services?",
+          "answer": "No. Each service stands alone. Many clients start with one and add others as needs become clear."
+        },
+        {
+          "question": "Do you work with small businesses?",
+          "answer": "Yes. Our SME & Growth Advisory service is designed for startups and growing businesses."
+        },
+        {
+          "question": "Can you help us implement, not just plan?",
+          "answer": "Yes. We stay involved through implementation and track results against agreed goals."
+        }
+      ],
+      "ctaHeading": "Ready to define your next move?",
+      "ctaText": "Speak with our strategy and transformation team about your priorities."
+    },
+    {
+      "title": "Financial & Tax Advisory",
+      "whyItMatters": [
+        "Stricter tax enforcement. Tax authorities are moving to digital filing and data-matching, making errors and late filings easier to detect and more costly.",
+        "Higher expectations from lenders and investors. Access to finance increasingly depends on accurate records, clear forecasts, and evidence of good financial controls.",
+        "Economic uncertainty. Changing costs, interest rates, and currencies make cash-flow planning and risk management essential, not optional.",
+        "Long-term value at stake. Without clear wealth and succession plans, owners and families risk losing what they have built."
+      ],
+      "fit": [
+        "Your books are behind or incomplete",
+        "Tax deadlines are stressful or have been missed",
+        "Cash flow is hard to predict",
+        "You are preparing to borrow, raise investment, or expand",
+        "You have no succession or long-term wealth plan"
+      ],
+      "servicesInDetail": [
+        {
+          "title": "Tax Advisory & Compliance",
+          "overview": [
+            "Tax rules change frequently, and the consequences of getting them wrong, from penalties to reputational damage, can be significant. For many organizations, keeping up with filing deadlines and new requirements is a constant pressure."
+          ],
+          "offerings": [
+            {
+              "title": "Tax compliance",
+              "description": "Preparation and filing of corporate, individual, and payroll-related returns."
+            },
+            {
+              "title": "Tax planning",
+              "description": "Structuring activities efficiently and lawfully to manage your tax position."
+            },
+            {
+              "title": "VAT and indirect tax support",
+              "description": "Registration, filing, and guidance on indirect taxes."
+            },
+            {
+              "title": "Tax health checks",
+              "description": "A review of your records to identify risks before they become problems."
+            },
+            {
+              "title": "Audit and review support",
+              "description": "Help preparing for and responding to tax authority queries."
+            }
+          ],
+          "audience": "Companies, SMEs, startups, professionals, and individuals."
+        },
+        {
+          "title": "Asset & Wealth Management Advisory",
+          "overview": [
+            "Building wealth is only part of the task. Protecting it, growing it, and planning how it will be passed on require careful thought, especially for business owners whose personal and business finances are closely linked."
+          ],
+          "offerings": [
+            {
+              "title": "Wealth reviews",
+              "description": "A clear picture of your assets, liabilities, and goals."
+            },
+            {
+              "title": "Asset allocation guidance",
+              "description": "Principles for balancing growth, income, and risk."
+            },
+            {
+              "title": "Succession and estate planning",
+              "description": "Planning how wealth and businesses pass to the next generation."
+            },
+            {
+              "title": "Family and business wealth structuring",
+              "description": "Separating and organizing personal and business assets."
+            },
+            {
+              "title": "Ongoing reviews",
+              "description": "Regular check-ins as your circumstances and markets change."
+            }
+          ],
+          "audience": "Business owners, families, and individuals with significant assets or succession needs."
+        },
+        {
+          "title": "Financial Planning & Risk Advisory",
+          "overview": [
+            "Good decisions depend on reliable financial plans. Without accurate forecasts and budgets, organizations struggle to manage cash, invest wisely, or respond quickly when conditions change."
+          ],
+          "offerings": [
+            {
+              "title": "Budgeting and forecasting",
+              "description": "Realistic budgets and rolling forecasts linked to your strategy."
+            },
+            {
+              "title": "Cash-flow planning",
+              "description": "Visibility of cash needs so you avoid shortfalls."
+            },
+            {
+              "title": "Financial modeling and scenario analysis",
+              "description": "Testing how different decisions and conditions affect results."
+            },
+            {
+              "title": "Financial risk management",
+              "description": "Identifying, prioritizing, and reducing key financial risks."
+            },
+            {
+              "title": "Internal controls review",
+              "description": "Checking that processes protect against error and fraud."
+            }
+          ],
+          "audience": "SMEs, established companies, non-profits, and public institutions."
+        },
+        {
+          "title": "Bookkeeping & Financial Reporting Support",
+          "overview": [
+            "Accurate financial records are the foundation of every sound business decision. They show how you are performing, support tax compliance, and give lenders and investors confidence."
+          ],
+          "offerings": [
+            {
+              "title": "Monthly bookkeeping",
+              "description": "Recording and categorizing transactions accurately."
+            },
+            {
+              "title": "Bank and account reconciliations",
+              "description": "Making sure your records match your bank and supplier balances."
+            },
+            {
+              "title": "Management accounts",
+              "description": "Clear monthly or quarterly reports on performance."
+            },
+            {
+              "title": "Financial statements",
+              "description": "Year-end accounts prepared to the required standards."
+            },
+            {
+              "title": "Audit and year-end readiness",
+              "description": "Organized records that make audits faster and smoother."
+            }
+          ],
+          "audience": "SMEs, startups, professional firms, and non-profits."
+        }
+      ],
+      "waysToWork": [
+        {
+          "title": "Focused project",
+          "description": "A defined piece of work with a clear scope, timeline, and deliverables."
+        },
+        {
+          "title": "Ongoing advisory",
+          "description": "Regular support on a monthly or quarterly basis as your needs evolve."
+        },
+        {
+          "title": "Integrated program",
+          "description": "A coordinated engagement that combines services from more than one practice area, led by one Kelari contact."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Can you handle our bookkeeping every month?",
+          "answer": "Yes. Our Bookkeeping & Financial Reporting Support service covers monthly records, reconciliations, and management reports."
+        },
+        {
+          "question": "Do you work with individuals as well as businesses?",
+          "answer": "Yes. Our Asset & Wealth Management Advisory supports business owners, families, and individuals."
+        },
+        {
+          "question": "How often should we review our tax position?",
+          "answer": "At least once a year, and whenever your business changes significantly."
+        }
+      ],
+      "ctaHeading": "Put your finances on a stronger footing",
+      "ctaText": "Speak with our financial and tax advisors about your goals."
+    },
+    {
+      "title": "Sustainability & Public Impact",
+      "whyItMatters": [
+        "ESG is now a business requirement. Investors, lenders, and large customers increasingly ask organizations to show how they manage environmental, social, and governance issues.",
+        "Climate risk is real. Changing weather patterns, resource pressures, and new regulations can affect operations, supply chains, and asset values.",
+        "Citizens expect better public services. Public institutions are under pressure to deliver faster, more transparent, and more accessible services with limited budgets.",
+        "Accountability is rising. Funders, oversight bodies, and the public expect clear evidence of results and responsible use of resources."
+      ],
+      "fit": [
+        "Investors, lenders, or customers are asking about your ESG performance",
+        "You are unsure which sustainability reporting framework to use",
+        "Climate risk could affect your operations",
+        "Your institution needs to improve service delivery or governance",
+        "You must demonstrate the impact of public or donor-funded programs"
+      ],
+      "servicesInDetail": [
+        {
+          "title": "Sustainability & ESG Consulting",
+          "overview": [
+            "Sustainability has become a core business issue. Investors, lenders, regulators, customers, and employees increasingly expect organizations to show how they manage their environmental, social, and governance (ESG) impact."
+          ],
+          "offerings": [
+            {
+              "title": "ESG strategy",
+              "description": "Setting priorities, targets, and responsibilities."
+            },
+            {
+              "title": "Materiality assessments",
+              "description": "Identifying the ESG issues that matter most to your organization and stakeholders."
+            },
+            {
+              "title": "ESG and sustainability reporting",
+              "description": "Preparing reports aligned with recognized frameworks."
+            },
+            {
+              "title": "Climate risk assessment",
+              "description": "Understanding how climate change could affect your operations and assets."
+            },
+            {
+              "title": "Sustainable operating models",
+              "description": "Practical changes that reduce impact and cost."
+            }
+          ],
+          "audience": "Companies, financial institutions, infrastructure and energy organizations, and non-profits."
+        },
+        {
+          "title": "Public Sector & Government Advisory",
+          "overview": [
+            "Public institutions are expected to deliver efficient, transparent, and citizen-focused services, often with limited budgets and under close public scrutiny."
+          ],
+          "offerings": [
+            {
+              "title": "Service-delivery reviews and redesign",
+              "description": "Improving how services are designed and delivered to citizens."
+            },
+            {
+              "title": "Governance and institutional strengthening",
+              "description": "Clear structures, roles, and accountability."
+            },
+            {
+              "title": "Policy and program advisory",
+              "description": "Designing and evaluating policies and programs."
+            },
+            {
+              "title": "Public-sector digital modernization",
+              "description": "Planning digital services and systems."
+            },
+            {
+              "title": "Performance measurement",
+              "description": "Indicators and reporting that show results."
+            }
+          ],
+          "audience": "Governments, agencies, regulators, state-owned enterprises, and development partners."
+        }
+      ],
+      "waysToWork": [
+        {
+          "title": "Focused project",
+          "description": "A defined piece of work with a clear scope, timeline, and deliverables."
+        },
+        {
+          "title": "Ongoing advisory",
+          "description": "Regular support on a monthly or quarterly basis as your needs evolve."
+        },
+        {
+          "title": "Integrated program",
+          "description": "A coordinated engagement that combines services from more than one practice area, led by one Kelari contact."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "We are a small business. Does ESG apply to us?",
+          "answer": "Increasingly, yes. Larger customers, lenders, and investors often ask partners about their sustainability practices."
+        },
+        {
+          "question": "What does ESG reporting involve?",
+          "answer": "Measuring and disclosing your environmental, social, and governance performance against a recognized framework. We help you choose the right one."
+        },
+        {
+          "question": "Do you work with government institutions?",
+          "answer": "Yes. Our Public Sector & Government Advisory supports government agencies and public institutions."
+        }
+      ],
+      "ctaHeading": "Build a more sustainable, accountable organization",
+      "ctaText": "Speak with our sustainability and public impact team."
+    },
+    {
+      "title": "Creative, Marketing & Communications",
+      "whyItMatters": [
+        "Buying decisions start online. Customers, partners, and job seekers research organizations online before making contact. Your website and social presence often decide whether they reach out.",
+        "Attention is scarce. Audiences see thousands of messages a day. Only clear, relevant, and well-designed communication stands out.",
+        "Reputation moves fast. A single issue can spread quickly online, so organizations need a clear voice and a plan for sensitive moments.",
+        "Marketing must prove its value. Leaders expect measurable results from every campaign, not just activity."
+      ],
+      "fit": [
+        "Your brand looks outdated or inconsistent",
+        "Your website does not generate enquiries",
+        "Your social media is inactive or gets little engagement",
+        "Marketing spend is not producing clear results",
+        "You are launching a new product, service, or business"
+      ],
+      "servicesInDetail": [
+        {
+          "title": "Graphic Design & Brand Identity",
+          "overview": [
+            "Your brand is often the first impression people have of your organization. A professional, consistent identity builds credibility; an inconsistent one can undermine even the best products and services."
+          ],
+          "offerings": [
+            {
+              "title": "Logo and visual identity",
+              "description": "A distinctive logo, color palette, and typography."
+            },
+            {
+              "title": "Brand guidelines",
+              "description": "Clear rules so your brand is used consistently."
+            },
+            {
+              "title": "Marketing and corporate collateral",
+              "description": "Brochures, profiles, flyers, and signage."
+            },
+            {
+              "title": "Presentation and report design",
+              "description": "Professional decks and reports."
+            },
+            {
+              "title": "Brand refreshes",
+              "description": "Updating an existing brand while keeping what works."
+            }
+          ],
+          "audience": "New businesses, growing companies, and established organizations refreshing their brand."
+        },
+        {
+          "title": "Website Development & UX/UI Design",
+          "overview": [
+            "Your website is often the first place people go to learn about you. It needs to look professional, load quickly, work on every device, and make it easy for visitors to find what they need."
+          ],
+          "offerings": [
+            {
+              "title": "Website design and development",
+              "description": "Professional, responsive websites built for your needs."
+            },
+            {
+              "title": "UX and UI design",
+              "description": "Layouts and journeys that are clear and easy to use."
+            },
+            {
+              "title": "Content management setup",
+              "description": "Systems that let your team update content without a developer."
+            },
+            {
+              "title": "Website audits and redesigns",
+              "description": "Finding and fixing what is holding your current site back."
+            },
+            {
+              "title": "Search and performance basics",
+              "description": "Fast load times and the foundations for search visibility."
+            }
+          ],
+          "audience": "Businesses, professional firms, non-profits, and public institutions."
+        },
+        {
+          "title": "Public Relations",
+          "overview": [
+            "Reputation takes years to build and moments to lose. How your organization is seen by customers, investors, partners, and the public affects every part of your business."
+          ],
+          "offerings": [
+            {
+              "title": "Media relations",
+              "description": "Press releases, media pitching, and interview preparation."
+            },
+            {
+              "title": "Reputation management",
+              "description": "Monitoring and shaping how your organization is perceived."
+            },
+            {
+              "title": "Crisis communications",
+              "description": "Planning and managing communications when issues arise."
+            },
+            {
+              "title": "Thought leadership",
+              "description": "Articles, speaking, and profiles that position leaders as experts."
+            },
+            {
+              "title": "Corporate and stakeholder communications",
+              "description": "Clear messages for investors, staff, and partners."
+            }
+          ],
+          "audience": "Companies, financial institutions, non-profits, public bodies, and executives."
+        },
+        {
+          "title": "Digital Marketing & Campaign Management",
+          "overview": [
+            "Customers spend much of their time online, which makes digital marketing one of the most effective ways to reach them. But with so many messages competing for attention, campaigns must be targeted, relevant, and well timed."
+          ],
+          "offerings": [
+            {
+              "title": "Campaign strategy and planning",
+              "description": "Goals, audiences, messages, and channels for each campaign."
+            },
+            {
+              "title": "Paid digital advertising",
+              "description": "Search and social advertising targeted to the right people."
+            },
+            {
+              "title": "Email marketing",
+              "description": "Newsletters and campaigns that keep customers engaged."
+            },
+            {
+              "title": "Campaign management",
+              "description": "Running campaigns day to day and adjusting as results come in."
+            },
+            {
+              "title": "Performance reporting",
+              "description": "Clear reports on reach, leads, sales, and return on spend."
+            }
+          ],
+          "audience": "Consumer brands, retailers, growing businesses, and service providers."
+        },
+        {
+          "title": "SEO Content Writing",
+          "overview": [
+            "When people need a product or service, they usually start with a search. If your content does not appear, potential clients may never know you exist."
+          ],
+          "offerings": [
+            {
+              "title": "Website and landing-page copy",
+              "description": "Clear, persuasive copy for your key pages."
+            },
+            {
+              "title": "Blog and Insights articles",
+              "description": "Regular articles that answer your audience’s questions."
+            },
+            {
+              "title": "Keyword research",
+              "description": "Finding the terms your audience actually searches for."
+            },
+            {
+              "title": "On-page optimization",
+              "description": "Titles, headings, and structure that help search engines."
+            },
+            {
+              "title": "Content strategy and calendars",
+              "description": "A plan for what to publish and when."
+            }
+          ],
+          "audience": "Businesses, professional firms, and organizations investing in their online presence."
+        },
+        {
+          "title": "Social Media & Digital Communication Consulting",
+          "overview": [
+            "Social media is where many customers, partners, and job seekers now discover and engage with organizations. A strong presence builds awareness and trust; an inactive or inconsistent one can do the opposite."
+          ],
+          "offerings": [
+            {
+              "title": "Social media strategy and audits",
+              "description": "Reviewing your presence and setting a clear direction."
+            },
+            {
+              "title": "Content planning and calendars",
+              "description": "Regular, on-brand content planned in advance."
+            },
+            {
+              "title": "Community management guidance",
+              "description": "How to respond to comments, messages, and reviews."
+            },
+            {
+              "title": "Influencer and partnership advice",
+              "description": "Working with the right voices to reach new audiences."
+            },
+            {
+              "title": "Digital communication training",
+              "description": "Helping your team communicate confidently online."
+            }
+          ],
+          "audience": "Consumer brands, hospitality and retail businesses, non-profits, and professional firms."
+        },
+        {
+          "title": "Market Research & Consumer Insights",
+          "overview": [
+            "Good decisions start with understanding your customers and your market. Launching a product, entering a new market, or changing your pricing without evidence is a risk many organizations take unnecessarily."
+          ],
+          "offerings": [
+            {
+              "title": "Market sizing and opportunity analysis",
+              "description": "Estimating demand and identifying promising segments."
+            },
+            {
+              "title": "Customer surveys and interviews",
+              "description": "Asking customers directly about their needs and experiences."
+            },
+            {
+              "title": "Competitor analysis",
+              "description": "Understanding how competitors are positioned and priced."
+            },
+            {
+              "title": "Brand and customer perception studies",
+              "description": "How your brand is seen compared with others."
+            },
+            {
+              "title": "Trend and behavior insights",
+              "description": "Tracking how customer behavior is changing."
+            }
+          ],
+          "audience": "Consumer and retail businesses, startups, real-estate developers, and organizations entering new markets."
+        }
+      ],
+      "waysToWork": [
+        {
+          "title": "Focused project",
+          "description": "A defined piece of work with a clear scope, timeline, and deliverables."
+        },
+        {
+          "title": "Ongoing advisory",
+          "description": "Regular support on a monthly or quarterly basis as your needs evolve."
+        },
+        {
+          "title": "Integrated program",
+          "description": "A coordinated engagement that combines services from more than one practice area, led by one Kelari contact."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Can one team handle our website, content, and social media?",
+          "answer": "Yes. Our services can be combined so one team manages your brand across channels."
+        },
+        {
+          "question": "How do you measure campaign success?",
+          "answer": "We agree clear goals at the start, such as leads, sales, or engagement, and report against them regularly."
+        },
+        {
+          "question": "Do you work with businesses that have no brand yet?",
+          "answer": "Yes. We can create your brand identity from scratch, including your logo, colors, and guidelines."
+        }
+      ],
+      "ctaHeading": "Ready to elevate your brand?",
+      "ctaText": "Speak with our creative and communications team."
+    }
+  ],
+  "details": {
+    "corporate-and-business-strategy": {
+      "headline": "Turn ambition into a clear plan for growth",
+      "subheadline": "Strategy that sets direction, focuses resources, and guides decisions across your organization.",
+      "overview": [
+        "Every organization needs a clear answer to three questions: where are we going, how will we win, and what must we do to get there. Without that clarity, teams pull in different directions and resources are spread too thin.",
+        "We work with leadership teams to assess their position, choose where to compete, and build a practical roadmap that the whole organization can follow and measure."
+      ],
+      "challenges": [
+        "Growth has slowed or become unpredictable",
+        "Leadership is not aligned on priorities",
+        "New competitors or technologies are changing the market",
+        "Plans exist on paper but are not being executed"
+      ],
+      "offerings": [
+        {
+          "title": "Strategic reviews",
+          "description": "An objective assessment of your market position, performance, and capabilities."
+        },
+        {
+          "title": "Market and competitor analysis",
+          "description": "Evidence on where demand is growing and how competitors are positioned."
+        },
+        {
+          "title": "Growth and expansion planning",
+          "description": "Options for new products, markets, partnerships, or acquisitions, with the risks and returns of each."
+        },
+        {
+          "title": "Business and operating model design",
+          "description": "How you create, deliver, and capture value, and the structure needed to support it."
+        },
+        {
+          "title": "Strategy execution and tracking",
+          "description": "Clear goals, owners, and measures so progress is visible and plans stay on course."
+        }
+      ],
+      "expectations": [
+        "A shared, documented direction the whole leadership team supports",
+        "Clear priorities and resource allocation",
+        "Measurable targets and regular progress reviews",
+        "Greater confidence in major decisions"
+      ],
+      "audience": "Boards, CEOs, and leadership teams of established companies, growing businesses, and public or non-profit organizations.",
+      "relatedServices": [
+        "SME & Growth Advisory",
+        "People & Organization Consulting",
+        "Market Research & Consumer Insights"
+      ],
+      "ctaHeading": "Talk to our Corporate & Business Strategy team",
+      "ctaText": "Tell us about your goals, and we will show you how we can help."
+    },
+    "sme-and-growth-advisory": {
+      "headline": "Practical guidance to help your business scale",
+      "subheadline": "Hands-on advisory for startups, SMEs, and family businesses ready for their next stage of growth.",
+      "overview": [
+        "Growing businesses face challenges that large organizations rarely do: small teams, limited budgets, and owners who carry many responsibilities at once. Decisions are made quickly, and mistakes can be costly.",
+        "We act as an extension of your team, providing practical guidance matched to your stage of growth, from building a business plan to preparing for investment and putting the right structures in place."
+      ],
+      "challenges": [
+        "The business is growing, but systems and processes have not kept up",
+        "You need finance but are not sure lenders or investors are ready to say yes",
+        "The owner is involved in every decision",
+        "There is no clear plan for the next two to three years"
+      ],
+      "offerings": [
+        {
+          "title": "Business plans and growth roadmaps",
+          "description": "Clear, realistic plans with targets, timelines, and financial projections."
+        },
+        {
+          "title": "Investor and funding readiness",
+          "description": "Preparing the documents, numbers, and story that lenders and investors expect."
+        },
+        {
+          "title": "Systems and process design",
+          "description": "Simple, scalable ways of working that free the owner from day-to-day firefighting."
+        },
+        {
+          "title": "Governance for growing businesses",
+          "description": "Advisory boards, decision rights, and reporting that build credibility."
+        },
+        {
+          "title": "Ongoing advisory support",
+          "description": "Regular sessions with an experienced advisor as your business grows."
+        }
+      ],
+      "expectations": [
+        "A clear growth plan you can share with lenders, investors, and staff",
+        "Stronger chances of securing finance",
+        "More time for owners to focus on strategy",
+        "A business that runs reliably as it grows"
+      ],
+      "audience": "Startups, SMEs, family-owned businesses, and founder-led companies.",
+      "relatedServices": [
+        "Bookkeeping & Financial Reporting Support",
+        "Tax Advisory & Compliance",
+        "Website Development & UX/UI Design"
+      ],
+      "ctaHeading": "Talk to our SME & Growth Advisory team",
+      "ctaText": "Tell us about your goals, and we will show you how we can help."
+    },
+    "people-and-organization-consulting": {
+      "headline": "The right people, in the right structure, for your strategy",
+      "subheadline": "Organizational design, talent strategy, and workforce planning that turn plans into performance.",
+      "overview": [
+        "A strategy only succeeds if the organization behind it can deliver. Unclear roles, skills gaps, and outdated structures are among the most common reasons good plans fail.",
+        "We help you design an organization that supports your goals, plan the workforce you will need, and manage change so that your people come with you."
+      ],
+      "challenges": [
+        "Roles and responsibilities are unclear or overlapping",
+        "Key skills are missing or hard to retain",
+        "The organization has grown without a clear structure",
+        "A restructuring or merger needs careful planning"
+      ],
+      "offerings": [
+        {
+          "title": "Organizational design",
+          "description": "Structures, reporting lines, and roles that match your strategy."
+        },
+        {
+          "title": "Workforce planning",
+          "description": "Forecasting the skills and headcount you will need, and how to get there."
+        },
+        {
+          "title": "Talent and succession strategy",
+          "description": "Attracting, developing, and retaining the people who matter most."
+        },
+        {
+          "title": "Change management",
+          "description": "Planning and communicating change so staff understand and support it."
+        },
+        {
+          "title": "Employee engagement",
+          "description": "Assessing and improving how motivated and committed your people are."
+        }
+      ],
+      "expectations": [
+        "Clear roles and accountability",
+        "A workforce plan aligned to growth",
+        "Lower staff turnover and stronger succession",
+        "Smoother restructuring and change"
+      ],
+      "audience": "Growing businesses, organizations undergoing restructuring, and public and non-profit institutions.",
+      "relatedServices": [
+        "Corporate & Business Strategy",
+        "Digital & AI Transformation",
+        "SME & Growth Advisory"
+      ],
+      "ctaHeading": "Talk to our People & Organization Consulting team",
+      "ctaText": "Tell us about your goals, and we will show you how we can help."
+    },
+    "digital-and-ai-transformation": {
+      "headline": "Put technology and AI to work for your organization",
+      "subheadline": "Digital strategy and responsible AI adoption that improve efficiency, decisions, and customer experience.",
+      "overview": [
+        "Digital tools and artificial intelligence are changing how organizations operate, compete, and serve their customers. Tasks that once took days can now take minutes, and customers expect fast, digital-first service.",
+        "We help you identify where digital tools and AI will add real value, plan their adoption, and integrate them responsibly into how you work."
+      ],
+      "challenges": [
+        "Processes are still manual or paper-based",
+        "You are unsure where AI could genuinely help",
+        "Past technology investments have not delivered",
+        "Customers expect faster, digital service"
+      ],
+      "offerings": [
+        {
+          "title": "Digital maturity assessments",
+          "description": "A clear view of where you are today and where technology can help most."
+        },
+        {
+          "title": "AI readiness and use-case identification",
+          "description": "Practical opportunities for AI, ranked by value and risk."
+        },
+        {
+          "title": "Technology adoption roadmaps",
+          "description": "A phased plan for selecting, introducing, and scaling digital tools."
+        },
+        {
+          "title": "Process automation",
+          "description": "Redesigning and automating repetitive tasks to save time and reduce errors."
+        },
+        {
+          "title": "Responsible AI guidance",
+          "description": "Policies on data use, accuracy, and oversight so AI is used safely."
+        }
+      ],
+      "expectations": [
+        "Faster, more efficient operations",
+        "Better use of data in everyday decisions",
+        "Technology investments that deliver measurable value",
+        "Safe and responsible use of AI"
+      ],
+      "audience": "Organizations of every size looking to modernize operations or explore AI.",
+      "relatedServices": [
+        "Data Analytics & Business Intelligence",
+        "Cybersecurity Advisory",
+        "People & Organization Consulting"
+      ],
+      "ctaHeading": "Talk to our Digital & AI Transformation team",
+      "ctaText": "Tell us about your goals, and we will show you how we can help."
+    },
+    "data-analytics-and-business-intelligence": {
+      "headline": "Turn your data into decisions",
+      "subheadline": "Analytics and reporting that give leaders clear, timely insight into performance.",
+      "overview": [
+        "Most organizations collect more data than they use. Sales records, customer information, operational figures, and financial results often sit in separate systems and spreadsheets, giving leaders an incomplete picture.",
+        "We help you bring your data together, build clear dashboards and reports, and develop the habits and skills to use insight in everyday decisions."
+      ],
+      "challenges": [
+        "Reports take too long to prepare",
+        "Different teams use different numbers",
+        "Leaders lack a clear view of performance",
+        "Data is collected but rarely used"
+      ],
+      "offerings": [
+        {
+          "title": "Data strategy and governance",
+          "description": "Deciding what data you need, who owns it, and how it is kept accurate."
+        },
+        {
+          "title": "Dashboards and management reporting",
+          "description": "Clear, regular reports that show what matters at a glance."
+        },
+        {
+          "title": "Performance and customer analytics",
+          "description": "Insight into what drives sales, costs, and customer behavior."
+        },
+        {
+          "title": "Business intelligence tools",
+          "description": "Selecting and setting up the right reporting tools for your needs."
+        },
+        {
+          "title": "Data skills training",
+          "description": "Helping your teams read, question, and act on data."
+        }
+      ],
+      "expectations": [
+        "One reliable version of the numbers",
+        "Faster, better-informed decisions",
+        "Earlier warning of risks and trends",
+        "Teams confident using data"
+      ],
+      "audience": "Leadership teams, finance and operations functions, and organizations with growing volumes of data.",
+      "relatedServices": [
+        "Digital & AI Transformation",
+        "Financial Planning & Risk Advisory",
+        "Market Research & Consumer Insights"
+      ],
+      "ctaHeading": "Talk to our Data Analytics & Business Intelligence team",
+      "ctaText": "Tell us about your goals, and we will show you how we can help."
+    },
+    "cybersecurity-advisory": {
+      "headline": "Protect your organization in a digital world",
+      "subheadline": "Cyber risk assessments and practical security strategy for organizations of every size.",
+      "overview": [
+        "As more work moves online, cyber risk has become a business risk. Phishing, ransomware, fraud, and data breaches can disrupt operations, cause financial loss, and damage hard-won trust.",
+        "We assess your exposure, identify the most important gaps, and help you build a security strategy that is practical, proportionate, and understood by your staff. Our work is at the advisory and risk-assessment level; specialist technical testing is arranged through trusted partners where needed."
+      ],
+      "challenges": [
+        "You are unsure how exposed your organization is",
+        "Staff are not trained to recognize threats",
+        "You hold sensitive customer or employee data",
+        "There is no plan for responding to an incident"
+      ],
+      "offerings": [
+        {
+          "title": "Cyber risk assessments",
+          "description": "A clear picture of your threats, vulnerabilities, and priorities."
+        },
+        {
+          "title": "Security strategy and policies",
+          "description": "Practical policies on passwords, access, devices, and data."
+        },
+        {
+          "title": "Data-protection compliance",
+          "description": "Guidance on meeting data-protection requirements."
+        },
+        {
+          "title": "Incident response planning",
+          "description": "A clear plan for what to do if something goes wrong."
+        },
+        {
+          "title": "Staff awareness training",
+          "description": "Helping employees spot and avoid common threats."
+        }
+      ],
+      "expectations": [
+        "A clear understanding of your cyber risk",
+        "Stronger protection for data and systems",
+        "Improved compliance with data-protection rules",
+        "Staff who recognize and report threats"
+      ],
+      "audience": "Organizations handling sensitive data, including financial, healthcare, professional services, and growing digital businesses.",
+      "relatedServices": [
+        "Digital & AI Transformation",
+        "Data Analytics & Business Intelligence",
+        "Financial Planning & Risk Advisory"
+      ],
+      "ctaHeading": "Talk to our Cybersecurity Advisory team",
+      "ctaText": "Tell us about your goals, and we will show you how we can help."
+    },
+    "tax-advisory-and-compliance": {
+      "headline": "Stay compliant. Plan with confidence.",
+      "subheadline": "Tax compliance and planning support that keeps you on track and reduces risk.",
+      "overview": [
+        "Tax rules change frequently, and the consequences of getting them wrong, from penalties to reputational damage, can be significant. For many organizations, keeping up with filing deadlines and new requirements is a constant pressure.",
+        "We help businesses and individuals meet every obligation on time and plan their tax position efficiently, within the law, so there are no surprises."
+      ],
+      "challenges": [
+        "Filing deadlines are stressful or missed",
+        "You are unsure which taxes apply to you",
+        "Your business is growing or changing structure",
+        "You are facing a tax review or audit"
+      ],
+      "offerings": [
+        {
+          "title": "Tax compliance",
+          "description": "Preparation and filing of corporate, individual, and payroll-related returns."
+        },
+        {
+          "title": "Tax planning",
+          "description": "Structuring activities efficiently and lawfully to manage your tax position."
+        },
+        {
+          "title": "VAT and indirect tax support",
+          "description": "Registration, filing, and guidance on indirect taxes."
+        },
+        {
+          "title": "Tax health checks",
+          "description": "A review of your records to identify risks before they become problems."
+        },
+        {
+          "title": "Audit and review support",
+          "description": "Help preparing for and responding to tax authority queries."
+        }
+      ],
+      "expectations": [
+        "Returns filed accurately and on time",
+        "Reduced risk of penalties",
+        "A clear, planned tax position",
+        "Confidence during reviews and audits"
+      ],
+      "audience": "Companies, SMEs, startups, professionals, and individuals.",
+      "relatedServices": [
+        "Bookkeeping & Financial Reporting Support",
+        "Financial Planning & Risk Advisory",
+        "Asset & Wealth Management Advisory"
+      ],
+      "ctaHeading": "Talk to our Tax Advisory & Compliance team",
+      "ctaText": "Tell us about your goals, and we will show you how we can help."
+    },
+    "asset-and-wealth-management-advisory": {
+      "headline": "Protect and grow what you have built",
+      "subheadline": "Long-term guidance on managing, preserving, and passing on wealth.",
+      "overview": [
+        "Building wealth is only part of the task. Protecting it, growing it, and planning how it will be passed on require careful thought, especially for business owners whose personal and business finances are closely linked.",
+        "We provide independent guidance to help you understand your position, set clear goals, and make informed decisions about your assets."
+      ],
+      "challenges": [
+        "Personal and business wealth are closely tied together",
+        "There is no clear succession or estate plan",
+        "You are unsure whether your assets are well balanced",
+        "You want to plan for retirement or the next generation"
+      ],
+      "offerings": [
+        {
+          "title": "Wealth reviews",
+          "description": "A clear picture of your assets, liabilities, and goals."
+        },
+        {
+          "title": "Asset allocation guidance",
+          "description": "Principles for balancing growth, income, and risk."
+        },
+        {
+          "title": "Succession and estate planning",
+          "description": "Planning how wealth and businesses pass to the next generation."
+        },
+        {
+          "title": "Family and business wealth structuring",
+          "description": "Separating and organizing personal and business assets."
+        },
+        {
+          "title": "Ongoing reviews",
+          "description": "Regular check-ins as your circumstances and markets change."
+        }
+      ],
+      "expectations": [
+        "A clear, long-term wealth plan",
+        "Better protection for your assets",
+        "A smooth transition between generations",
+        "Peace of mind"
+      ],
+      "audience": "Business owners, families, and individuals with significant assets or succession needs.",
+      "relatedServices": [
+        "Tax Advisory & Compliance",
+        "Financial Planning & Risk Advisory",
+        "SME & Growth Advisory"
+      ],
+      "ctaHeading": "Talk to our Asset & Wealth Management Advisory team",
+      "ctaText": "Tell us about your goals, and we will show you how we can help."
+    },
+    "financial-planning-and-risk-advisory": {
+      "headline": "Plan ahead. Manage risk.",
+      "subheadline": "Forecasting, budgeting, and risk management that support sound financial decisions.",
+      "overview": [
+        "Good decisions depend on reliable financial plans. Without accurate forecasts and budgets, organizations struggle to manage cash, invest wisely, or respond quickly when conditions change.",
+        "We help you build clear financial plans, model different scenarios, and put practical controls in place, so you can make decisions with confidence."
+      ],
+      "challenges": [
+        "Cash flow is unpredictable",
+        "Budgets are not used to guide decisions",
+        "You are planning a major investment or expansion",
+        "Financial risks are not clearly understood"
+      ],
+      "offerings": [
+        {
+          "title": "Budgeting and forecasting",
+          "description": "Realistic budgets and rolling forecasts linked to your strategy."
+        },
+        {
+          "title": "Cash-flow planning",
+          "description": "Visibility of cash needs so you avoid shortfalls."
+        },
+        {
+          "title": "Financial modeling and scenario analysis",
+          "description": "Testing how different decisions and conditions affect results."
+        },
+        {
+          "title": "Financial risk management",
+          "description": "Identifying, prioritizing, and reducing key financial risks."
+        },
+        {
+          "title": "Internal controls review",
+          "description": "Checking that processes protect against error and fraud."
+        }
+      ],
+      "expectations": [
+        "Reliable forecasts and budgets",
+        "Stronger cash management",
+        "Informed investment decisions",
+        "Lower exposure to financial risk"
+      ],
+      "audience": "SMEs, established companies, non-profits, and public institutions.",
+      "relatedServices": [
+        "Bookkeeping & Financial Reporting Support",
+        "Corporate & Business Strategy",
+        "Data Analytics & Business Intelligence"
+      ],
+      "ctaHeading": "Talk to our Financial Planning & Risk Advisory team",
+      "ctaText": "Tell us about your goals, and we will show you how we can help."
+    },
+    "bookkeeping-and-financial-reporting-support": {
+      "headline": "Accurate books. Reliable reports.",
+      "subheadline": "Bookkeeping and financial reporting that keep your finances in order.",
+      "overview": [
+        "Accurate financial records are the foundation of every sound business decision. They show how you are performing, support tax compliance, and give lenders and investors confidence.",
+        "We take care of your books and deliver clear, timely reports, so you always know where you stand without the cost of a full in-house finance team."
+      ],
+      "challenges": [
+        "Records are incomplete or behind",
+        "You only see your numbers at year-end",
+        "Preparing reports for lenders or investors is stressful",
+        "You cannot justify a full-time finance team"
+      ],
+      "offerings": [
+        {
+          "title": "Monthly bookkeeping",
+          "description": "Recording and categorizing transactions accurately."
+        },
+        {
+          "title": "Bank and account reconciliations",
+          "description": "Making sure your records match your bank and supplier balances."
+        },
+        {
+          "title": "Management accounts",
+          "description": "Clear monthly or quarterly reports on performance."
+        },
+        {
+          "title": "Financial statements",
+          "description": "Year-end accounts prepared to the required standards."
+        },
+        {
+          "title": "Audit and year-end readiness",
+          "description": "Organized records that make audits faster and smoother."
+        }
+      ],
+      "expectations": [
+        "Up-to-date, accurate records",
+        "Regular insight into performance",
+        "Easier tax filing and audits",
+        "More time to run your business"
+      ],
+      "audience": "SMEs, startups, professional firms, and non-profits.",
+      "relatedServices": [
+        "Tax Advisory & Compliance",
+        "Financial Planning & Risk Advisory",
+        "SME & Growth Advisory"
+      ],
+      "ctaHeading": "Talk to our Bookkeeping & Financial Reporting Support team",
+      "ctaText": "Tell us about your goals, and we will show you how we can help."
+    },
+    "sustainability-and-esg-consulting": {
+      "headline": "Sustainability that creates value",
+      "subheadline": "ESG strategy, reporting, and climate-risk advisory for organizations of every size.",
+      "overview": [
+        "Sustainability has become a core business issue. Investors, lenders, regulators, customers, and employees increasingly expect organizations to show how they manage their environmental, social, and governance (ESG) impact.",
+        "We help you understand what matters most for your organization, set credible goals, and report progress with confidence."
+      ],
+      "challenges": [
+        "Investors, lenders, or customers are asking about ESG",
+        "You are unsure which reporting framework applies",
+        "Climate risk could affect your operations or supply chain",
+        "Sustainability efforts are scattered and hard to measure"
+      ],
+      "offerings": [
+        {
+          "title": "ESG strategy",
+          "description": "Setting priorities, targets, and responsibilities."
+        },
+        {
+          "title": "Materiality assessments",
+          "description": "Identifying the ESG issues that matter most to your organization and stakeholders."
+        },
+        {
+          "title": "ESG and sustainability reporting",
+          "description": "Preparing reports aligned with recognized frameworks."
+        },
+        {
+          "title": "Climate risk assessment",
+          "description": "Understanding how climate change could affect your operations and assets."
+        },
+        {
+          "title": "Sustainable operating models",
+          "description": "Practical changes that reduce impact and cost."
+        }
+      ],
+      "expectations": [
+        "A credible, focused ESG strategy",
+        "Reports that meet stakeholder expectations",
+        "Better understanding of climate risk",
+        "Improved access to finance and partners"
+      ],
+      "audience": "Companies, financial institutions, infrastructure and energy organizations, and non-profits.",
+      "relatedServices": [
+        "Public Sector & Government Advisory",
+        "Financial Planning & Risk Advisory",
+        "Public Relations"
+      ],
+      "ctaHeading": "Talk to our Sustainability & ESG Consulting team",
+      "ctaText": "Tell us about your goals, and we will show you how we can help."
+    },
+    "public-sector-and-government-advisory": {
+      "headline": "Better governance. Better public services.",
+      "subheadline": "Advisory that helps public institutions modernize and deliver measurable results.",
+      "overview": [
+        "Public institutions are expected to deliver efficient, transparent, and citizen-focused services, often with limited budgets and under close public scrutiny.",
+        "We support governments and public bodies to strengthen governance, redesign services around citizens, and track the results that matter."
+      ],
+      "challenges": [
+        "Services are slow or difficult for citizens to access",
+        "Processes are manual and fragmented",
+        "Accountability and transparency need strengthening",
+        "Reform programs struggle to deliver"
+      ],
+      "offerings": [
+        {
+          "title": "Service-delivery reviews and redesign",
+          "description": "Improving how services are designed and delivered to citizens."
+        },
+        {
+          "title": "Governance and institutional strengthening",
+          "description": "Clear structures, roles, and accountability."
+        },
+        {
+          "title": "Policy and program advisory",
+          "description": "Designing and evaluating policies and programs."
+        },
+        {
+          "title": "Public-sector digital modernization",
+          "description": "Planning digital services and systems."
+        },
+        {
+          "title": "Performance measurement",
+          "description": "Indicators and reporting that show results."
+        }
+      ],
+      "expectations": [
+        "Faster, more accessible services",
+        "Stronger governance and accountability",
+        "Programs that deliver measurable results",
+        "Greater public trust"
+      ],
+      "audience": "governments, agencies, regulators, state-owned enterprises, and development partners.",
+      "relatedServices": [
+        "Digital & AI Transformation",
+        "Data Analytics & Business Intelligence",
+        "People & Organization Consulting"
+      ],
+      "ctaHeading": "Talk to our Public Sector & Government Advisory team",
+      "ctaText": "Tell us about your goals, and we will show you how we can help."
+    },
+    "graphic-design-and-brand-identity": {
+      "headline": "A brand that reflects who you are",
+      "subheadline": "Visual identities and design that build recognition and trust.",
+      "overview": [
+        "Your brand is often the first impression people have of your organization. A professional, consistent identity builds credibility; an inconsistent one can undermine even the best products and services.",
+        "We create distinctive visual identities and design that communicate who you are, clearly and consistently."
+      ],
+      "challenges": [
+        "Your brand looks outdated or inconsistent",
+        "You are launching a new business or product",
+        "Materials are designed differently by different teams",
+        "Your brand does not reflect your growth"
+      ],
+      "offerings": [
+        {
+          "title": "Logo and visual identity",
+          "description": "A distinctive logo, color palette, and typography."
+        },
+        {
+          "title": "Brand guidelines",
+          "description": "Clear rules so your brand is used consistently."
+        },
+        {
+          "title": "Marketing and corporate collateral",
+          "description": "Brochures, profiles, flyers, and signage."
+        },
+        {
+          "title": "Presentation and report design",
+          "description": "Professional decks and reports."
+        },
+        {
+          "title": "Brand refreshes",
+          "description": "Updating an existing brand while keeping what works."
+        }
+      ],
+      "expectations": [
+        "A professional, recognizable brand",
+        "Consistency across every channel",
+        "Stronger credibility with clients and partners",
+        "Design assets ready to use"
+      ],
+      "audience": "New businesses, growing companies, and established organizations refreshing their brand.",
+      "relatedServices": [
+        "Website Development & UX/UI Design",
+        "Digital Marketing & Campaign Management",
+        "Social Media & Digital Communication Consulting"
+      ],
+      "ctaHeading": "Talk to our Graphic Design & Brand Identity team",
+      "ctaText": "Tell us about your goals, and we will show you how we can help."
+    },
+    "website-development-and-ux-ui-design": {
+      "headline": "Websites that work as well as they look",
+      "subheadline": "Website design, development, and user experience that turn visitors into clients.",
+      "overview": [
+        "Your website is often the first place people go to learn about you. It needs to look professional, load quickly, work on every device, and make it easy for visitors to find what they need.",
+        "We design and build websites that reflect your brand, support your goals, and are easy for your team to update."
+      ],
+      "challenges": [
+        "Your website looks outdated or does not work well on mobile",
+        "Visitors leave without making contact",
+        "Your team cannot easily update the site",
+        "You are launching a new business or service"
+      ],
+      "offerings": [
+        {
+          "title": "Website design and development",
+          "description": "Professional, responsive websites built for your needs."
+        },
+        {
+          "title": "UX and UI design",
+          "description": "Layouts and journeys that are clear and easy to use."
+        },
+        {
+          "title": "Content management setup",
+          "description": "Systems that let your team update content without a developer."
+        },
+        {
+          "title": "Website audits and redesigns",
+          "description": "Finding and fixing what is holding your current site back."
+        },
+        {
+          "title": "Search and performance basics",
+          "description": "Fast load times and the foundations for search visibility."
+        }
+      ],
+      "expectations": [
+        "A professional, mobile-friendly website",
+        "More enquiries and conversions",
+        "Easy content updates",
+        "A strong foundation for marketing"
+      ],
+      "audience": "Businesses, professional firms, non-profits, and public institutions.",
+      "relatedServices": [
+        "Graphic Design & Brand Identity",
+        "SEO Content Writing",
+        "Digital Marketing & Campaign Management"
+      ],
+      "ctaHeading": "Talk to our Website Development & UX/UI Design team",
+      "ctaText": "Tell us about your goals, and we will show you how we can help."
+    },
+    "public-relations": {
+      "headline": "Build and protect your reputation",
+      "subheadline": "Strategic communications that earn attention and trust.",
+      "overview": [
+        "Reputation takes years to build and moments to lose. How your organization is seen by customers, investors, partners, and the public affects every part of your business.",
+        "We help you communicate strategically, earn positive coverage, and protect your reputation when it matters most."
+      ],
+      "challenges": [
+        "Few people know about your organization or its achievements",
+        "You are launching something new and need visibility",
+        "You face a sensitive issue or negative coverage",
+        "Leaders want a stronger public profile"
+      ],
+      "offerings": [
+        {
+          "title": "Media relations",
+          "description": "Press releases, media pitching, and interview preparation."
+        },
+        {
+          "title": "Reputation management",
+          "description": "Monitoring and shaping how your organization is perceived."
+        },
+        {
+          "title": "Crisis communications",
+          "description": "Planning and managing communications when issues arise."
+        },
+        {
+          "title": "Thought leadership",
+          "description": "Articles, speaking, and profiles that position leaders as experts."
+        },
+        {
+          "title": "Corporate and stakeholder communications",
+          "description": "Clear messages for investors, staff, and partners."
+        }
+      ],
+      "expectations": [
+        "Greater visibility and credibility",
+        "Positive media coverage",
+        "Faster, calmer response to issues",
+        "Stronger leadership profiles"
+      ],
+      "audience": "Companies, financial institutions, non-profits, public bodies, and executives.",
+      "relatedServices": [
+        "Social Media & Digital Communication Consulting",
+        "SEO Content Writing",
+        "Graphic Design & Brand Identity"
+      ],
+      "ctaHeading": "Talk to our Public Relations team",
+      "ctaText": "Tell us about your goals, and we will show you how we can help."
+    },
+    "digital-marketing-and-campaign-management": {
+      "headline": "Campaigns that reach the right people",
+      "subheadline": "Planned, managed, and measured digital marketing that delivers results.",
+      "overview": [
+        "Customers spend much of their time online, which makes digital marketing one of the most effective ways to reach them. But with so many messages competing for attention, campaigns must be targeted, relevant, and well timed.",
+        "We plan, run, and measure campaigns that build awareness, generate leads, and grow sales."
+      ],
+      "challenges": [
+        "Marketing spend is not producing clear results",
+        "You are unsure which channels to use",
+        "You are launching a product or entering a new market",
+        "Campaigns are run without a clear plan"
+      ],
+      "offerings": [
+        {
+          "title": "Campaign strategy and planning",
+          "description": "Goals, audiences, messages, and channels for each campaign."
+        },
+        {
+          "title": "Paid digital advertising",
+          "description": "Search and social advertising targeted to the right people."
+        },
+        {
+          "title": "Email marketing",
+          "description": "Newsletters and campaigns that keep customers engaged."
+        },
+        {
+          "title": "Campaign management",
+          "description": "Running campaigns day to day and adjusting as results come in."
+        },
+        {
+          "title": "Performance reporting",
+          "description": "Clear reports on reach, leads, sales, and return on spend."
+        }
+      ],
+      "expectations": [
+        "Clear, measurable campaign results",
+        "Better return on marketing spend",
+        "More qualified leads",
+        "A repeatable marketing plan"
+      ],
+      "audience": "Consumer brands, retailers, growing businesses, and service providers.",
+      "relatedServices": [
+        "Social Media & Digital Communication Consulting",
+        "SEO Content Writing",
+        "Market Research & Consumer Insights"
+      ],
+      "ctaHeading": "Talk to our Digital Marketing & Campaign Management team",
+      "ctaText": "Tell us about your goals, and we will show you how we can help."
+    },
+    "seo-content-writing": {
+      "headline": "Content that gets found and builds trust",
+      "subheadline": "Search-optimized writing that improves visibility and engages your audience.",
+      "overview": [
+        "When people need a product or service, they usually start with a search. If your content does not appear, potential clients may never know you exist.",
+        "We write search-optimized content that improves your visibility, answers your audience’s questions, and encourages them to take the next step."
+      ],
+      "challenges": [
+        "Your website does not appear in search results",
+        "Content is out of date or thin",
+        "You publish rarely or inconsistently",
+        "Visitors leave without engaging"
+      ],
+      "offerings": [
+        {
+          "title": "Website and landing-page copy",
+          "description": "Clear, persuasive copy for your key pages."
+        },
+        {
+          "title": "Blog and Insights articles",
+          "description": "Regular articles that answer your audience’s questions."
+        },
+        {
+          "title": "Keyword research",
+          "description": "Finding the terms your audience actually searches for."
+        },
+        {
+          "title": "On-page optimization",
+          "description": "Titles, headings, and structure that help search engines."
+        },
+        {
+          "title": "Content strategy and calendars",
+          "description": "A plan for what to publish and when."
+        }
+      ],
+      "expectations": [
+        "Higher search visibility",
+        "More website visitors",
+        "Stronger credibility and authority",
+        "A steady flow of useful content"
+      ],
+      "audience": "Businesses, professional firms, and organizations investing in their online presence.",
+      "relatedServices": [
+        "Website Development & UX/UI Design",
+        "Digital Marketing & Campaign Management",
+        "Public Relations"
+      ],
+      "ctaHeading": "Talk to our SEO Content Writing team",
+      "ctaText": "Tell us about your goals, and we will show you how we can help."
+    },
+    "social-media-and-digital-communication-consulting": {
+      "headline": "Grow your presence where your audience is",
+      "subheadline": "Social media and digital communication strategies that build engagement.",
+      "overview": [
+        "Social media is where many customers, partners, and job seekers now discover and engage with organizations. A strong presence builds awareness and trust; an inactive or inconsistent one can do the opposite.",
+        "We help you choose the right platforms, plan your content, and build an engaged community around your brand."
+      ],
+      "challenges": [
+        "Your social media is inactive or inconsistent",
+        "Posts get little engagement",
+        "You are unsure which platforms to focus on",
+        "Staff lack guidance on digital communication"
+      ],
+      "offerings": [
+        {
+          "title": "Social media strategy and audits",
+          "description": "Reviewing your presence and setting a clear direction."
+        },
+        {
+          "title": "Content planning and calendars",
+          "description": "Regular, on-brand content planned in advance."
+        },
+        {
+          "title": "Community management guidance",
+          "description": "How to respond to comments, messages, and reviews."
+        },
+        {
+          "title": "Influencer and partnership advice",
+          "description": "Working with the right voices to reach new audiences."
+        },
+        {
+          "title": "Digital communication training",
+          "description": "Helping your team communicate confidently online."
+        }
+      ],
+      "expectations": [
+        "A consistent, active presence",
+        "Higher engagement and following",
+        "Clear guidance for your team",
+        "Stronger brand reputation online"
+      ],
+      "audience": "Consumer brands, hospitality and retail businesses, non-profits, and professional firms.",
+      "relatedServices": [
+        "Digital Marketing & Campaign Management",
+        "Public Relations",
+        "Graphic Design & Brand Identity"
+      ],
+      "ctaHeading": "Talk to our Social Media & Digital Communication Consulting team",
+      "ctaText": "Tell us about your goals, and we will show you how we can help."
+    },
+    "market-research-and-consumer-insights": {
+      "headline": "Understand your market before you act",
+      "subheadline": "Research that reveals what customers need and how markets are moving.",
+      "overview": [
+        "Good decisions start with understanding your customers and your market. Launching a product, entering a new market, or changing your pricing without evidence is a risk many organizations take unnecessarily.",
+        "We design and carry out research that gives you clear, actionable insight into your customers, competitors, and market."
+      ],
+      "challenges": [
+        "You are planning a launch or entering a new market",
+        "Sales are falling and the reasons are unclear",
+        "You do not know how customers see your brand",
+        "Competitors are gaining ground"
+      ],
+      "offerings": [
+        {
+          "title": "Market sizing and opportunity analysis",
+          "description": "Estimating demand and identifying promising segments."
+        },
+        {
+          "title": "Customer surveys and interviews",
+          "description": "Asking customers directly about their needs and experiences."
+        },
+        {
+          "title": "Competitor analysis",
+          "description": "Understanding how competitors are positioned and priced."
+        },
+        {
+          "title": "Brand and customer perception studies",
+          "description": "How your brand is seen compared with others."
+        },
+        {
+          "title": "Trend and behavior insights",
+          "description": "Tracking how customer behavior is changing."
+        }
+      ],
+      "expectations": [
+        "Evidence-based decisions",
+        "Lower risk on launches and expansion",
+        "Clear understanding of customers",
+        "Early sight of market opportunities"
+      ],
+      "audience": "Consumer and retail businesses, startups, real-estate developers, and organizations entering new markets.",
+      "relatedServices": [
+        "Corporate & Business Strategy",
+        "Digital Marketing & Campaign Management",
+        "Data Analytics & Business Intelligence"
+      ],
+      "ctaHeading": "Talk to our Market Research & Consumer Insights team",
+      "ctaText": "Tell us about your goals, and we will show you how we can help."
+    }
+  }
+}

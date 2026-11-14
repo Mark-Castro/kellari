@@ -6,6 +6,8 @@ import {
   ServiceOverviewCopy,
 } from '../../../components/features/service-page-sections';
 import ServiceDetailGrid from '../../../components/features/service-detail-grid';
+import { PracticeAreaCopySections } from '../../../components/services/ServiceCopySections';
+import servicePageCopy from '../../../lib/service-page-copy.json';
 import { serviceCategories } from '../../../lib/navigation';
 
 export const metadata: Metadata = {
@@ -48,6 +50,7 @@ export default function CreativeMarketingCommunicationsPage() {
       <ServiceOverviewCopy paragraphs={overview} />
       <ServiceDetailGrid items={category.services} />
       <ServiceCapabilityList items={capabilities} />
+      <PracticeAreaCopySections content={servicePageCopy.categories[3]} />
       <CTABanner
         title="Ready to elevate your brand?"
         description="Speak with our creative and communications team."

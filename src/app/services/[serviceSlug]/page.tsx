@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import CTABanner from '../../../components/features/cta-banner';
 import Hero from '../../../components/features/hero';
+import { ServiceDetailCopySections } from '../../../components/services/ServiceCopySections';
+import servicePageCopy from '../../../lib/service-page-copy.json';
 import { getServiceBySlug } from '../../../lib/navigation';
 
 type PageProps = {
@@ -27,7 +29,11 @@ export async function generateMetadata({
 export default async function ServiceDetailPage({ params }: PageProps) {
   const { serviceSlug } = await params;
   const entry = getServiceBySlug(serviceSlug);
-  if (!entry) notFound();
+  const content =
+    servicePageCopy.details[
+      serviceSlug as keyof typeof servicePageCopy.details
+    ];
+  if (!entry || !content) notFound();
 
   return (
     <main>
@@ -42,10 +48,10 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           { label: entry.service.title },
         ]}
         eyebrow={entry.category.shortTitle}
-        title={entry.service.title}
-        description={entry.service.description}
+        title={content.headline}
+        description={content.subheadline}
         primaryAction={{
-          label: 'Request a consultation',
+          label: 'Speak with a specialist',
           href: '/contact',
         }}
         secondaryAction={{
@@ -53,9 +59,10 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           href: entry.category.href,
         }}
       />
+      <ServiceDetailCopySections content={content} />
       <CTABanner
-        title={`Let’s discuss ${entry.service.title}`}
-        description="Tell us what you’re working on and we’ll connect you with the right specialists."
+        title={content.ctaHeading}
+        description={content.ctaText}
         buttonLabel="Request a consultation"
       />
     </main>

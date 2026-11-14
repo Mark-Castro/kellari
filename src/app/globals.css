@@ -536,6 +536,178 @@ main > section:not(.hero):not(.cta-banner):not(.home-motion-section):not(.indust
   font-size: clamp(1.05rem, 1.8vw, 1.2rem);
 }
 
+.service-copy-section {
+  max-width: var(--content-width);
+  margin-inline: auto;
+  padding: var(--space-section) var(--page-gutter);
+}
+
+.service-copy-intro {
+  max-width: 46rem;
+  margin-bottom: 2rem;
+}
+
+.service-copy-intro h2 {
+  margin: 0;
+}
+
+.service-copy-grid,
+.service-copy-detail-grid,
+.service-copy-offerings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: 1rem;
+}
+
+.service-copy-card,
+.service-copy-detail {
+  border: 1px solid var(--border);
+  border-radius: 0.35rem;
+  background: var(--surface);
+  padding: 1.5rem;
+}
+
+.service-copy-card p,
+.service-copy-detail > p,
+.service-copy-audience,
+.service-copy-faq-list details p,
+.service-copy-audience-section > p:last-child {
+  color: var(--ink-muted);
+}
+
+.service-copy-number {
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+}
+
+.service-copy-card p:last-child {
+  margin-bottom: 0;
+}
+
+.service-copy-fit {
+  max-width: none;
+  background: var(--surface);
+}
+
+.service-copy-fit > .service-copy-intro,
+.service-copy-fit > .service-copy-list {
+  max-width: var(--content-width);
+  margin-inline: auto;
+}
+
+.service-copy-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: 0.75rem 2rem;
+  padding-left: 1.25rem;
+  color: var(--ink-muted);
+}
+
+.service-copy-detail h3 {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+
+.service-copy-detail h3 a,
+.service-copy-related a {
+  color: var(--brand-strong);
+  text-decoration: none;
+}
+
+.service-copy-detail h3 a:hover,
+.service-copy-detail h3 a:focus-visible,
+.service-copy-related a:hover,
+.service-copy-related a:focus-visible,
+.service-copy-link:hover,
+.service-copy-link:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.service-copy-detail h4 {
+  margin-bottom: 0.5rem;
+}
+
+.service-copy-offerings {
+  display: grid;
+  gap: 0.9rem;
+  margin: 0;
+}
+
+.service-copy-offerings dt {
+  font-weight: 700;
+}
+
+.service-copy-offerings dd {
+  margin: 0.2rem 0 0;
+  color: var(--ink-muted);
+}
+
+.service-copy-detail .service-copy-audience {
+  margin-top: 1.25rem;
+}
+
+.service-copy-link {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--brand-strong);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.service-copy-faq-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.service-copy-faq-list details {
+  border: 1px solid var(--border);
+  border-radius: 0.35rem;
+  background: var(--surface);
+  padding: 1rem 1.25rem;
+}
+
+.service-copy-faq-list summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.service-copy-faq-list details p {
+  margin-bottom: 0;
+}
+
+.service-copy-audience-section {
+  max-width: var(--content-width);
+  margin-inline: auto;
+  padding: var(--space-section) var(--page-gutter);
+}
+
+.service-copy-audience-section h2 {
+  margin-top: 0;
+}
+
+.service-copy-related {
+  max-width: var(--content-width);
+  margin-inline: auto;
+  padding: 0 var(--page-gutter) var(--space-section);
+}
+
+.service-copy-related ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.service-copy-related a {
+  font-weight: 700;
+}
+
 .service-capabilities {
   max-width: var(--content-width);
   margin: 0 auto;
