@@ -1,4 +1,5 @@
 import 'server-only';
+import { createHash } from 'node:crypto';
 
 export const runtime = 'nodejs';
 
@@ -20,6 +21,21 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 
 function readString(value: unknown) {
   return typeof value === 'string' ? value.trim() : '';
+}
+
+function mailchimpHeaders(apiKey: string) {
+  return {
+    Authorization: `Basic ${Buffer.from(`any:${apiKey}`).toString('base64')}`,
+    'Content-Type': 'application/json',
+  };
+}
+
+async function readJson(response: Response): Promise<unknown> {
+  try {
+    return await response.json();
+  } catch {
+    return null;
+  }
 }
 
 export async function POST(request: Request) {
@@ -94,35 +110,22 @@ export async function POST(request: Request) {
   }
 
   const endpoint = `https://${serverPrefix}.api.mailchimp.com/3.0/lists/${encodeURIComponent(audienceId)}/members`;
+  const headers = mailchimpHeaders(apiKey);
+  const signal = AbortSignal.timeout(15_000);
 
   try {
     const response = await fetch(endpoint, {
       method: 'POST',
-      headers: {
-        Authorization: `Basic ${Buffer.from(`any:${apiKey}`).toString('base64')}`,
-        'Content-Type': 'application/json',
-      },
+      headers,
       body: JSON.stringify({
         email_address: email,
         status: 'pending',
       }),
       cache: 'no-store',
-      signal: AbortSignal.timeout(15_000),
+      signal,
     });
 
-    let responseBody: unknown;
-    try {
-      responseBody = await response.json();
-    } catch (error) {
-      console.error('Mailchimp returned an invalid newsletter response.', {
-        status: response.status,
-        error,
-      });
-      return jsonResponse(
-        { error: 'Newsletter signup is temporarily unavailable.' },
-        502,
-      );
-    }
+    const responseBody = await readJson(response);
 
     if (!response.ok) {
       if (
@@ -130,9 +133,58 @@ export async function POST(request: Request) {
         isRecord(responseBody) &&
         responseBody.title === 'Member Exists'
       ) {
+        const subscriberHash = createHash('md5')
+          .update(email)
+          .digest('hex');
+        const memberEndpoint = `${endpoint}/${subscriberHash}`;
+        const memberResponse = await fetch(memberEndpoint, {
+          headers,
+          cache: 'no-store',
+          signal,
+        });
+        const member = await readJson(memberResponse);
+
+        if (!memberResponse.ok || !isRecord(member)) {
+          console.error('Unable to check an existing Mailchimp subscriber.', {
+            status: memberResponse.status,
+          });
+          return jsonResponse(
+            { error: 'Your subscription could not be confirmed. Please try again later.' },
+            502,
+          );
+        }
+
+        if (member.status === 'pending') {
+          const confirmationResponse = await fetch(
+            `${memberEndpoint}/actions/confirm`,
+            {
+              method: 'POST',
+              headers,
+              cache: 'no-store',
+              signal,
+            },
+          );
+
+          if (!confirmationResponse.ok) {
+            const confirmationError = await readJson(confirmationResponse);
+            console.error('Mailchimp could not resend a pending confirmation.', {
+              status: confirmationResponse.status,
+              title: isRecord(confirmationError)
+                ? confirmationError.title
+                : undefined,
+            });
+            return jsonResponse(
+              { error: 'A confirmation email could not be sent. Please try again later.' },
+              502,
+            );
+          }
+        }
+
         return jsonResponse({
           message:
-            'If this address can be subscribed, a confirmation email will be sent.',
+            member.status === 'pending'
+              ? 'A new confirmation email has been requested. Check your inbox and spam folder.'
+              : 'If this address can be subscribed, a confirmation email will be sent.',
         });
       }
 
@@ -142,6 +194,16 @@ export async function POST(request: Request) {
       });
       return jsonResponse(
         { error: 'Your subscription could not be submitted. Please try again later.' },
+        502,
+      );
+    }
+
+    if (!responseBody) {
+      console.error('Mailchimp returned an invalid newsletter response.', {
+        status: response.status,
+      });
+      return jsonResponse(
+        { error: 'Newsletter signup is temporarily unavailable.' },
         502,
       );
     }

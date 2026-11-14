@@ -28,6 +28,9 @@ export default function NewsletterSignupForm() {
     setSubmitting(true);
     setStatusMessage('');
 
+    const controller = new AbortController();
+    const timeoutId = window.setTimeout(() => controller.abort(), 20_000);
+
     try {
       const response = await fetch('/api/newsletter', {
         method: 'POST',
@@ -35,13 +38,23 @@ export default function NewsletterSignupForm() {
           Accept: 'application/json',
           'Content-Type': 'application/json',
         },
+        signal: controller.signal,
         body: JSON.stringify({
           email: formData.get('email'),
           website: formData.get('website'),
         }),
       });
 
-      const responseBody: unknown = await response.json();
+      let responseBody: unknown;
+      try {
+        responseBody = await response.json();
+      } catch {
+        setStatusMessage(
+          'The subscription service returned an unexpected response. Please try again later.',
+        );
+        return;
+      }
+
       if (!response.ok) {
         setStatusMessage(getErrorMessage(responseBody));
         return;
@@ -51,11 +64,14 @@ export default function NewsletterSignupForm() {
       setStatusMessage(
         'Thanks for subscribing. If this address can be subscribed, a confirmation email will be sent.',
       );
-    } catch {
+    } catch (error) {
       setStatusMessage(
-        'We could not connect to the subscription service. Please check your connection and try again.',
+        error instanceof DOMException && error.name === 'AbortError'
+          ? 'The subscription request timed out. Please try again.'
+          : 'We could not connect to the subscription service. Please check your connection and try again.',
       );
     } finally {
+      window.clearTimeout(timeoutId);
       setSubmitting(false);
     }
   }
