@@ -171,7 +171,7 @@ async function fetchStrapi<T>(
   }
 
   const response = await fetch(`${strapiBaseUrl}/api/${path}`, {
-    headers: getStrapiHeaders(),
+    headers: preview ? getStrapiHeaders() : {},
     ...(preview ? { cache: 'no-store' as const } : { next: { revalidate: 60 } }),
   });
 
