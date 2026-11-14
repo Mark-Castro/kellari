@@ -82,9 +82,7 @@ export default function PracticeDiagnosticMatrix({
 
               return (
                 <motion.article
-                  className={`min-h-44 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/90 ${
-                    index === 0 ? 'sm:translate-y-5' : ''
-                  }`}
+                  className="min-h-44 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/90"
                   initial={
                     reduceMotion ? false : { opacity: 0, y: 22, scale: 0.98 }
                   }
