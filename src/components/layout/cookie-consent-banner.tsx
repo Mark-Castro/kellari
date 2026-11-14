@@ -73,7 +73,7 @@ export default function CookieConsentBanner() {
         <p id="cookie-consent-description">
           We use essential storage to run this site. With your permission, Google
           Analytics helps us understand site performance and improve your
-          experience. Read our <Link href="/privacy-policy">Privacy Policy</Link>.
+          experience. Read our <Link href="/privacy">Privacy Policy</Link>.
         </p>
         {error ? (
           <p className="cookie-consent-error" role="alert">

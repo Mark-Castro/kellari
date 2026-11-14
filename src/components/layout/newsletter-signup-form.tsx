@@ -126,7 +126,7 @@ export default function NewsletterSignupForm() {
         <p className="footer-newsletter-note">
           By subscribing, you agree to receive Kelari Group email updates.
           Mailchimp will send a confirmation email. You can unsubscribe at any
-          time. See our <a href="/privacy-policy">Privacy Policy</a>.
+          time. See our <a href="/privacy">Privacy Policy</a>.
         </p>
       )}
     </form>

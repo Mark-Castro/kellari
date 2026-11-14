@@ -1,3 +1,5 @@
+export const headquartersAddress = '8416 122nd Ave N, Champlin, MN 55316';
+
 const configuredContactPhone = process.env.NEXT_PUBLIC_CONTACT_PHONE?.trim();
 
 if (configuredContactPhone && !/^\+[1-9]\d{7,14}$/.test(configuredContactPhone)) {

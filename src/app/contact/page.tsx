@@ -1,15 +1,17 @@
 import type { Metadata } from 'next';
 import Hero from '../../components/features/hero';
 import ContactForm from '../../components/forms/contact-form';
-import { contactPhone, contactPhoneLink } from '../../lib/contact';
+import {
+  contactPhone,
+  contactPhoneLink,
+  headquartersAddress,
+} from '../../lib/contact';
 
 export const metadata: Metadata = {
   title: 'Contact',
 };
 
 export default function ContactPage() {
-  const headquartersAddress =
-    process.env.NEXT_PUBLIC_HEADQUARTERS_ADDRESS?.trim();
   const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim();
 
   return (
@@ -63,7 +65,7 @@ export default function ContactPage() {
                   Headquarters
                 </dt>
                 <dd className="mt-1 leading-6">
-                  {headquartersAddress || 'Contact us to arrange a visit'}
+                  {headquartersAddress}
                 </dd>
               </div>
             </div>
@@ -140,7 +142,7 @@ export default function ContactPage() {
               <p className="font-semibold">Your privacy matters</p>
               <p className="mt-1 text-sm leading-5 text-slate-600 dark:text-zinc-400">
                 We use your details only to respond to your inquiry. Read our{' '}
-                <a className="underline underline-offset-2 hover:text-emerald-900 dark:hover:text-white" href="/privacy-policy">
+                <a className="underline underline-offset-2 hover:text-emerald-900 dark:hover:text-white" href="/privacy">
                   Privacy Policy
                 </a>
                 .

@@ -1,10 +1,13 @@
 import Link from 'next/link';
 import CookieSettingsTrigger from './cookie-settings-trigger';
 import NewsletterSignupForm from './newsletter-signup-form';
-import { contactPhone, contactPhoneLink } from '../../lib/contact';
+import {
+  contactPhone,
+  contactPhoneLink,
+  headquartersAddress,
+} from '../../lib/contact';
 import { industryClusters, serviceCategories } from '../../lib/navigation';
 
-const headquartersAddress = process.env.NEXT_PUBLIC_HEADQUARTERS_ADDRESS?.trim();
 const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim();
 const socialLinks = [
   {

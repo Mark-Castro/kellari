@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { Fragment, useRef } from 'react';
 import {
   motion,
   useReducedMotion,
@@ -30,10 +30,10 @@ function HighlightWord({
   return (
     <motion.span
       aria-hidden="true"
-      className="inline-block"
+      className="inline"
       style={{ opacity }}
     >
-      {word}{' '}
+      {word}
     </motion.span>
   );
 }
@@ -90,12 +90,14 @@ export default function ScrollStoryManifesto() {
             {reduceMotion
               ? story
               : words.map((word, index) => (
-                  <HighlightWord
-                    index={index}
-                    key={`${index}-${word}`}
-                    progress={scrollYProgress}
-                    word={word}
-                  />
+                  <Fragment key={`${index}-${word}`}>
+                    <HighlightWord
+                      index={index}
+                      progress={scrollYProgress}
+                      word={word}
+                    />
+                    {index < words.length - 1 ? ' ' : null}
+                  </Fragment>
                 ))}
           </p>
           <div className="mt-12 h-px w-full bg-slate-200 dark:bg-zinc-800">

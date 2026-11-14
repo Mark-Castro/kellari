@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { headquartersAddress } from '../../lib/contact';
 import LegalPageLayout from '../../components/legal/legal-page-layout';
 
 export const metadata: Metadata = {
@@ -203,6 +204,7 @@ export default function TermsPage() {
         </p>
         <address className="not-italic">
           Kelari Corporate Advisory<br />
+          {headquartersAddress}<br />
           Attn: Office of the General Counsel<br />
           Email: <a href="mailto:legal@kelari.com">legal@kelari.com</a><br />
           Website:{' '}

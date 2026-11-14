@@ -797,7 +797,7 @@ export default function ApplicationModal({
                       <label htmlFor={`${formId}-privacyConsent`}>
                         I consent to the processing of my information for
                         recruitment. See our{' '}
-                        <a href="/privacy-policy">Privacy Policy</a>.
+                        <a href="/privacy">Privacy Policy</a>.
                       </label>
                     </div>
                   </fieldset>
