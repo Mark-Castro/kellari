@@ -132,8 +132,53 @@ export default function ApplicationModal({
     const dialog = dialogRef.current;
     if (!dialog || !isOpen || dialog.open) return;
 
+    const root = document.documentElement;
+    const body = document.body;
+    const scrollY = window.scrollY;
+    const previouslyFocused =
+      document.activeElement instanceof HTMLElement
+        ? document.activeElement
+        : null;
+    const previousRootOverflow = root.style.overflow;
+    const previousBodyStyles = {
+      position: body.style.position,
+      top: body.style.top,
+      left: body.style.left,
+      right: body.style.right,
+      width: body.style.width,
+      overflow: body.style.overflow,
+    };
+    root.style.overflow = 'hidden';
+    body.style.position = 'fixed';
+    body.style.top = `-${scrollY}px`;
+    body.style.left = '0';
+    body.style.right = '0';
+    body.style.width = '100%';
+    body.style.overflow = 'hidden';
+    const handleWheel = (event: WheelEvent) => {
+      if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+      event.preventDefault();
+      dialog.scrollTop += event.deltaY;
+    };
+    dialog.addEventListener('wheel', handleWheel, { passive: false });
+
     dialog.showModal();
     dialog.querySelector<HTMLElement>('[autofocus]')?.focus();
+
+    return () => {
+      dialog.removeEventListener('wheel', handleWheel);
+      root.style.overflow = previousRootOverflow;
+      body.style.position = previousBodyStyles.position;
+      body.style.top = previousBodyStyles.top;
+      body.style.left = previousBodyStyles.left;
+      body.style.right = previousBodyStyles.right;
+      body.style.width = previousBodyStyles.width;
+      body.style.overflow = previousBodyStyles.overflow;
+      if (previouslyFocused?.isConnected) {
+        previouslyFocused.focus({ preventScroll: true });
+      }
+      window.scrollTo({ top: scrollY, behavior: 'instant' });
+    };
   }, [isOpen]);
 
   function resetForm() {

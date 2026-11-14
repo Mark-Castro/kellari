@@ -1116,6 +1116,28 @@ main > section:not(.hero):not(.cta-banner):not(.home-motion-section):not(.indust
   color: #c4d2cc;
 }
 
+@keyframes application-dialog-enter {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes application-backdrop-enter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .application-dialog {
   position: fixed;
   inset: 0;
@@ -1123,7 +1145,9 @@ main > section:not(.hero):not(.cta-banner):not(.home-motion-section):not(.indust
   max-width: none;
   max-height: min(92dvh, 58rem);
   margin: auto;
-  overflow: visible;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scroll-padding-block: 1rem;
   border: 0;
   background: transparent;
   color: var(--ink);
@@ -1133,12 +1157,11 @@ main > section:not(.hero):not(.cta-banner):not(.home-motion-section):not(.indust
 .application-dialog::backdrop {
   background: rgb(7 17 15 / 78%);
   backdrop-filter: blur(3px);
+  animation: application-backdrop-enter 220ms ease-out both;
 }
 
 .application-dialog-panel {
-  max-height: min(92dvh, 58rem);
-  overflow-y: auto;
-  overscroll-behavior: contain;
+  animation: application-dialog-enter 260ms cubic-bezier(0.16, 1, 0.3, 1) both;
   border: 1px solid var(--border);
   border-radius: 0.45rem;
   background: var(--surface-raised);
@@ -1447,7 +1470,6 @@ main > section:not(.hero):not(.cta-banner):not(.home-motion-section):not(.indust
 
   .application-dialog-panel {
     min-height: 100dvh;
-    max-height: 100dvh;
     border: 0;
     border-radius: 0;
     padding: 1rem;
