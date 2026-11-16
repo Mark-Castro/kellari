@@ -1,18 +1,9 @@
 import type { Metadata } from 'next';
 import { draftMode } from 'next/headers';
+import ArticleReader from '../../../components/insights/ArticleReader';
 import CTABanner from '../../../components/features/cta-banner';
-import Hero from '../../../components/features/hero';
 import PreviewBanner from '../../../components/layout/preview-banner';
-import { getInsightBySlug, getStrapiMediaUrl } from '../../../lib/strapi';
-
-function getBlockText(value: unknown): string {
-  if (Array.isArray(value)) return value.map(getBlockText).join('');
-  if (!value || typeof value !== 'object') return '';
-
-  const block = value as Record<string, unknown>;
-  if (typeof block.text === 'string') return block.text;
-  return getBlockText(block.children);
-}
+import { getInsightBySlug } from '../../../lib/strapi';
 
 type PageProps = {
   params: Promise<{
@@ -20,9 +11,20 @@ type PageProps = {
   }>;
 };
 
-export const metadata: Metadata = {
-  title: 'Insight Detail',
-};
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const insight = await getInsightBySlug(slug).catch((error: unknown) => {
+    console.error(`Unable to load Insight metadata "${slug}" from Strapi:`, error);
+    return null;
+  });
+
+  return {
+    title: insight?.title ?? 'Insight unavailable',
+    description: insight?.excerpt ?? undefined,
+  };
+}
 
 export default async function InsightDetailPage({ params }: PageProps) {
   const { slug } = await params;
@@ -33,64 +35,16 @@ export default async function InsightDetailPage({ params }: PageProps) {
   });
 
   return (
-    <main>
+    <main className="w-full overflow-x-clip bg-white dark:bg-zinc-950">
       <PreviewBanner isEnabled={isEnabled} />
-      <Hero
-        eyebrow="Insights"
-        title={insight?.title ?? 'Insight unavailable'}
-        description={insight?.excerpt ?? undefined}
-      />
       {insight ? (
-        <article className="insight-article">
-          {(insight.publishedDate ?? insight.publishedAt) ? (
-            <time
-              className="insight-date"
-              dateTime={insight.publishedDate ?? insight.publishedAt ?? undefined}
-            >
-              {new Intl.DateTimeFormat('en', {
-                dateStyle: 'long',
-                timeZone: 'UTC',
-              }).format(
-                new Date(insight.publishedDate ?? insight.publishedAt ?? ''),
-              )}
-            </time>
-          ) : null}
-          {getStrapiMediaUrl(insight.coverImage) ? (
-            <figure className="insight-article-cover">
-              <img
-                src={getStrapiMediaUrl(insight.coverImage) ?? undefined}
-                alt={insight.coverImage?.alternativeText ?? insight.title}
-                decoding="async"
-              />
-            </figure>
-          ) : null}
-          {insight.content?.length ? (
-            <div className="insight-article-content">
-              {insight.content.map((block, index) => {
-                const text = getBlockText(block);
-                if (!text) return null;
-
-                const blockType =
-                  block && typeof block === 'object' && 'type' in block
-                    ? block.type
-                    : undefined;
-                const key = `insight-content-${index}`;
-                if (blockType === 'heading') {
-                  return <h2 key={key}>{text}</h2>;
-                }
-                if (blockType === 'quote') {
-                  return <blockquote key={key}>{text}</blockquote>;
-                }
-                return <p key={key}>{text}</p>;
-              })}
-            </div>
-          ) : insight.body ? (
-            <p>{insight.body}</p>
-          ) : null}
-        </article>
+        <ArticleReader insight={insight} />
       ) : (
-        <section>
-          <p role="status">
+        <section className="mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+          <p
+            className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-slate-700 dark:border-zinc-800 dark:bg-zinc-900/80 dark:text-zinc-300"
+            role="status"
+          >
             {isEnabled && !process.env.STRAPI_API_TOKEN?.trim()
               ? 'Draft preview requires a read-only Strapi API token. Configure STRAPI_API_TOKEN in .env.local and restart Next.js.'
               : 'This insight is unavailable. It may be unpublished, or the Strapi service may not be reachable.'}

@@ -15,7 +15,11 @@ function getErrorMessage(body: unknown) {
   return 'Your subscription could not be submitted. Please try again later.';
 }
 
-export default function NewsletterSignupForm() {
+export default function NewsletterSignupForm({
+  idPrefix = 'footer-newsletter',
+}: {
+  idPrefix?: string;
+}) {
   const [submitting, setSubmitting] = useState(false);
   const [statusMessage, setStatusMessage] = useState('');
   const [submissionSucceeded, setSubmissionSucceeded] = useState(false);
@@ -82,11 +86,11 @@ export default function NewsletterSignupForm() {
       onSubmit={handleSubmit}
       aria-label="Subscribe to Kelari Group insights"
     >
-      <label className="visually-hidden" htmlFor="footer-newsletter-email">
+      <label className="visually-hidden" htmlFor={`${idPrefix}-email`}>
         Email address
       </label>
       <input
-        id="footer-newsletter-email"
+        id={`${idPrefix}-email`}
         type="email"
         name="email"
         autoComplete="email"
@@ -96,9 +100,9 @@ export default function NewsletterSignupForm() {
         disabled={submitting || submissionSucceeded}
       />
       <div className="mailchimp-honeypot" aria-hidden="true">
-        <label htmlFor="footer-newsletter-website">Leave this field empty</label>
+        <label htmlFor={`${idPrefix}-website`}>Leave this field empty</label>
         <input
-          id="footer-newsletter-website"
+          id={`${idPrefix}-website`}
           type="text"
           name="website"
           tabIndex={-1}
