@@ -1,3 +1,5 @@
+import { getStrapiApiUrl } from './strapi-config';
+
 export type StrapiMedia = {
   id?: number;
   url?: string;
@@ -89,13 +91,12 @@ type StrapiV4Career = {
   attributes: Omit<StrapiCareer, 'id' | 'documentId'>;
 };
 
-const strapiBaseUrl = (process.env.STRAPI_URL?.trim() || 'http://localhost:1337').replace(
-  /\/+$/,
-  '',
-);
-
 const publicStrapiBaseUrl = (
-  process.env.NEXT_PUBLIC_STRAPI_API_URL?.trim() || strapiBaseUrl
+  process.env.NEXT_PUBLIC_STRAPI_API_URL?.trim() ||
+  process.env.STRAPI_URL?.trim() ||
+  (process.env.VERCEL === '1'
+    ? 'https://8whmlgwn-1337.eun1.devtunnels.ms'
+    : 'http://localhost:1337')
 )
   .replace(/\/api\/?$/, '')
   .replace(/\/+$/, '');
@@ -170,7 +171,7 @@ async function fetchStrapi<T>(
     );
   }
 
-  const response = await fetch(`${strapiBaseUrl}/api/${path}`, {
+  const response = await fetch(getStrapiApiUrl(path), {
     headers: preview ? getStrapiHeaders() : {},
     ...(preview ? { cache: 'no-store' as const } : { next: { revalidate: 60 } }),
   });

@@ -10,9 +10,19 @@ employment type, and rich-text description. Draft entries are not returned by
 the Content API.
 
 The Next.js app reads this API on the server. Set `STRAPI_URL` in the
-frontend's `.env.local` (normally `http://localhost:1337`). For private access,
-create a **Read-only** API token in Strapi and set it as `STRAPI_API_TOKEN` in
-that same file. Never expose it with a `NEXT_PUBLIC_` prefix.
+frontend's `.env.local` (normally `http://localhost:1337`). In the Vercel test
+deployment, `STRAPI_URL` defaults to the forwarded dev tunnel
+`https://8whmlgwn-1337.eun1.devtunnels.ms`; set it explicitly in Vercel Project
+Settings → Environment Variables so the deployment target is clear. Set
+`NEXT_PUBLIC_STRAPI_API_URL` to that same base URL for browser-loaded Strapi
+media. Both variables should be changed to the eventual hosted Strapi URL when
+moving from the temporary tunnel. For private access, create a **Read-only**
+API token in Strapi and set it as `STRAPI_API_TOKEN` in the frontend runtime.
+Never expose an API token with a `NEXT_PUBLIC_` prefix.
+
+The shared `STRAPI_URL` also routes candidate applications to
+`/api/application-submissions` and contact inquiries to `/api/user-queries`.
+Local development continues to default to `http://localhost:1337`.
 
 On startup, the Strapi bootstrap grants the Public role only the `find` and
 `findOne` permissions for Insights and Careers. Verify
@@ -93,8 +103,9 @@ no Strapi API token is exposed to the browser.
 The Next.js `POST /api/contact` route validates website contact requests,
 persists them to the Strapi `Contact Inquiry` collection at
 `/api/user-queries`, and only then sends a confirmation email through Resend.
-Configure `CMS_API_URL`, `CMS_API_TOKEN`, `RESEND_API_KEY`, and
-`RESEND_FROM_EMAIL` in the frontend `.env.local`. Create a restricted Strapi
+Configure `CMS_API_TOKEN`, `RESEND_API_KEY`, and `RESEND_FROM_EMAIL` in the
+frontend `.env.local`. The contact endpoint is derived from the shared
+`STRAPI_URL`; no separate CMS URL is needed. Create a restricted Strapi
 Content API token with **create-only** permission for Contact Inquiry; do not
 grant public read permissions.
 
