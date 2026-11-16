@@ -17,10 +17,16 @@ import {
 } from 'react';
 import { createPortal } from 'react-dom';
 import { contactPhoneLink } from '../../lib/contact';
-import { industryClusters, serviceCategories } from '../../lib/navigation';
+import {
+  getServiceHref,
+  industryClusters,
+  serviceCategories,
+} from '../../lib/navigation';
 import { THEME_STORAGE_KEY } from '../../lib/theme';
 
 type MenuName = 'services' | 'industries';
+type ServiceCategoryHref = (typeof serviceCategories)[number]['href'];
+type IndustryClusterId = (typeof industryClusters)[number]['id'];
 type NavigationItem = {
   label: string;
   href?: string;
@@ -71,6 +77,13 @@ function ThemeToggle({ isDark, onToggle }: ThemeToggleProps) {
 }
 
 function ServicesMenu({ onNavigate }: { onNavigate: () => void }) {
+  const [activeCategoryHref, setActiveCategoryHref] =
+    useState<ServiceCategoryHref>(serviceCategories[0].href);
+  const activeCategory =
+    serviceCategories.find(
+      (category) => category.href === activeCategoryHref,
+    ) ?? serviceCategories[0];
+
   return (
     <div className="mega-menu-inner services-menu-inner">
       <div className="mega-menu-intro">
@@ -84,34 +97,67 @@ function ServicesMenu({ onNavigate }: { onNavigate: () => void }) {
           Explore all services <span aria-hidden="true">→</span>
         </Link>
       </div>
-      <div className="mega-menu-grid services-menu-grid">
-        {serviceCategories.map((category, index) => (
-          <section className="mega-menu-group" key={category.href}>
-            <span className="mega-menu-index" aria-hidden="true">
-              0{index + 1}
-            </span>
-            <h3 className="mega-menu-heading">{category.shortTitle}</h3>
-            <p className="mega-menu-description">{category.description}</p>
-            <ul>
-              {category.services.slice(0, 4).map((service) => (
-                <li key={service.title}>{service.title}</li>
-              ))}
-            </ul>
+      <div className="mega-menu-category-browser">
+        <nav
+          className="mega-menu-category-list"
+          aria-label="Service categories"
+        >
+          {serviceCategories.map((category, index) => (
             <Link
-              className="mega-menu-card-link"
+              className={`mega-menu-category-link${activeCategory.href === category.href ? ' is-active' : ''}`}
               href={category.href}
+              key={category.href}
               onClick={onNavigate}
+              onFocus={() => setActiveCategoryHref(category.href)}
+              onMouseEnter={() => setActiveCategoryHref(category.href)}
             >
-              View service area <span aria-hidden="true">↗</span>
+              <span className="mega-menu-category-index" aria-hidden="true">
+                0{index + 1}
+              </span>
+              <span>{category.shortTitle}</span>
+              <span aria-hidden="true">→</span>
             </Link>
-          </section>
-        ))}
+          ))}
+        </nav>
+        <section
+          className="mega-menu-submenu"
+          id="mega-menu-category-submenu"
+          aria-labelledby="mega-menu-category-submenu-heading"
+        >
+          <h3 id="mega-menu-category-submenu-heading">
+            {activeCategory.shortTitle}
+          </h3>
+          <p>{activeCategory.description}</p>
+          <ul>
+            {activeCategory.services.map((service) => (
+              <li key={service.title}>
+                <Link href={getServiceHref(service.title)} onClick={onNavigate}>
+                  {service.title} <span aria-hidden="true">↗</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <Link
+            className="mega-menu-submenu-overview"
+            href={activeCategory.href}
+            onClick={onNavigate}
+          >
+            View {activeCategory.shortTitle} overview
+            <span aria-hidden="true">→</span>
+          </Link>
+        </section>
       </div>
     </div>
   );
 }
 
 function IndustriesMenu({ onNavigate }: { onNavigate: () => void }) {
+  const [activeClusterId, setActiveClusterId] =
+    useState<IndustryClusterId>(industryClusters[0].id);
+  const activeCluster =
+    industryClusters.find((cluster) => cluster.id === activeClusterId) ??
+    industryClusters[0];
+
   return (
     <div className="mega-menu-inner industries-menu-inner">
       <div className="mega-menu-intro">
@@ -125,28 +171,58 @@ function IndustriesMenu({ onNavigate }: { onNavigate: () => void }) {
           Explore all industries <span aria-hidden="true">→</span>
         </Link>
       </div>
-      <div className="mega-menu-grid industries-menu-grid">
-        {industryClusters.map((cluster, index) => (
-          <section className="mega-menu-group" key={cluster.id}>
-            <span className="mega-menu-index" aria-hidden="true">
-              0{index + 1}
-            </span>
-            <h3 className="mega-menu-heading">{cluster.title}</h3>
-            <p className="mega-menu-description">{cluster.description}</p>
-            <ul>
-              {cluster.industries.map((industry) => (
-                <li key={industry.id}>{industry.title}</li>
-              ))}
-            </ul>
+      <div className="mega-menu-category-browser">
+        <nav
+          className="mega-menu-category-list"
+          aria-label="Industry clusters"
+        >
+          {industryClusters.map((cluster, index) => (
             <Link
-              className="mega-menu-card-link"
+              className={`mega-menu-category-link${activeCluster.id === cluster.id ? ' is-active' : ''}`}
               href={`/industries#${cluster.id}`}
+              key={cluster.id}
               onClick={onNavigate}
+              onFocus={() => setActiveClusterId(cluster.id)}
+              onMouseEnter={() => setActiveClusterId(cluster.id)}
             >
-              View industry area <span aria-hidden="true">↗</span>
+              <span className="mega-menu-category-index" aria-hidden="true">
+                0{index + 1}
+              </span>
+              <span>{cluster.title}</span>
+              <span aria-hidden="true">→</span>
             </Link>
-          </section>
-        ))}
+          ))}
+        </nav>
+        <section
+          className="mega-menu-submenu"
+          id="mega-menu-category-submenu"
+          aria-labelledby="mega-menu-category-submenu-heading"
+        >
+          <h3 id="mega-menu-category-submenu-heading">
+            {activeCluster.title}
+          </h3>
+          <p>{activeCluster.description}</p>
+          <ul>
+            {activeCluster.industries.map((industry) => (
+              <li key={industry.id}>
+                <Link
+                  href={`/industries/${industry.id}`}
+                  onClick={onNavigate}
+                >
+                  {industry.title} <span aria-hidden="true">↗</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <Link
+            className="mega-menu-submenu-overview"
+            href={`/industries#${activeCluster.id}`}
+            onClick={onNavigate}
+          >
+            View {activeCluster.title} cluster
+            <span aria-hidden="true">→</span>
+          </Link>
+        </section>
       </div>
     </div>
   );
@@ -564,22 +640,24 @@ export default function Navbar() {
                                     >
                                       {item.menu === 'services'
                                         ? serviceCategories.map((category) => (
-                                            <Link
+                                              <Link
+                                                className="mobile-navigation-link"
+                                                href={category.href}
                                               key={category.href}
-                                              href={category.href}
-                                              onClick={closeNavigation}
+                                                onClick={closeNavigation}
                                             >
-                                              {category.shortTitle}
-                                            </Link>
+                                                {category.shortTitle}
+                                              </Link>
                                           ))
                                         : industryClusters.map((cluster) => (
-                                            <Link
+                                              <Link
+                                                className="mobile-navigation-link"
+                                                href={`/industries#${cluster.id}`}
                                               key={cluster.id}
-                                              href={`/industries#${cluster.id}`}
-                                              onClick={closeNavigation}
+                                                onClick={closeNavigation}
                                             >
-                                              {cluster.title}
-                                            </Link>
+                                                {cluster.title}
+                                              </Link>
                                           ))}
                                       <Link
                                         href={
