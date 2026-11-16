@@ -1,4 +1,5 @@
 import 'server-only';
+import { getStrapiApiUrl } from './strapi-config';
 
 type ContactInquiry = {
   name?: string;
@@ -18,10 +19,7 @@ type CmsCreateResponse = {
 };
 
 export async function persistContactInquiry(inquiry: ContactInquiry) {
-  const configuredUrl = process.env.CMS_API_URL?.trim();
-  const strapiUrl = (process.env.STRAPI_URL?.trim() || 'http://localhost:1337')
-    .replace(/\/+$/, '');
-  const endpoint = configuredUrl || `${strapiUrl}/api/user-queries`;
+  const endpoint = getStrapiApiUrl('user-queries');
   const token =
     process.env.CMS_API_TOKEN?.trim() || process.env.CMS_API_KEY?.trim();
 
@@ -31,18 +29,7 @@ export async function persistContactInquiry(inquiry: ContactInquiry) {
     );
   }
 
-  let url: URL;
-  try {
-    url = new URL(endpoint);
-  } catch {
-    throw new Error('CMS_API_URL must be a valid absolute URL.');
-  }
-
-  if (url.protocol !== 'http:' && url.protocol !== 'https:') {
-    throw new Error('CMS_API_URL must use HTTP or HTTPS.');
-  }
-
-  const response = await fetch(url, {
+  const response = await fetch(endpoint, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${token}`,

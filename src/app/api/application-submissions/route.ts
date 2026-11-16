@@ -1,4 +1,5 @@
 import 'server-only';
+import { getStrapiApiUrl } from '../../../lib/strapi-config';
 
 export const runtime = 'nodejs';
 
@@ -49,15 +50,9 @@ export async function POST(request: Request) {
     );
   }
 
-  const strapiUrl = (
-    process.env.STRAPI_URL?.trim() || 'http://localhost:1337'
-  ).replace(/\/+$/, '');
   let endpoint: URL;
   try {
-    endpoint = new URL(`${strapiUrl}/api/application-submissions`);
-    if (endpoint.protocol !== 'http:' && endpoint.protocol !== 'https:') {
-      throw new Error('Strapi URL must use HTTP or HTTPS.');
-    }
+    endpoint = getStrapiApiUrl('application-submissions');
   } catch (error) {
     console.error('Invalid STRAPI_URL configuration:', error);
     return jsonResponse(
