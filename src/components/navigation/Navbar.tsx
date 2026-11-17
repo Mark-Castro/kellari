@@ -48,9 +48,11 @@ const menuTransition = {
 };
 
 const dropdownTransition = {
-  duration: 0.35,
+  duration: 0.2,
   ease: [0.16, 1, 0.3, 1] as const,
 };
+
+const MotionLink = motion.create(Link);
 
 type ThemeToggleProps = {
   isDark: boolean;
@@ -77,12 +79,34 @@ function ThemeToggle({ isDark, onToggle }: ThemeToggleProps) {
 }
 
 function ServicesMenu({ onNavigate }: { onNavigate: () => void }) {
+  const reduceMotion = useReducedMotion();
   const [activeCategoryHref, setActiveCategoryHref] =
     useState<ServiceCategoryHref>(serviceCategories[0].href);
+  const hoverIntentTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const activeCategory =
     serviceCategories.find(
       (category) => category.href === activeCategoryHref,
     ) ?? serviceCategories[0];
+
+  useEffect(
+    () => () => {
+      if (hoverIntentTimer.current) clearTimeout(hoverIntentTimer.current);
+    },
+    [],
+  );
+
+  function previewCategory(href: ServiceCategoryHref) {
+    if (hoverIntentTimer.current) clearTimeout(hoverIntentTimer.current);
+    hoverIntentTimer.current = setTimeout(() => {
+      setActiveCategoryHref(href);
+      hoverIntentTimer.current = null;
+    }, 70);
+  }
+
+  function cancelCategoryPreview() {
+    if (hoverIntentTimer.current) clearTimeout(hoverIntentTimer.current);
+    hoverIntentTimer.current = null;
+  }
 
   return (
     <div className="mega-menu-inner services-menu-inner">
@@ -93,70 +117,183 @@ function ServicesMenu({ onNavigate }: { onNavigate: () => void }) {
           Connected advice, built around the decisions that move your
           organization forward.
         </p>
-        <Link href="/services" onClick={onNavigate}>
-          Explore all services <span aria-hidden="true">→</span>
+        <Link className="mega-menu-cta-link group" href="/services" onClick={onNavigate}>
+          <span className="mega-menu-cta-text">Explore all services</span>
+          <motion.span
+            aria-hidden="true"
+            className="mega-menu-link-arrow transition-transform duration-200 group-hover:translate-x-1.5"
+          >
+            →
+          </motion.span>
         </Link>
       </div>
-      <div className="mega-menu-category-browser">
+      <div
+        className="mega-menu-category-browser"
+        onMouseLeave={cancelCategoryPreview}
+      >
         <nav
           className="mega-menu-category-list"
           aria-label="Service categories"
         >
           {serviceCategories.map((category, index) => (
-            <Link
+            <MotionLink
               className={`mega-menu-category-link${activeCategory.href === category.href ? ' is-active' : ''}`}
               href={category.href}
               key={category.href}
               onClick={onNavigate}
-              onFocus={() => setActiveCategoryHref(category.href)}
-              onMouseEnter={() => setActiveCategoryHref(category.href)}
+              onMouseLeave={(event) => {
+                if (
+                  event.relatedTarget instanceof Element &&
+                  event.relatedTarget.closest('.mega-menu-category-link')
+                ) {
+                  cancelCategoryPreview();
+                }
+              }}
+              onFocus={() => {
+                cancelCategoryPreview();
+                setActiveCategoryHref(category.href);
+              }}
+              onMouseEnter={() => previewCategory(category.href)}
+              whileTap={reduceMotion ? undefined : { scale: 0.985 }}
+              initial={false}
             >
+              {activeCategory.href === category.href ? (
+                <motion.span
+                  aria-hidden="true"
+                  className="mega-menu-category-highlight"
+                  layoutId="services-pill"
+                  transition={
+                    reduceMotion
+                      ? { duration: 0 }
+                      : { type: 'spring', stiffness: 380, damping: 30 }
+                  }
+                >
+                  <span />
+                </motion.span>
+              ) : null}
               <span className="mega-menu-category-index" aria-hidden="true">
                 0{index + 1}
               </span>
-              <span>{category.shortTitle}</span>
-              <span aria-hidden="true">→</span>
-            </Link>
+              <motion.span
+                animate={{ x: activeCategory.href === category.href ? 3 : 0 }}
+                transition={
+                  reduceMotion
+                    ? { duration: 0 }
+                    : { type: 'spring', stiffness: 400, damping: 24 }
+                }
+              >
+                {category.shortTitle}
+              </motion.span>
+              <motion.span
+                aria-hidden="true"
+                animate={{
+                  x: activeCategory.href === category.href ? 5 : 0,
+                  opacity: activeCategory.href === category.href ? 1 : 0.45,
+                }}
+                transition={
+                  reduceMotion
+                    ? { duration: 0 }
+                    : { type: 'spring', stiffness: 400, damping: 24 }
+                }
+              >
+                →
+              </motion.span>
+            </MotionLink>
           ))}
         </nav>
-        <section
+        <AnimatePresence mode="wait" initial={false}>
+        <motion.section
+          key={activeCategory.href}
           className="mega-menu-submenu"
           id="mega-menu-category-submenu"
           aria-labelledby="mega-menu-category-submenu-heading"
+          initial={reduceMotion ? false : { opacity: 0, x: 10 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={reduceMotion ? undefined : { opacity: 0, x: -8 }}
+          transition={reduceMotion ? { duration: 0 } : { duration: 0.18 }}
         >
           <h3 id="mega-menu-category-submenu-heading">
             {activeCategory.shortTitle}
           </h3>
           <p>{activeCategory.description}</p>
           <ul>
-            {activeCategory.services.map((service) => (
-              <li key={service.title}>
-                <Link href={getServiceHref(service.title)} onClick={onNavigate}>
+            {activeCategory.services.map((service, serviceIndex) => (
+              <motion.li
+                key={service.title}
+                initial={reduceMotion ? false : { opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: reduceMotion ? 0 : 0.18,
+                  delay: reduceMotion ? 0 : serviceIndex * 0.03,
+                }}
+              >
+                <MotionLink
+                  href={getServiceHref(service.title)}
+                  onClick={onNavigate}
+                  whileHover={
+                    reduceMotion
+                      ? undefined
+                      : {
+                          y: -2,
+                          borderColor: 'var(--nav-menu-feature-border)',
+                        }
+                  }
+                >
                   {service.title} <span aria-hidden="true">↗</span>
-                </Link>
-              </li>
+                </MotionLink>
+              </motion.li>
             ))}
           </ul>
           <Link
-            className="mega-menu-submenu-overview"
+            className="mega-menu-submenu-overview group"
             href={activeCategory.href}
             onClick={onNavigate}
           >
-            View {activeCategory.shortTitle} overview
-            <span aria-hidden="true">→</span>
+            <span className="mega-menu-cta-text">
+              View {activeCategory.shortTitle} overview
+            </span>
+            <motion.span
+              aria-hidden="true"
+              className="mega-menu-link-arrow transition-transform duration-200 group-hover:translate-x-1.5"
+            >
+              →
+            </motion.span>
           </Link>
-        </section>
+        </motion.section>
+        </AnimatePresence>
       </div>
     </div>
   );
 }
 
 function IndustriesMenu({ onNavigate }: { onNavigate: () => void }) {
+  const reduceMotion = useReducedMotion();
   const [activeClusterId, setActiveClusterId] =
     useState<IndustryClusterId>(industryClusters[0].id);
+  const hoverIntentTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const activeCluster =
     industryClusters.find((cluster) => cluster.id === activeClusterId) ??
     industryClusters[0];
+
+  useEffect(
+    () => () => {
+      if (hoverIntentTimer.current) clearTimeout(hoverIntentTimer.current);
+    },
+    [],
+  );
+
+  function previewCluster(id: IndustryClusterId) {
+    if (hoverIntentTimer.current) clearTimeout(hoverIntentTimer.current);
+    hoverIntentTimer.current = setTimeout(() => {
+      setActiveClusterId(id);
+      hoverIntentTimer.current = null;
+    }, 70);
+  }
+
+  function cancelClusterPreview() {
+    if (hoverIntentTimer.current) clearTimeout(hoverIntentTimer.current);
+    hoverIntentTimer.current = null;
+  }
 
   return (
     <div className="mega-menu-inner industries-menu-inner">
@@ -167,62 +304,150 @@ function IndustriesMenu({ onNavigate }: { onNavigate: () => void }) {
           Sector-aware perspectives help turn complex challenges into practical
           progress.
         </p>
-        <Link href="/industries" onClick={onNavigate}>
-          Explore all industries <span aria-hidden="true">→</span>
+        <Link className="mega-menu-cta-link group" href="/industries" onClick={onNavigate}>
+          <span className="mega-menu-cta-text">Explore all industries</span>
+          <motion.span
+            aria-hidden="true"
+            className="mega-menu-link-arrow transition-transform duration-200 group-hover:translate-x-1.5"
+          >
+            →
+          </motion.span>
         </Link>
       </div>
-      <div className="mega-menu-category-browser">
+      <div
+        className="mega-menu-category-browser"
+        onMouseLeave={cancelClusterPreview}
+      >
         <nav
           className="mega-menu-category-list"
           aria-label="Industry clusters"
         >
           {industryClusters.map((cluster, index) => (
-            <Link
+            <MotionLink
               className={`mega-menu-category-link${activeCluster.id === cluster.id ? ' is-active' : ''}`}
               href={`/industries#${cluster.id}`}
               key={cluster.id}
               onClick={onNavigate}
-              onFocus={() => setActiveClusterId(cluster.id)}
-              onMouseEnter={() => setActiveClusterId(cluster.id)}
+              onMouseLeave={(event) => {
+                if (
+                  event.relatedTarget instanceof Element &&
+                  event.relatedTarget.closest('.mega-menu-category-link')
+                ) {
+                  cancelClusterPreview();
+                }
+              }}
+              onFocus={() => {
+                cancelClusterPreview();
+                setActiveClusterId(cluster.id);
+              }}
+              onMouseEnter={() => previewCluster(cluster.id)}
+              whileTap={reduceMotion ? undefined : { scale: 0.985 }}
+              initial={false}
             >
+              {activeCluster.id === cluster.id ? (
+                <motion.span
+                  aria-hidden="true"
+                  className="mega-menu-category-highlight"
+                  layoutId="industries-pill"
+                  transition={
+                    reduceMotion
+                      ? { duration: 0 }
+                      : { type: 'spring', stiffness: 380, damping: 30 }
+                  }
+                >
+                  <span />
+                </motion.span>
+              ) : null}
               <span className="mega-menu-category-index" aria-hidden="true">
                 0{index + 1}
               </span>
-              <span>{cluster.title}</span>
-              <span aria-hidden="true">→</span>
-            </Link>
+              <motion.span
+                animate={{ x: activeCluster.id === cluster.id ? 3 : 0 }}
+                transition={
+                  reduceMotion
+                    ? { duration: 0 }
+                    : { type: 'spring', stiffness: 400, damping: 24 }
+                }
+              >
+                {cluster.title}
+              </motion.span>
+              <motion.span
+                aria-hidden="true"
+                animate={{
+                  x: activeCluster.id === cluster.id ? 5 : 0,
+                  opacity: activeCluster.id === cluster.id ? 1 : 0.45,
+                }}
+                transition={
+                  reduceMotion
+                    ? { duration: 0 }
+                    : { type: 'spring', stiffness: 400, damping: 24 }
+                }
+              >
+                →
+              </motion.span>
+            </MotionLink>
           ))}
         </nav>
-        <section
+        <AnimatePresence mode="wait" initial={false}>
+        <motion.section
+          key={activeCluster.id}
           className="mega-menu-submenu"
           id="mega-menu-category-submenu"
           aria-labelledby="mega-menu-category-submenu-heading"
+          initial={reduceMotion ? false : { opacity: 0, x: 10 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={reduceMotion ? undefined : { opacity: 0, x: -8 }}
+          transition={reduceMotion ? { duration: 0 } : { duration: 0.18 }}
         >
           <h3 id="mega-menu-category-submenu-heading">
             {activeCluster.title}
           </h3>
           <p>{activeCluster.description}</p>
           <ul>
-            {activeCluster.industries.map((industry) => (
-              <li key={industry.id}>
-                <Link
+            {activeCluster.industries.map((industry, industryIndex) => (
+              <motion.li
+                key={industry.id}
+                initial={reduceMotion ? false : { opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: reduceMotion ? 0 : 0.18,
+                  delay: reduceMotion ? 0 : industryIndex * 0.03,
+                }}
+              >
+                <MotionLink
                   href={`/industries/${industry.id}`}
                   onClick={onNavigate}
+                  whileHover={
+                    reduceMotion
+                      ? undefined
+                      : {
+                          y: -2,
+                          borderColor: 'var(--nav-menu-feature-border)',
+                        }
+                  }
                 >
                   {industry.title} <span aria-hidden="true">↗</span>
-                </Link>
-              </li>
+                </MotionLink>
+              </motion.li>
             ))}
           </ul>
           <Link
-            className="mega-menu-submenu-overview"
+            className="mega-menu-submenu-overview group"
             href={`/industries#${activeCluster.id}`}
             onClick={onNavigate}
           >
-            View {activeCluster.title} cluster
-            <span aria-hidden="true">→</span>
+            <span className="mega-menu-cta-text">
+              View {activeCluster.title} cluster
+            </span>
+            <motion.span
+              aria-hidden="true"
+              className="mega-menu-link-arrow transition-transform duration-200 group-hover:translate-x-1.5"
+            >
+              →
+            </motion.span>
           </Link>
-        </section>
+        </motion.section>
+        </AnimatePresence>
       </div>
     </div>
   );
@@ -474,7 +699,9 @@ export default function Navbar() {
                           rotate: activeMenu === item.menu ? 180 : 0,
                         }}
                         transition={
-                          reduceMotion ? { duration: 0 } : menuTransition
+                          reduceMotion
+                            ? { duration: 0 }
+                            : { type: 'spring', stiffness: 350, damping: 25 }
                         }
                       >
                         ▾
@@ -544,10 +771,22 @@ export default function Navbar() {
             aria-label={
               activeMenu === 'services' ? 'Services menu' : 'Industries menu'
             }
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={reduceMotion ? { duration: 0 } : dropdownTransition}
+            initial={
+              reduceMotion
+                ? false
+                : { opacity: 0, y: -8, scale: 0.985 }
+            }
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={
+              reduceMotion
+                ? undefined
+                : { opacity: 0, y: -6, scale: 0.985 }
+            }
+            transition={
+              reduceMotion
+                ? { duration: 0 }
+                : { duration: 0.2, ease: [0.16, 1, 0.3, 1] }
+            }
           >
             <div className="mega-menu-content">
               {activeMenu === 'services' ? (
