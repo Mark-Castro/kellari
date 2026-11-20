@@ -318,7 +318,7 @@ export default function PracticeAreaExperience({
         </section>
       ) : null}
       <section className="w-full overflow-x-clip bg-white px-4 py-10 dark:bg-zinc-950 sm:px-6 lg:px-8 lg:pb-20">
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 rounded-3xl bg-emerald-900 px-6 py-10 text-white dark:bg-zinc-900 sm:px-10 lg:flex-row lg:items-center lg:justify-between lg:px-14">
+        <div className="mx-auto flex max-w-7xl flex-col gap-6 rounded-3xl border border-emerald-800/30 bg-gradient-to-br from-emerald-900 via-emerald-900 to-emerald-800 px-6 py-10 text-white shadow-xl shadow-emerald-950/10 dark:border-lime-400/20 dark:from-emerald-950 dark:via-zinc-900 dark:to-zinc-900 dark:shadow-black/40 sm:px-10 lg:flex-row lg:items-center lg:justify-between lg:px-14">
           <div>
             <p className="mb-3 text-xs font-semibold tracking-[0.18em] text-lime-300 dark:text-lime-400">
               READY FOR THE NEXT MOVE?
@@ -331,7 +331,7 @@ export default function PracticeAreaExperience({
             </p>
           </div>
           <Link
-            className="inline-flex min-h-12 shrink-0 items-center justify-center rounded-full bg-white px-6 py-3 font-semibold text-emerald-900 transition-colors hover:bg-emerald-50 dark:bg-lime-400 dark:text-zinc-950 dark:hover:bg-lime-300"
+            className="service-consultation-link inline-flex min-h-12 shrink-0 items-center justify-center rounded-full bg-white px-6 py-3 font-semibold text-emerald-900 transition-colors hover:bg-emerald-50 dark:bg-lime-400 dark:text-zinc-950 dark:hover:bg-lime-300"
             href="/contact"
           >
             Request a consultation <span className="ml-2" aria-hidden="true">→</span>

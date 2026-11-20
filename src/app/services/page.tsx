@@ -59,6 +59,7 @@ export default function ServicesPage() {
         title="Not sure where to start?"
         description="Tell us about your challenge, and we will connect you with the right specialists."
         buttonLabel="Request a consultation"
+        variant="services"
       />
     </main>
   );

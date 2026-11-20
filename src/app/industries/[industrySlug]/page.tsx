@@ -182,6 +182,7 @@ export default async function IndustryDetailPage({ params }: PageProps) {
         title={`Let’s talk about ${industry.title}`}
         description="Tell us what you’re working on and we’ll connect you with the right specialists."
         buttonLabel="Request a consultation"
+        variant="industries"
       />
     </main>
   );

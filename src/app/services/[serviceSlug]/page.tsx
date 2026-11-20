@@ -64,6 +64,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         title={content.ctaHeading}
         description={content.ctaText}
         buttonLabel="Request a consultation"
+        variant="services"
       />
     </main>
   );

@@ -274,7 +274,7 @@ export default function StrategyPracticeExperience({
             </p>
           </div>
           <Link
-            className="inline-flex min-h-12 shrink-0 items-center justify-center rounded-full bg-white px-6 py-3 font-semibold text-emerald-900 transition-colors hover:bg-emerald-50 dark:bg-lime-400 dark:text-zinc-950 dark:hover:bg-lime-300"
+            className="service-consultation-link inline-flex min-h-12 shrink-0 items-center justify-center rounded-full bg-white px-6 py-3 font-semibold text-emerald-900 transition-colors hover:bg-emerald-50 dark:bg-lime-400 dark:text-zinc-950 dark:hover:bg-lime-300"
             href="/contact"
           >
             Request a consultation <span className="ml-2" aria-hidden="true">→</span>
