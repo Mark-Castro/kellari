@@ -1,10 +1,11 @@
 const localStrapiUrl = 'http://localhost:1337';
 const vercelStrapiUrl = 'https://8whmlgwn-1337.eun1.devtunnels.ms';
+const productionStrapiUrl = 'https://cms.kelarigroup.com';
 
 export function getStrapiBaseUrl(): string {
   const configuredUrl = process.env.STRAPI_URL?.trim();
   const defaultUrl =
-    process.env.VERCEL === '1' ? vercelStrapiUrl : localStrapiUrl;
+    process.env.VERCEL === '1' ? vercelStrapiUrl : process.env.NODE_ENV === 'production' ? productionStrapiUrl : localStrapiUrl;
   const baseUrl = (configuredUrl || defaultUrl)
     .replace(/\/+$/, '')
     .replace(/\/api$/i, '');
