@@ -51,6 +51,7 @@ export default function IndustriesPage() {
         title="Don’t see your industry?"
         description={industryClosingCopy}
         buttonLabel="Request a consultation"
+        variant="industries"
       />
     </main>
   );

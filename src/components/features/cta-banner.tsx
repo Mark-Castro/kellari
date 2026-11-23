@@ -3,6 +3,7 @@ type CTABannerProps = {
   description?: string;
   buttonLabel?: string;
   buttonHref?: string;
+  variant?: 'default' | 'industries' | 'services';
 };
 
 export default function CTABanner({
@@ -10,9 +11,16 @@ export default function CTABanner({
   description,
   buttonLabel = 'Get Started',
   buttonHref = '/contact',
+  variant = 'default',
 }: CTABannerProps) {
   return (
-    <section className="cta-banner">
+    <section
+      className={
+        variant === 'default'
+          ? 'cta-banner'
+          : `cta-banner cta-banner--${variant}`
+      }
+    >
       <div>
         <h2>{title}</h2>
         {description ? <p>{description}</p> : null}

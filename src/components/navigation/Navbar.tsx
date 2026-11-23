@@ -52,6 +52,12 @@ const dropdownTransition = {
   ease: [0.16, 1, 0.3, 1] as const,
 };
 
+const chevronTransition = {
+  type: 'spring' as const,
+  stiffness: 350,
+  damping: 25,
+};
+
 const MotionLink = motion.create(Link);
 
 type ThemeToggleProps = {
@@ -668,7 +674,7 @@ export default function Navbar() {
                   className="navigation-active-pill"
                   layoutId="activeNavPill"
                   transition={
-                    reduceMotion ? { duration: 0 } : menuTransition
+                    reduceMotion ? { duration: 0 } : chevronTransition
                   }
                 />
               ) : null;
@@ -790,9 +796,13 @@ export default function Navbar() {
           >
             <div className="mega-menu-content">
               {activeMenu === 'services' ? (
-                <ServicesMenu onNavigate={closeNavigation} />
+                <ServicesMenu
+                  onNavigate={closeNavigation}
+                />
               ) : (
-                <IndustriesMenu onNavigate={closeNavigation} />
+                <IndustriesMenu
+                  onNavigate={closeNavigation}
+                />
               )}
             </div>
           </motion.div>
