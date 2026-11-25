@@ -9,7 +9,7 @@ const config: Core.Config.Middlewares = [
     config: {
       origin: (
         process.env.CORS_ORIGINS ||
-        'http://localhost:3000,http://127.0.0.1:3000,http://localhost:3333,http://127.0.0.1:3333,https://kelari-jet.vercel.app'
+        'http://localhost:3000,http://127.0.0.1:3000,http://localhost:3333,http://127.0.0.1:3333,https://kelari-jet.vercel.app, https://kelarigroup.com'
       )
         .split(',')
         .map((origin) => origin.trim())
