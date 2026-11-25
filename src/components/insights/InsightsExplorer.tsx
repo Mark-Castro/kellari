@@ -99,7 +99,7 @@ function FeaturedVisual({ insight }: { insight: StrapiInsight }) {
       <span className="absolute bottom-7 left-7 max-w-[75%] text-2xl font-semibold uppercase tracking-[0.08em] text-white/85 sm:text-3xl">
         {insight.category ?? 'Kelari Group'}
       </span>
-      <span className="absolute bottom-7 right-7 h-2.5 w-2.5 rounded-full bg-lime-400 shadow-[0_0_28px_rgba(163,230,53,0.9)]" />
+      <span className="absolute bottom-7 right-7 h-2.5 w-2.5 rounded-full bg-lime-400 shadow-[0_0_28px_rgba(116,200,179,0.9)]" />
     </div>
   );
 }

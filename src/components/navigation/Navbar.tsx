@@ -479,11 +479,22 @@ export default function Navbar() {
     const colorScheme = window.matchMedia('(prefers-color-scheme: dark)');
 
     function syncThemeWithSystem(event?: MediaQueryListEvent) {
-      if (root.dataset.theme) {
-        setIsDarkTheme(root.dataset.theme === 'dark');
-      } else {
-        setIsDarkTheme(event?.matches ?? colorScheme.matches);
+      let savedTheme: string | null = null;
+
+      try {
+        savedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
+      } catch (error) {
+        console.error('Unable to read the saved theme preference.', error);
       }
+
+      const isDark =
+        savedTheme === 'dark'
+          ? true
+          : savedTheme === 'light'
+            ? false
+            : (event?.matches ?? colorScheme.matches);
+      root.dataset.theme = isDark ? 'dark' : 'light';
+      setIsDarkTheme(isDark);
     }
 
     syncThemeWithSystem();
@@ -625,7 +636,7 @@ export default function Navbar() {
     <>
     <header
       className="site-header"
-      data-theme={isDarkTheme ? 'dark' : 'light'}
+      data-theme={isDarkTheme ? 'dark' : undefined}
       ref={headerRef}
       onMouseLeave={() => {
         if (!activeMenu) setHoveredItem(null);

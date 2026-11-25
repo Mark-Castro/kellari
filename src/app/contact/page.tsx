@@ -4,7 +4,6 @@ import ContactForm from '../../components/forms/contact-form';
 import {
   contactPhone,
   contactPhoneLink,
-  headquartersAddress,
 } from '../../lib/contact';
 
 export const metadata: Metadata = {
@@ -53,23 +52,6 @@ export default function ContactPage() {
           </div>
 
           <dl className="grid gap-6">
-            <div className="flex gap-4">
-              <span className="mt-0.5 grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-emerald-50 text-emerald-800 dark:bg-white/10 dark:text-[#74c8b3]">
-                <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
-                  <path d="M12 21s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12Z" stroke="currentColor" strokeWidth="1.7" />
-                  <circle cx="12" cy="9" r="2.3" stroke="currentColor" strokeWidth="1.7" />
-                </svg>
-              </span>
-              <div>
-                <dt className="text-sm font-medium text-slate-600 dark:text-zinc-400">
-                  Headquarters
-                </dt>
-                <dd className="mt-1 leading-6">
-                  {headquartersAddress}
-                </dd>
-              </div>
-            </div>
-
             <div className="flex gap-4">
               <span className="mt-0.5 grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-emerald-50 text-emerald-800 dark:bg-white/10 dark:text-[#74c8b3]">
                 <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">

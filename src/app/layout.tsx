@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import type { ReactNode } from 'react';
 import 'lenis/dist/lenis.css';
 import GoogleAnalytics from '../components/analytics/google-analytics';
@@ -19,14 +20,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <script
-          type={typeof window === 'undefined' ? 'text/javascript' : 'text/plain'}
-          suppressHydrationWarning
+      <body>
+        <Script
+          id="theme-bootstrap"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP_SCRIPT }}
         />
-      </head>
-      <body>
         <SmoothScrollProvider>
           <Navbar />
           <PageTransition>{children}</PageTransition>

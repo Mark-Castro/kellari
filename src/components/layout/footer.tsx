@@ -4,7 +4,6 @@ import NewsletterSignupForm from './newsletter-signup-form';
 import {
   contactPhone,
   contactPhoneLink,
-  headquartersAddress,
 } from '../../lib/contact';
 import { industryClusters, serviceCategories } from '../../lib/navigation';
 
@@ -42,9 +41,6 @@ export default function Footer() {
               <span id="footer-brand-heading">KELARI GROUP LLC</span>
             </Link>
             <address className="footer-contact-list">
-              {headquartersAddress ? (
-                <span>{headquartersAddress}</span>
-              ) : null}
               {contactEmail ? (
                 <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
               ) : (

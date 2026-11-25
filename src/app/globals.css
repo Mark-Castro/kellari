@@ -1,12 +1,23 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+@custom-variant dark {
+  &:where([data-theme='dark'], [data-theme='dark'] *) {
+    @slot;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    &:where(:root:not([data-theme='light']), :root:not([data-theme='light']) *) {
+      @slot;
+    }
+  }
+}
 
 @theme inline {
   --color-brand: var(--brand);
   --color-brand-strong: var(--brand-strong);
   --color-brand-soft: var(--brand-soft);
+  --color-lime-100: #d4f5ea;
   --color-lime-200: #9cdecd;
   --color-lime-300: #74c8b3;
   --color-lime-400: #74c8b3;
@@ -2875,7 +2886,9 @@ main > section:not(.hero):not(.cta-banner):not(.home-motion-section):not(.indust
 }
 
 .site-header[data-theme='dark'],
-.mobile-navigation-layer[data-theme='dark'] {
+.mobile-navigation-layer[data-theme='dark'],
+:root[data-theme='dark'] .site-header:not([data-theme='light']),
+:root[data-theme='dark'] .mobile-navigation-layer:not([data-theme='light']) {
   --nav-bg: rgb(9 9 11 / 90%);
   --nav-surface: rgb(24 24 27 / 90%);
   --nav-border: #27272a;
@@ -2900,11 +2913,51 @@ main > section:not(.hero):not(.cta-banner):not(.home-motion-section):not(.indust
   --nav-menu-feature-bg:
     radial-gradient(ellipse at 90% 10%, rgb(116 200 179 / 14%), transparent 50%),
     linear-gradient(145deg, #1b302b, #111311 72%);
-  --nav-menu-feature-border: rgb(163 230 53 / 35%);
-  --nav-category-accent: #a3e635;
+  --nav-menu-feature-border: rgb(116 200 179 / 35%);
+  --nav-category-accent: #74c8b3;
   --nav-menu-feature-text: #fafafa;
   --nav-menu-shadow: 0 1.5rem 3.5rem rgb(0 0 0 / 42%);
   --nav-menu-inset: inset 0 1px rgb(255 255 255 / 3%);
+  --theme-toggle-active: #74c8b3;
+  --theme-toggle-thumb: #11201c;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .site-header:not([data-theme='light']),
+  :root:not([data-theme='light'])
+    .mobile-navigation-layer:not([data-theme='light']) {
+    --nav-bg: rgb(9 9 11 / 90%);
+    --nav-surface: rgb(24 24 27 / 90%);
+    --nav-border: #27272a;
+    --nav-text: #ffffff;
+    --nav-muted: #d4d4d8;
+    --nav-inactive: #d4d4d8;
+    --nav-inactive-hover: #ffffff;
+    --nav-chevron: #a1a1aa;
+    --nav-accent: #74c8b3;
+    --nav-accent-text: #74c8b3;
+    --nav-active-text: #11201c;
+    --nav-cta-bg: #74c8b3;
+    --nav-cta-hover: #9cdecd;
+    --nav-cta-text: #11201c;
+    --nav-menu-bg: #09090b;
+    --nav-menu-card: #151518;
+    --nav-menu-card-hover: #1b302b;
+    --nav-menu-card-border: rgb(255 255 255 / 8%);
+    --nav-menu-hover: #ffffff;
+    --nav-menu-item-hover: #27272a;
+    --nav-overlay: rgb(0 0 0 / 55%);
+    --nav-menu-feature-bg:
+      radial-gradient(ellipse at 90% 10%, rgb(116 200 179 / 14%), transparent 50%),
+      linear-gradient(145deg, #1b302b, #111311 72%);
+    --nav-menu-feature-border: rgb(116 200 179 / 35%);
+    --nav-category-accent: #74c8b3;
+    --nav-menu-feature-text: #fafafa;
+    --nav-menu-shadow: 0 1.5rem 3.5rem rgb(0 0 0 / 42%);
+    --nav-menu-inset: inset 0 1px rgb(255 255 255 / 3%);
+    --theme-toggle-active: #74c8b3;
+    --theme-toggle-thumb: #11201c;
+  }
 }
 
 .site-header[data-theme='dark'] .brand-mark {

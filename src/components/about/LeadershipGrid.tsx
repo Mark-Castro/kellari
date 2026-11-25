@@ -75,7 +75,7 @@ export default function LeadershipGrid() {
                 <div className="relative h-48 overflow-hidden bg-gradient-to-br from-emerald-100 via-emerald-50 to-white dark:from-emerald-950 dark:via-zinc-900 dark:to-zinc-950">
                   <div
                     aria-hidden="true"
-                    className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_25%,rgba(16,120,87,0.22),transparent_58%),radial-gradient(ellipse_at_15%_85%,rgba(132,204,22,0.14),transparent_56%)] dark:bg-[radial-gradient(ellipse_at_75%_25%,rgba(163,230,53,0.15),transparent_58%),radial-gradient(ellipse_at_15%_85%,rgba(16,120,87,0.2),transparent_56%)]"
+                    className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_25%,rgba(16,120,87,0.22),transparent_58%),radial-gradient(ellipse_at_15%_85%,rgba(132,204,22,0.14),transparent_56%)] dark:bg-[radial-gradient(ellipse_at_75%_25%,rgba(116,200,179,0.15),transparent_58%),radial-gradient(ellipse_at_15%_85%,rgba(16,120,87,0.2),transparent_56%)]"
                   />
                   <span
                     aria-hidden="true"
